@@ -22,14 +22,14 @@ Premiere etape, fermer windows, on va se promener et voir c'qu'on as:
 C:\WIN10PE>
 ```
 
-Hum, et si on remonte:
+Hum, et si on remonte:  
 ![Racine](racine.png)
 
 Ho, un dossier "challeng"(e) et dedans?
 - challeng.bas
 - flag.txt
 
-Ah, ben c'etait facile, y'a qu'a cat, euh TYPE flag.txt et c'est bon!
+Ah, ben c'etait facile, y'a qu'a cat, euh TYPE flag.txt et c'est bon!  
 ![ou_pas](cat_flag.png)
 
 Damned, bon et edit challeng.bas ca donne quoi?
