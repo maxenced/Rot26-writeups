@@ -48,7 +48,7 @@ Avec le dictionnaire en fin de fichier:
 8====D::^_::#HotLikeBreizh::92
 ```
 
-Ca se fait facilement avec un oneliner : 
+Ca se fait facilement avec un oneliner :
 
 ```bash
 (grep 'HotLikeBreizh' enc|awk -F ':' '{ print "_"$NF"="$3 }' |tr -d '^' |xargs echo  |tr ' ' ';' ; echo -n "echo "; grep ^# enc |tr -d '#' |sed 's/\(..\)/$_\1/g')   |sh
@@ -57,7 +57,7 @@ Ca se fait facilement avec un oneliner :
 Pour faire simple:
 
 ```bash
-grep 'HotLikeBreizh' enc|awk -F ':' '{ print "_"$NF"="$3 }' |tr -d '^' |xargs echo  |tr ' ' ';' 
+grep 'HotLikeBreizh' enc|awk -F ':' '{ print "_"$NF"="$3 }' |tr -d '^' |xargs echo  |tr ' ' ';'
 ```
 
 Ca transforme chaque ligne '8====D::^_::#HotLikeBreizh::92' en '$_92=_'. Il
@@ -116,3 +116,13 @@ cust0m_b4sic_4u70_h07_k3ys
 ```
 
 Et c'est gagné !
+
+Note: une version plus courte qui génère un grep pour chaque paire de caractère :
+
+```bash
+$ grep ^# enc|tr -d '#'|sed "s/\(..\)/grep '[^dev]::#.*\1' enc|cut -zd ':' -f3;/g"
+grep '[^dev]::#.*8c' enc|cut -zd ':' -f3;grep '[^dev]::#.*15' enc|cut -zd ':' -f3;grep '[^dev]::#.*e8' enc|cut -zd ':' -f3;grep '[^dev]::#.*8a' enc|cut -zd ':' -f3;grep '[^dev]::#.*77' enc|cut -zd ':' -f3;grep '[^dev]::#.*5a' enc|cut -zd ':' -f3;grep '[^dev]::#.*92' enc|cut -zd ':' -f3;grep '[^dev]::#.*4d' enc|cut -zd ':' -f3;grep '[^dev]::#.*d0' enc|cut -zd ':' -f3;grep '[^dev]::#.*e8' enc|cut -zd ':' -f3;grep '[^dev]::#.*bb' enc|cut -zd ':' -f3;grep '[^dev]::#.*8c' enc|cut -zd ':' -f3;grep '[^dev]::#.*92' enc|cut -zd ':' -f3;grep '[^dev]::#.*d0' enc|cut -zd ':' -f3;grep '[^dev]::#.*15' enc|cut -zd ':' -f3;grep '[^dev]::#.*44' enc|cut -zd ':' -f3;grep '[^dev]::#.*77' enc|cut -zd ':' -f3;grep '[^dev]::#.*92' enc|cut -zd ':' -f3;grep '[^dev]::#.*b7' enc|cut -zd ':' -f3;grep '[^dev]::#.*77' enc|cut -zd ':' -f3;grep '[^dev]::#.*44' enc|cut -zd ':' -f3;grep '[^dev]::#.*92' enc|cut -zd ':' -f3;grep '[^dev]::#.*fd' enc|cut -zd ':' -f3;grep '[^dev]::#.*7f' enc|cut -zd ':' -f3;grep '[^dev]::#.*29' enc|cut -zd ':' -f3;grep '[^dev]::#.*e8' enc|cut -zd ':' -f3;
+
+$ grep ^# enc|tr -d '#'|sed "s/\(..\)/grep '[^dev]::#.*\1' enc|cut -zd ':' -f3;/g" |sh|tr -d '^'
+cust0m_b4sic_4u70_h07_k3ys%
+```
