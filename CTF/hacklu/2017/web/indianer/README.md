@@ -7,7 +7,7 @@ The download link gives us a Apache2 module binary named **backdoor.so**
 
 We reverse the binary and stumble across the request processing function cleverly named **strlen()**
 
-![strlen_function](https://git.adm.fr.clara.net/mdunnewind/Rot26-writeups/blob/master/CTF/hacklu/2017/web/indianer/imgs/reverse_eng.png)
+![strlen_function](https://git.adm.fr.clara.net/mdunnewind/Rot26-writeups/raw/master/CTF/hacklu/2017/web/indianer/imgs/reverse_eng.png)
 
 After studying the request processing algorithm, we know that our request should look like this :
 ```
@@ -29,8 +29,8 @@ Which spits us this value : **dpdpdpamamamamajvjvjvjvgsgsgsgsgpd**
 
 We can now grab flag.txt by sending it's content to a requestb.in with curl (netcat wasn't available to pop a shell :)
 
-![strlen_function](https://git.adm.fr.clara.net/mdunnewind/Rot26-writeups/blob/master/CTF/hacklu/2017/web/indianer/imgs/burp_req.png)
+![strlen_function](https://git.adm.fr.clara.net/mdunnewind/Rot26-writeups/raw/master/CTF/hacklu/2017/web/indianer/imgs/burp_req.png)
 
 Gotcha!
 
-![strlen_function](https://git.adm.fr.clara.net/mdunnewind/Rot26-writeups/blob/master/CTF/hacklu/2017/web/indianer/imgs/reqbin.png)
+![strlen_function](https://git.adm.fr.clara.net/mdunnewind/Rot26-writeups/raw/master/CTF/hacklu/2017/web/indianer/imgs/reqbin.png)
