@@ -76,13 +76,15 @@ The second must be a 32bit unsigned integer and must be equal or below 7 to reac
 
 Once corrects values are given, here's what happen :
 
-```-> echo '400000:1' | strace -e mprotect,read ./bit 
+```
+-> echo '400000:1' | strace -e mprotect,read ./bit 
 ....
 ....
 read(0, "400000:1\n", 4096)             = 9
 mprotect(0x400000, 4096, PROT_READ|PROT_WRITE|PROT_EXEC) = 0
 mprotect(0x400000, 4096, PROT_READ|PROT_EXEC) = 0
-+++ exited with 0 +++```
++++ exited with 0 +++
+```
 
 We can see the mprotect call which set the 0x400000 to PROT_READ|PROT_WRITE|PROT_EXEC aka 7 aka RWX.
 We also see that the flag is set to RX just after.
@@ -90,7 +92,9 @@ We also see that the flag is set to RX just after.
 But between theses two mprotect call, we have :
 
 
-```*mem_dst ^= 1 << value;```
+```
+*mem_dst ^= 1 << value;
+```
 
 
 so if we entered : 400000:5
@@ -103,8 +107,6 @@ gef> run
 Starting program: /home/gov/hack/ctf/hack.lu/pwn_1/bit 
 400000:5
 
-...
-...
 ...
 
 gef> x/1i $pc
