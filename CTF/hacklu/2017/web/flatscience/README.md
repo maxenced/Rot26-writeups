@@ -34,7 +34,7 @@ Anyway, I have the database!
 OK, in his papers.. but there are quite a few, all of them his favorite..
 wget -r flatscience.flatearth.fluxfingers.net it is.
 sooo find tells us we have 26 pdf files.. pdf files are well and nice, but txt files are easier:
-```
+```sh
 find -name *.pdf -exec pdftotext {} \;
 mkdir txts
 find -name *.txt -exec cp {} txts \;
@@ -43,7 +43,8 @@ for i in `ls`; do tr -c '[:alnum:]' '[\n*]' < $i | sort | uniq ; done > wordlist
 
 ahhh, don't you just love pipes :)
 sha1 with salt over a word list, maybe the next part should be python:
-```
+
+```python
 import hashlib
 from tqdm import tqdm
 
