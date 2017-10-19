@@ -1,7 +1,7 @@
 **# 2017/hack.lu/bit (pwn / 150pts)**
 
 
-*"No matter what conspiracy theory you believe in - i believe that one wrong bit is enough to rule them all."ù
+*"No matter what conspiracy theory you believe in - i believe that one wrong bit is enough to rule them all."*
 
 *"nc flatearth.fluxfingers.net 1744"*
 
@@ -18,6 +18,7 @@ bit: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), dynamically linked, in
 
 On which we check for enabled security features :
 
+```
 -> checksec bit
 [*] '/home/gov/hack/ctf/hack.lu/pwn_1/bit'
     Arch:     amd64-64-little
@@ -75,14 +76,13 @@ The second must be a 32bit unsigned integer and must be equal or below 7 to reac
 
 Once corrects values are given, here's what happen :
 
-```
--> echo '400000:1' | strace -e mprotect,read ./bit 
+```-> echo '400000:1' | strace -e mprotect,read ./bit 
 ....
 ....
 read(0, "400000:1\n", 4096)             = 9
 mprotect(0x400000, 4096, PROT_READ|PROT_WRITE|PROT_EXEC) = 0
 mprotect(0x400000, 4096, PROT_READ|PROT_EXEC) = 0
-+++ exited with 0 +++
++++ exited with 0 +++```
 
 We can see the mprotect call which set the 0x400000 to PROT_READ|PROT_WRITE|PROT_EXEC aka 7 aka RWX.
 We also see that the flag is set to RX just after.
