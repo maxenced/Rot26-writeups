@@ -26,7 +26,7 @@ When I was doing this on the first day, the database was freely downloadable, I 
 Anyway, I have the database!
 
 | id | name | password | hint |
-| --- | --- | --- |
+|:---:|:---:|:---:|:---:|
 | 1 | admin | 3fab54a50e770d830c0416df817567662a9dc85c | my fav word in my fav paper?! |
 | 2 | fritze | 2f72d9dd0f9d6ef605f402c91f517ea4 | my love is...? |
 | 3 | hansi | 9e895c06352f4513fe179bf92b498397 | the password is password |
