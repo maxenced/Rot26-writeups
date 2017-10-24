@@ -15,7 +15,7 @@ GET /index.html?[needle_value]=[command]
 ```
 
 We also know how the needles are generated, let's use a quick python script to compute the first value :
-```
+```python
 constante_6e = 0x6e
 needle = [0]*256
 
