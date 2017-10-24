@@ -1,8 +1,8 @@
-# Prime Ebigma
+# Prime Enigma
 
 Looking at `script.py` we can recognize ElGamal crypto:
 
-```
+```python
 B = pow(g, d, p)
 k = pow(A, d, p)
 c = k * m % p
@@ -23,7 +23,7 @@ sage: p-c1
 
 We may try to compute discrete logarithm of c1 :
 
-```
+```python
 sage: R=IntegerModRing(p)
 sage: d=discrete_log(R(B),R(g))
 [after some time]
@@ -32,7 +32,7 @@ sage: d=discrete_log(R(B),R(g))
 
 \o/ We get the private part (d). From here it is quiet easy to find the flag:
 
-```
+```python
 sage: c1=1044388881413152506679602719846529545831269060992135009022588756444338172022322690710444046669809783930111585737890362691860127
 ....: 0792704954545172186730169284274591460018668857797629822293211923683033462352043680510103091556741556974603471769463940765351572849
 ....: 9489528482163370092181171673897245183497945589701030633346859075135836513878225037226911796898519432244453568741552200715163863814
