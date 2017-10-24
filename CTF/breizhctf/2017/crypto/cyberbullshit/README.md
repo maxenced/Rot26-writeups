@@ -82,6 +82,5 @@ print "%s" % (xor(pad,msg))
 
 ```bash
 $ python test.py
-6í²aí²–kí³“í³±í³•Jí²°í²•í²”í³³í²í³…6í²µsBCí³‚.
 M2 : bzhctf{YOLOCRYPTO2017}
 ```
