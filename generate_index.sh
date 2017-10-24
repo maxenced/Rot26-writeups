@@ -13,7 +13,7 @@ for ctf in CTF/*;do
             for chall in ${cat}/*;do
                 _cat=${cat##*/}
                 _chall=${chall##*/}
-                echo " * [${_cat}/${_chall}]($chall)" >> $DST
+                echo " * [*${_cat}* : ${_chall}]($chall)" >> $DST
             done
         done
     done
