@@ -1,7 +1,6 @@
 title: Rot26 WriteUps
 encoding: UTF-8
 markdown: kmarkdown
-github: [metadata]
 encoding: UTF-8
 kramdown:
   input: GFM

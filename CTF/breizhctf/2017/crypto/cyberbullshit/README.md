@@ -43,7 +43,7 @@ Le message final contient en l'IV et le message avec son pad.
 ### Résolution simple
 
 La vulnérabilité principale du XOR est que l'opération s'annule si elle est effectuée 2 fois.
-On a une chaine qui fait exactement 96 chars, soit 3*32. Autrement dit : 
+On a une chaine qui fait exactement 96 chars, soit 3*32. Autrement dit :
 
  * Les 32 premiers chars sont l'IV
  * Les 32 suivants le début du message
@@ -55,7 +55,7 @@ soient M1 et M2 les 2 parties du message en clair, et C1 et C2 les parties chiff
  * C1 = M1 ^ IV
  * C2 = M2 ^ C1
 
-Et donc corrolaire : 
+Et donc corrolaire :
 
  * M1 = C1 ^ IV
  * M2 = C2 ^ C1
@@ -77,8 +77,7 @@ def xor(x,y):
         res += chr(ord(x[i]) ^ ord(y[i]))
     return res
 
-print "M1 : %s" % (xor(msg,iv))
-print "M2 : %s" % (xor(pad,msg))
+print "%s" % (xor(pad,msg))
 ```
 
 ```bash
