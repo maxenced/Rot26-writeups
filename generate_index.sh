@@ -2,7 +2,16 @@
 
 DST="index.md"
 
-echo -e "# Rot26 WriteUps \n" > $DST
+rm -f $DST
+
+echo "# Members" >> $DST
+
+echo "* [Fooker](https://twitter.com/Memoi2001)" >> $DST
+echo "* [Kalimer0x00](https://twitter.com/kalimer0x00)" >> $DST
+echo "* [Govlog](https://twitter.com/govlog)" >> $DST
+echo "* [Sp4rKy](https://twitter.com/maxencedun)" >> $DST
+
+echo -e "\n# WriteUps\n" >> $DST
 
 for ctf in CTF/*;do
     echo "" >> $DST
