@@ -9,6 +9,7 @@ build: prepare
 	fi;
 	./generate_index.sh
 	bundle exec jekyll build
+	git add _site/*
 	git commit -m "Generate Github Pages" _site
 
 prepare:
