@@ -1,5 +1,11 @@
 title: Rot26
 encoding: UTF-8
-theme: jekyll-theme-hydeout
 repository: maxenced/Rot26-writeups.git
+theme: jekyll-theme-hydeout
+exclude:
+  - CNAME
+  - Gemfile
+  - Gemfile.lock
+  - generate_index.sh
+  - Makefile
 
