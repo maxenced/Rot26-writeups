@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+
+  <title>
+    
+       &middot; Rot26
+    
+  </title>
+
+  
+
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface" />
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/favicon.png" />
+<link rel="shortcut icon" href="/favicon.ico" />
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml" />
+
+  <!-- Additional head bits without overriding original head -->
+</head>
+
+
+  <body class="page">
+
+    <div id="sidebar">
+  <header>
+    <div class="site-title">
+      <a href="/">
+        
+          <span class="back-arrow icon"><svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+  <path d="M0 0h24v24H0z" fill="none"/>
+  <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+</svg></span>
+        
+        Rot26
+      </a>
+    </div>
+    <p class="lead"></p>
+  </header>
+  <nav id="sidebar-nav-links">
+  
+  
+
+  
+
+  
+
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+
+  
+
+
+  
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/BreizhCTF.html">BreizhCTF</a>
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/Hacklu.html">Hacklu</a>
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/LabyREnth.html">LabyREnth</a>
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+
+  <h1>Members</h1>
+<a href="https://twitter.com/Memoi2001">Fooker</a>
+<a href="https://twitter.com/kalimer0x00">Kalimer0x00</a>
+<a href="https://twitter.com/govlog">Govlog</a>
+<a href="https://twitter.com/maxencedun">Sp4rKy</a>
+
+
+</nav>
+
+
+  
+
+  <nav id="sidebar-icon-links">
+  
+
+  <a id="subscribe-link"
+     class="icon" title="Subscribe" aria-label="Subscribe"
+     href="/feed.xml">
+    <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <circle cx="6.18" cy="17.82" r="2.18"/>
+    <path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z"/>
+</svg>
+  </a>
+
+  
+  
+  
+  
+
+  
+
+  
+
+  <!-- Optional additional links to insert for icons links -->
+</nav>
+  
+</div>
+
+    <main class="container">
+      <div class="content">
+  <p>Again some “simple” game solver challenge.</p>
+
+<p>Here we need to solve many 4 in a row games, with increasing complexity.
+The most efficient algorithm for solving such challenges is <a href="https://en.wikipedia.org/wiki/Negamax">NegaMax</a>, so let’s use it.</p>
+
+<p>We found some implementation at https://github.com/duilio/c4 , thanks to him !</p>
+
+<p>The only things I need to do is to parse the game in a way  that c4 engine can understand (array).
+Quiet easy, just split on ‘|’, and replace empty places with a ‘ 0 ‘.</p>
+
+<p>Final code :</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">socket</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="k">except</span> <span class="nb">ImportError</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"Sorry, this solver requires Numpy installed !"</span><span class="p">)</span>
+    <span class="k">raise</span>
+
+<span class="kn">from</span> <span class="nn">c4.engine</span> <span class="kn">import</span> <span class="n">NegamaxEngine</span>
+<span class="kn">from</span> <span class="nn">c4.engine.labyrinth</span> <span class="kn">import</span> <span class="n">LabyrinthEngine</span>
+<span class="kn">from</span> <span class="nn">c4.board</span> <span class="kn">import</span> <span class="n">Board</span><span class="p">,</span> <span class="n">PLAYER1</span><span class="p">,</span> <span class="n">PLAYER2</span><span class="p">,</span> <span class="n">DRAW</span>
+
+<span class="n">C4_SERVER</span> <span class="o">=</span> <span class="p">(</span><span class="s">'52.40.187.77'</span><span class="p">,</span> <span class="mi">16000</span><span class="p">)</span>
+<span class="n">RECV_SIZE</span> <span class="o">=</span> <span class="mi">4096</span>
+<span class="n">conn</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">create_connection</span><span class="p">(</span><span class="n">C4_SERVER</span><span class="p">)</span>
+
+<span class="n">engine</span> <span class="o">=</span> <span class="n">NegamaxEngine</span><span class="p">()</span>
+<span class="n">human</span> <span class="o">=</span> <span class="n">LabyrinthEngine</span><span class="p">(</span><span class="n">conn</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">Board</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">parse_grid</span><span class="p">(</span><span class="n">grid</span><span class="p">):</span>
+    <span class="s">""" Get the grid as ASCII, and return a list of array
+    """</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">curline</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">grid</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">'</span><span class="se">\n</span><span class="s">'</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">line</span> <span class="ow">or</span> <span class="n">line</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="s">'|'</span><span class="p">:</span>
+            <span class="k">continue</span>
+        <span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">([])</span>
+        <span class="n">to_a</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">'   '</span><span class="p">,</span><span class="s">' 0 '</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">' '</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">to_a</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">c</span> <span class="o">!=</span> <span class="s">'|'</span> <span class="ow">and</span> <span class="n">c</span> <span class="o">!=</span> <span class="s">''</span><span class="p">:</span>
+                <span class="n">res</span><span class="p">[</span><span class="n">curline</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+        <span class="n">curline</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">res</span>
+
+<span class="k">def</span> <span class="nf">play</span><span class="p">():</span>
+    <span class="k">global</span> <span class="n">b</span>
+    <span class="n">move</span> <span class="o">=</span> <span class="bp">None</span>
+
+    <span class="n">players</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="n">PLAYER1</span><span class="p">:</span> <span class="n">engine</span><span class="p">,</span>
+        <span class="n">PLAYER2</span><span class="p">:</span> <span class="n">human</span>
+        <span class="p">}</span>
+
+    <span class="k">while</span> <span class="n">b</span><span class="o">.</span><span class="n">end</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">player</span> <span class="o">=</span> <span class="n">players</span><span class="p">[</span><span class="n">b</span><span class="o">.</span><span class="n">stm</span><span class="p">]</span>
+        <span class="n">move</span> <span class="o">=</span> <span class="n">player</span><span class="o">.</span><span class="n">choose</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+        <span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="n">move</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">b</span><span class="o">.</span><span class="n">end</span> <span class="o">==</span> <span class="n">DRAW</span><span class="p">:</span>
+        <span class="n">winner</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="n">looser</span> <span class="o">=</span> <span class="bp">None</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">winner</span> <span class="o">=</span> <span class="n">players</span><span class="p">[</span><span class="n">b</span><span class="o">.</span><span class="n">end</span><span class="p">]</span>
+        <span class="n">looser</span> <span class="o">=</span> <span class="n">players</span><span class="p">[</span><span class="n">PLAYER1</span> <span class="k">if</span> <span class="n">b</span><span class="o">.</span><span class="n">end</span> <span class="o">==</span> <span class="n">PLAYER2</span> <span class="k">else</span> <span class="n">PLAYER2</span><span class="p">]</span>
+
+    <span class="n">looser</span><span class="o">.</span><span class="n">choose</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="bp">True</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">b</span><span class="p">,</span> <span class="n">winner</span><span class="p">,</span> <span class="n">looser</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="k">global</span> <span class="n">b</span><span class="p">,</span> <span class="n">human</span><span class="p">,</span> <span class="n">engine</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="n">RECV_SIZE</span><span class="p">)</span>
+    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+        <span class="k">print</span> <span class="n">response</span>
+        <span class="k">if</span> <span class="s">'Skeelz'</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">response</span><span class="p">:</span>
+            <span class="k">return</span>
+
+        <span class="k">print</span><span class="p">(</span><span class="n">parse_grid</span><span class="p">(</span><span class="n">response</span><span class="p">))</span>
+        <span class="n">b</span><span class="p">,</span> <span class="n">winner</span><span class="p">,</span> <span class="n">looser</span> <span class="o">=</span> <span class="n">play</span><span class="p">()</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"Won one game ! "</span><span class="p">)</span>
+        <span class="n">engine</span> <span class="o">=</span> <span class="n">NegamaxEngine</span><span class="p">()</span>
+        <span class="n">human</span> <span class="o">=</span> <span class="n">LabyrinthEngine</span><span class="p">(</span><span class="n">conn</span><span class="p">)</span>
+        <span class="n">b</span> <span class="o">=</span> <span class="n">Board</span><span class="p">()</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"New board is </span><span class="si">%</span><span class="s">s"</span><span class="o">%</span> <span class="n">b</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</code></pre></div></div>
+
+</div>
+
+    </main>
+
+    <!-- Optional footer content -->
+
+  </body>
+</html>

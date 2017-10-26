@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+
+  <title>
+    
+      Triangle &middot; Rot26
+    
+  </title>
+
+  
+
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface" />
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/favicon.png" />
+<link rel="shortcut icon" href="/favicon.ico" />
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml" />
+
+  <!-- Additional head bits without overriding original head -->
+</head>
+
+
+  <body class="page">
+
+    <div id="sidebar">
+  <header>
+    <div class="site-title">
+      <a href="/">
+        
+          <span class="back-arrow icon"><svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+  <path d="M0 0h24v24H0z" fill="none"/>
+  <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+</svg></span>
+        
+        Rot26
+      </a>
+    </div>
+    <p class="lead"></p>
+  </header>
+  <nav id="sidebar-nav-links">
+  
+  
+
+  
+
+  
+
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+
+  
+
+
+  
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/BreizhCTF.html">BreizhCTF</a>
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/Hacklu.html">Hacklu</a>
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/LabyREnth.html">LabyREnth</a>
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+
+  <h1>Members</h1>
+<a href="https://twitter.com/Memoi2001">Fooker</a>
+<a href="https://twitter.com/kalimer0x00">Kalimer0x00</a>
+<a href="https://twitter.com/govlog">Govlog</a>
+<a href="https://twitter.com/maxencedun">Sp4rKy</a>
+
+
+</nav>
+
+
+  
+
+  <nav id="sidebar-icon-links">
+  
+
+  <a id="subscribe-link"
+     class="icon" title="Subscribe" aria-label="Subscribe"
+     href="/feed.xml">
+    <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <circle cx="6.18" cy="17.82" r="2.18"/>
+    <path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z"/>
+</svg>
+  </a>
+
+  
+  
+  
+  
+
+  
+
+  
+
+  <!-- Optional additional links to insert for icons links -->
+</nav>
+  
+</div>
+
+    <main class="container">
+      <div class="content">
+  <h1 id="triangle">Triangle</h1>
+
+<p>This one starts ou with a simple page, a flag input field, a button, and three pictures of conspiracy stuff. “It’s gonna be an annoying SQLI isn’t it” I thought to myself. Oh how I wish it were so simple.</p>
+
+<p>Looking at the source we get our first surprise, three JS scripts loaded:</p>
+<ol>
+  <li>util.js</li>
+  <li>secret.js</li>
+  <li>unicorn.js</li>
+</ol>
+
+<p>we’ll come back to these.
+We also get three arrays of numbers (well six, on for firefox, one for chrome)
+And finally the login function.</p>
+
+<p>The util.js script contains basic utilities, like stringtohex, load base64, general stuff but not so useful
+The secret.js is mot intersting, we have three functions, the three that are used in the login function:</p>
+<ol>
+  <li>test_pw()</li>
+  <li>enc_pw()</li>
+  <li>get_pw()</li>
+</ol>
+
+<p>get_pw() is going to be useful, thanks to console.log() we can easily get it.
+It uses the o3 array to get bytes from the templar image that we saw on the index page to generate the password.
+So we have the password! <code class="highlighter-rouge">XYzaSAAX_PBssisodjsal_sSUVWZYYYb</code></p>
+
+<p>“Not so fast!” says the challenge, the other two functions call unicorn to create ARM emulated VMs
+We can get around enc_pw() with console.log and a bit of bruteforcing. The chars can be entered one by one and the output isn’t affected by letters entered afterwords.
+I couldn’t be bothered to code this so I did it by hand.
+By feeding enc_pw() <code class="highlighter-rouge">RSr[M:9OYI&lt;mmbkf^dmXfYkJOOQQSRQY</code> we get the password value out.
+Aha simple, obviously nothing evil and nasty will be done in test_pw() (/s)</p>
+
+<p>Ok, so that doesn’t flag it, test_pw() does something to it and I can’t bruteforce this one.
+Lets look at the function:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>function test_pw(e,_)
+{
+  var t=stoh(atob(getBase64Image("eye"))),r=4096,m=8192,R=12288,a=new uc.Unicorn(uc.ARCH_ARM,uc.MODE_ARM);
+  a.reg_write_i32(uc.ARM_REG_R9,m),a.reg_write_i32(uc.ARM_REG_R10,R),a.reg_write_i32(uc.ARM_REG_R8,_.length),a.mem_map(r,4096,uc.PROT_ALL);
+  for(var o=0;o&lt;o1.length;o++)
+    a.mem_write(r+o,[t[o1[o]]]);
+  a.mem_map(m,4096,uc.PROT_ALL),a.mem_write(m,stoh(_)),a.mem_map(R,4096,uc.PROT_ALL),a.mem_write(R,stoh(e));
+  var u=r,c=r+o1.length;
+  return a.emu_start(u,c,0,0),a.reg_read_i32(uc.ARM_REG_R5)
+}
+</code></pre></div></div>
+
+<p>Simply put:</p>
+<ol>
+  <li>fill variable t with a string from an ascii representation of the binary value of the base64 encoded value of the eye image on the index page</li>
+  <li>assign a few other variables</li>
+  <li>create a new instance of the unicorn engine using an ARM architecture</li>
+  <li>write some values to the registers and map some memory</li>
+  <li>write the content of t into the mapped memory</li>
+  <li>map more memory spaces and write our password and guess into them</li>
+  <li>define more variables</li>
+  <li>run the instance and read a register</li>
+</ol>
+
+<p>The important part here is step 5, the value of t is bytecode written to memory, that’s the part we need to understand
+By adding console.log in the for loop we get the bytecode in decimal, when converted to hex we can send it to a decompiler:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.data:00000000 09 00 a0 e1                      mov	r0, r9
+.data:00000004 0a 10 a0 e1                      mov	r1, sl
+.data:00000008 08 30 a0 e1                      mov	r3, r8
+.data:0000000c 00 40 a0 e3                      mov	r4, #0
+.data:00000010 00 50 a0 e3                      mov	r5, #0
+.data:00000014 00 c0 a0 e3                      mov	ip, #0
+.data:00000018 00 20 d0 e5                      ldrb	r2, [r0]
+.data:0000001c 00 60 d1 e5                      ldrb	r6, [r1]
+.data:00000020 05 60 86 e2                      add	r6, r6, #5
+.data:00000024 01 c0 04 e2                      and	ip, r4, #1
+.data:00000028 00 00 5c e3                      cmp	ip, #0
+.data:0000002c 00 00 00 0a                      beq	0x00000034
+.data:00000030 03 60 46 e2                      sub	r6, r6, #3
+.data:00000034 06 00 52 e1                      cmp	r2, r6
+.data:00000038 05 00 00 1a                      bne	0x00000054
+.data:0000003c 01 00 80 e2                      add	r0, r0, #1
+.data:00000040 01 10 81 e2                      add	r1, r1, #1
+.data:00000044 01 40 84 e2                      add	r4, r4, #1
+.data:00000048 03 00 54 e1                      cmp	r4, r3
+.data:0000004c f1 ff ff ba                      blt	0x00000018
+.data:00000050 01 50 a0 e3                      mov	r5, #1
+.data:00000054 00 00 a0 e3                      mov	r0, #0
+.data:00000058 00 10 a0 e3                      mov	r1, #0
+.data:0000005c 00 20 a0 e3                      mov	r2, #0
+.data:00000060 00 30 a0 e3                      mov	r3, #0
+.data:00000064 00 40 a0 e3                      mov	r4, #0
+.data:00000068 00 60 a0 e3                      mov	r6, #0
+.data:0000006c 00 70 a0 e3                      mov	r7, #0
+.data:00000070 00 80 a0 e3                      mov	r8, #0
+.data:00000074 00 90 a0 e3                      mov	r9, #0
+.data:00000078 00 a0 a0 e3                      mov	sl, #0
+.data:0000007c 00 c0 a0 e3                      mov	ip, #0
+</code></pre></div></div>
+
+<p>Although I’m rubbish at assembly, this code is not that complex, in essence:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>It takes the password that was in register r9, puts it in r0
+Puts our guess that was in register r10 (sl here), puts it in r1
+R8 is the password length, that gets put into r3
+R4, r5 and ip are set to zero (r5 is the register that needs to be set to 1 for the flag)
+It loads the leftmost letter from the password and guess
+It then add 5 to the guess
+Does a logical AND between r4 and #1, puts the result in ip
+if ip is NOT at zero
+Substract 3 from guess
+compare modified guess and password values
+if they don't match exit, if they do move on to the next letter
+</code></pre></div></div>
+
+<p>So we add 5 to each letter and every other letter substract 3.</p>
+
+<p>Knowing the actual password we need we can now reverse this:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pass = "XYzaSAAX_PBssisodjsal_sSUVWZYYYb"
+R4 = False
+for let in pass:
+    if R4:
+        print chr(ord(let)-5+3),
+        R4 = False
+    else:
+        print chr(ord(let)-5),
+        R4 = True
+</code></pre></div></div>
+
+<p>This still needs to be sent through enc_pw() but that takes only a few minutes, we then get the atual flag:
+MPmVH94PTH7hhafgYahYaVfKJNLRNQLZ</p>
+
+<p>Maybe some day get around to reversing enc_pw, it seems to be quite similar to test_pw, but today is not that day.</p>
+
+</div>
+
+    </main>
+
+    <!-- Optional footer content -->
+
+  </body>
+</html>

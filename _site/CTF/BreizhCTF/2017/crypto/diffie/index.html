@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+
+  <title>
+    
+      Diffie Failman &middot; Rot26
+    
+  </title>
+
+  
+
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface" />
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/favicon.png" />
+<link rel="shortcut icon" href="/favicon.ico" />
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml" />
+
+  <!-- Additional head bits without overriding original head -->
+</head>
+
+
+  <body class="page">
+
+    <div id="sidebar">
+  <header>
+    <div class="site-title">
+      <a href="/">
+        
+          <span class="back-arrow icon"><svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+  <path d="M0 0h24v24H0z" fill="none"/>
+  <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+</svg></span>
+        
+        Rot26
+      </a>
+    </div>
+    <p class="lead"></p>
+  </header>
+  <nav id="sidebar-nav-links">
+  
+  
+
+  
+
+  
+
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+
+  
+
+
+  
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/BreizhCTF.html">BreizhCTF</a>
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/Hacklu.html">Hacklu</a>
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/LabyREnth.html">LabyREnth</a>
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+
+  <h1>Members</h1>
+<a href="https://twitter.com/Memoi2001">Fooker</a>
+<a href="https://twitter.com/kalimer0x00">Kalimer0x00</a>
+<a href="https://twitter.com/govlog">Govlog</a>
+<a href="https://twitter.com/maxencedun">Sp4rKy</a>
+
+
+</nav>
+
+
+  
+
+  <nav id="sidebar-icon-links">
+  
+
+  <a id="subscribe-link"
+     class="icon" title="Subscribe" aria-label="Subscribe"
+     href="/feed.xml">
+    <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <circle cx="6.18" cy="17.82" r="2.18"/>
+    <path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z"/>
+</svg>
+  </a>
+
+  
+  
+  
+  
+
+  
+
+  
+
+  <!-- Optional additional links to insert for icons links -->
+</nav>
+  
+</div>
+
+    <main class="container">
+      <div class="content">
+  <h2 id="diffie-failman">Diffie Failman</h2>
+
+<p>Ici on récupère une capture ainsi qu’un bout de python qui a servir à la communication.</p>
+
+<p>On voit quelques parties intéressantes :</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">shared</span> <span class="o">=</span> <span class="mi">65535</span>
+<span class="n">private_key</span> <span class="o">=</span> <span class="n">randint</span><span class="p">(</span><span class="mi">10</span><span class="o">**</span><span class="mi">24</span><span class="p">,</span><span class="mi">10</span><span class="o">**</span><span class="mi">32</span><span class="p">)</span>
+<span class="n">public_key</span> <span class="o">=</span> <span class="n">shared</span> <span class="o">*</span> <span class="n">private_key</span>
+</code></pre></div></div>
+
+<p>Donc client et serveur génèrent leurs clés de cette façon. Le protocole pour
+décider de la clé commune est simple, chaque partie envoie sa clé publique à
+l’autre partie, qui la multiplie avec sa propre clé privée. Le hash en SHA256
+de cette valeur sert ensuite de shared secret.</p>
+
+<p>Les fonctions de chiffrage et déchiffrage utilisent ensuite ce “shared_secret” comme clé.</p>
+
+<h2 id="exploit">Exploit</h2>
+
+<p>Vu le code, on sait que le premier paquet de chaque “client” est la clé publique.
+Si on a la clé publique, on connait le “shared” (= 65535), on peut donc
+récupérer la clé privée de chaque partie, et donc reconstruire la clé
+“intermédiaire” qui permettra de tout déchiffrer.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>tshark <span class="nt">-Tfields</span> <span class="nt">-e</span> data.data <span class="nt">-r</span>  capture.pcap |tr <span class="nt">-d</span> <span class="s1">':'</span>
+34363538323837373231343738383137353031313531373235363339363938373931303430
+31343439313231363732303538343338373239313339323135303030303939383530303330
+<span class="o">[</span>...]
+</code></pre></div></div>
+
+<p>on a donc :</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>* cle pub client : 4658287721478817501151725639698791040
+* cle pub serveur: 1449121672058438729139215000099850030
+</code></pre></div></div>
+
+<p>on récupère donc la clé privée de chacun :</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>* client : 71080914343157358680883888604544
+* serveur: 22112179324917047823898908981458
+</code></pre></div></div>
+
+<p>Et donc la clé intermediaire :</p>
+
+   	* 103004893444398851671013690478166602242546078095664609663680376536320 (priv_client * pub_serveur == priv_serveur * pub_client) 
+
+<p>Une fois qu’on a ça c’est quasi gagné, la suite du tshark contient les data:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>tshark <span class="nt">-Tfields</span> <span class="nt">-e</span> data.data <span class="nt">-r</span>  capture.pcap |tr <span class="nt">-d</span> <span class="s1">':'</span>
+34363538323837373231343738383137353031313531373235363339363938373931303430
+31343439313231363732303538343338373239313339323135303030303939383530303330
+7998cfd2b12fd3be5efd845a1b638b9b3a2d7533394bc7768cbd51d4c31fc55b
+01bb1c99f837f02148b46501f91ecb9d4b6f0aa6baea4a22fb81488fa23f54c2
+6223e4ee738280199791e7c65a2cfcfb43648a27e9f97e61b7c3d78368c98c9539216b6da457c61d41e895df8966b270
+64ff23d65f6926f1c55253e3b892a25872d44b0d48f9f0b01580958bfc1e668b5c9235e8f3ed2c0c76258152d97402604a10d507cfcbd701529dfa972afe7b4a
+4f8934cac701dcb5b3a02908ad37e77ef9afd1ebe2c8dad07db1932b5fb73ced
+423e44d00b30222cb8ee5e7b50e6d7511fd70c5301ad3d58cb90ce5846850374
+b0ca8380fe49a450f8e64f41a4c63a8e94bd8aa8673a92952ac51be9cd6ddb1e
+</code></pre></div></div>
+
+<p>Il suffit donc de déchiffrer ça :</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/usr/bin/env python</span>
+<span class="kn">import</span> <span class="nn">hashlib</span>
+<span class="kn">from</span> <span class="nn">Crypto.Cipher</span> <span class="kn">import</span> <span class="n">AES</span>
+
+<span class="n">unpad</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">s</span> <span class="p">:</span> <span class="n">s</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="nb">ord</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])]</span>
+
+<span class="k">def</span> <span class="nf">decrypt</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+    <span class="n">IV</span> <span class="o">=</span> <span class="n">message</span><span class="p">[:</span><span class="n">AES</span><span class="o">.</span><span class="n">block_size</span><span class="p">]</span>
+    <span class="n">aes</span> <span class="o">=</span> <span class="n">AES</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">AES</span><span class="o">.</span><span class="n">MODE_CBC</span><span class="p">,</span> <span class="n">IV</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">unpad</span><span class="p">(</span><span class="n">aes</span><span class="o">.</span><span class="n">decrypt</span><span class="p">(</span><span class="n">message</span><span class="p">[</span><span class="n">AES</span><span class="o">.</span><span class="n">block_size</span><span class="p">:]))</span>
+
+<span class="n">intermediate</span> <span class="o">=</span> <span class="mi">103004893444398851671013690478166602242546078095664609663680376536320</span>
+<span class="n">shared_secret</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">sha256</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">intermediate</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">"utf-8"</span><span class="p">))</span><span class="o">.</span><span class="n">digest</span><span class="p">()</span>
+
+<span class="n">messages</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s">'7998cfd2b12fd3be5efd845a1b638b9b3a2d7533394bc7768cbd51d4c31fc55b'</span><span class="p">,</span>
+    <span class="s">'01bb1c99f837f02148b46501f91ecb9d4b6f0aa6baea4a22fb81488fa23f54c2'</span><span class="p">,</span>
+    <span class="s">'6223e4ee738280199791e7c65a2cfcfb43648a27e9f97e61b7c3d78368c98c9539216b6da457c61d41e895df8966b270'</span><span class="p">,</span>
+    <span class="s">'64ff23d65f6926f1c55253e3b892a25872d44b0d48f9f0b01580958bfc1e668b5c9235e8f3ed2c0c76258152d97402604a10d507cfcbd701529dfa972afe7b4a'</span><span class="p">,</span>
+    <span class="s">'4f8934cac701dcb5b3a02908ad37e77ef9afd1ebe2c8dad07db1932b5fb73ced'</span><span class="p">,</span>
+    <span class="s">'423e44d00b30222cb8ee5e7b50e6d7511fd70c5301ad3d58cb90ce5846850374'</span><span class="p">,</span>
+    <span class="s">'b0ca8380fe49a450f8e64f41a4c63a8e94bd8aa8673a92952ac51be9cd6ddb1e'</span><span class="p">,</span>
+<span class="p">]</span>
+
+<span class="k">for</span> <span class="n">message</span> <span class="ow">in</span> <span class="n">messages</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">decrypt</span><span class="p">(</span><span class="n">message</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s">'hex'</span><span class="p">),</span> <span class="n">shared_secret</span><span class="p">))</span>
+</code></pre></div></div>
+
+<p>Et on exécute :</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>python break.py
+Hi <span class="o">!</span>
+Hi dude <span class="o">!</span>
+Can you give me the flag ?
+Sure : BZHCTF<span class="o">{</span>This_key_exchange_Sux<span class="o">}</span>
+Thx <span class="o">!</span>
+Bye
+Bye <span class="o">!</span>
+</code></pre></div></div>
+
+</div>
+
+    </main>
+
+    <!-- Optional footer content -->
+
+  </body>
+</html>

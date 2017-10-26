@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+
+  <title>
+    
+      Salsa &middot; Rot26
+    
+  </title>
+
+  
+
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface" />
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/favicon.png" />
+<link rel="shortcut icon" href="/favicon.ico" />
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml" />
+
+  <!-- Additional head bits without overriding original head -->
+</head>
+
+
+  <body class="page">
+
+    <div id="sidebar">
+  <header>
+    <div class="site-title">
+      <a href="/">
+        
+          <span class="back-arrow icon"><svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+  <path d="M0 0h24v24H0z" fill="none"/>
+  <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+</svg></span>
+        
+        Rot26
+      </a>
+    </div>
+    <p class="lead"></p>
+  </header>
+  <nav id="sidebar-nav-links">
+  
+  
+
+  
+
+  
+
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+
+  
+
+
+  
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/BreizhCTF.html">BreizhCTF</a>
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/Hacklu.html">Hacklu</a>
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/LabyREnth.html">LabyREnth</a>
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+
+  <h1>Members</h1>
+<a href="https://twitter.com/Memoi2001">Fooker</a>
+<a href="https://twitter.com/kalimer0x00">Kalimer0x00</a>
+<a href="https://twitter.com/govlog">Govlog</a>
+<a href="https://twitter.com/maxencedun">Sp4rKy</a>
+
+
+</nav>
+
+
+  
+
+  <nav id="sidebar-icon-links">
+  
+
+  <a id="subscribe-link"
+     class="icon" title="Subscribe" aria-label="Subscribe"
+     href="/feed.xml">
+    <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <circle cx="6.18" cy="17.82" r="2.18"/>
+    <path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z"/>
+</svg>
+  </a>
+
+  
+  
+  
+  
+
+  
+
+  
+
+  <!-- Optional additional links to insert for icons links -->
+</nav>
+  
+</div>
+
+    <main class="container">
+      <div class="content">
+  <h1 id="salsa">Salsa</h1>
+
+<p>In this challenge we get the source code of some kind of online-encryption service.</p>
+
+<p>When you connect to the socket, you get a piece of random data, and whenever
+you write something to it, you get another piece of data back.</p>
+
+<p>Looking at the <code class="highlighter-rouge">server.py</code> file we can see that this service encrypt what we send to it with Salsa20 algorithm.
+Also, when you connect to it, the data you get is the flag, encrypted.</p>
+
+<p>Some interesting facts :</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="bp">self</span><span class="o">.</span><span class="n">sendMessage</span><span class="p">(</span><span class="s">"Hello my dear friend, the flag is </span><span class="si">%</span><span class="s">s!"</span> <span class="o">%</span> <span class="n">FLAG</span><span class="p">)</span>
+<span class="p">[</span><span class="o">...</span><span class="p">]</span>
+<span class="n">msg</span> <span class="o">=</span> <span class="p">{</span><span class="s">"cnt"</span> <span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">MsgCounter</span><span class="p">,</span> <span class="s">"data"</span> <span class="p">:</span> <span class="n">text</span><span class="p">[</span><span class="n">i</span><span class="p">:</span> <span class="n">i</span><span class="o">+</span><span class="mi">128</span><span class="p">]}</span>
+</code></pre></div></div>
+
+<p>So each text will be split in 128 bytes chunks, and each chunk will be put in some json, with the counter.
+Given that the counter starts at 0, we know the beginning of the message :</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s">"cnt"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s">"data"</span><span class="p">:</span> <span class="s">"SGVsbG8gbXkgZGVhciBmcmllbmQsIHRoZSBmbGFnIGlz"</span><span class="p">}</span>
+</code></pre></div></div>
+
+<p>(<code class="highlighter-rouge">SGV...</code> behing base64 version of ‘Hello my dear friend, the flag is’)</p>
+
+<p>Ok, so we have 66 known chars, not too bad.</p>
+
+<h2 id="crypto-flaw">Crypto flaw</h2>
+
+<p>Let’s look a bit more to it, we can see that key is initialized only once when the script is run:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">KEY</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">urandom</span><span class="p">(</span><span class="mi">32</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>and that, nonce is set only once per session:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">socket</span><span class="p">):</span>
+	<span class="n">asyncore</span><span class="o">.</span><span class="n">dispatcher_with_send</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">socket</span><span class="p">)</span>
+	<span class="bp">self</span><span class="o">.</span><span class="n">Nonce</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">urandom</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+	<span class="bp">self</span><span class="o">.</span><span class="n">MsgCounter</span> <span class="o">=</span> <span class="mi">0</span>
+</code></pre></div></div>
+
+<p>And, finally, we notice that the counter is incremented only every 128 chars.</p>
+
+<p>Key and Nonce reuse sound like a bad idea…</p>
+
+<p>Looking at the salsa implementation, it looks good, but one part is interesting:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">s20_crypt</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">nonce</span><span class="p">,</span> <span class="n">si</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+    <span class="n">key</span> <span class="o">=</span> <span class="p">[</span><span class="nb">ord</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">key</span><span class="p">]</span>
+    <span class="n">nonce</span> <span class="o">=</span> <span class="p">[</span><span class="nb">ord</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">nonce</span><span class="p">]</span>
+
+    <span class="n">n</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">16</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">8</span><span class="p">):</span>
+        <span class="n">n</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">nonce</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">si</span> <span class="o">%</span> <span class="mi">64</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">b0</span><span class="p">,</span> <span class="n">b1</span><span class="p">,</span> <span class="n">b2</span><span class="p">,</span> <span class="n">b3</span> <span class="o">=</span> <span class="n">s20_rev_littleendian</span><span class="p">(</span><span class="n">si</span> <span class="o">/</span> <span class="mi">64</span><span class="p">)</span>
+        <span class="n">n</span><span class="p">[</span><span class="mi">8</span><span class="p">]</span> <span class="o">=</span> <span class="n">b0</span>
+        <span class="n">n</span><span class="p">[</span><span class="mi">9</span><span class="p">]</span> <span class="o">=</span> <span class="n">b1</span>
+        <span class="n">n</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span> <span class="o">=</span> <span class="n">b2</span>
+        <span class="n">n</span><span class="p">[</span><span class="mi">11</span><span class="p">]</span> <span class="o">=</span> <span class="n">b3</span>
+
+        <span class="n">keystream</span> <span class="o">=</span> <span class="n">s20_expand32</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+
+    <span class="n">outp</span> <span class="o">=</span> <span class="s">""</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+        <span class="k">if</span> <span class="p">((</span><span class="n">si</span><span class="o">+</span><span class="n">i</span><span class="p">)</span> <span class="o">%</span> <span class="mi">64</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">b0</span><span class="p">,</span> <span class="n">b1</span><span class="p">,</span> <span class="n">b2</span><span class="p">,</span> <span class="n">b3</span> <span class="o">=</span> <span class="n">s20_rev_littleendian</span><span class="p">((</span><span class="n">si</span><span class="o">+</span><span class="n">i</span><span class="p">)</span> <span class="o">/</span> <span class="mi">64</span><span class="p">)</span>
+            <span class="n">n</span><span class="p">[</span><span class="mi">8</span><span class="p">]</span> <span class="o">=</span> <span class="n">b0</span>
+            <span class="n">n</span><span class="p">[</span><span class="mi">9</span><span class="p">]</span> <span class="o">=</span> <span class="n">b1</span>
+            <span class="n">n</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span> <span class="o">=</span> <span class="n">b2</span>
+            <span class="n">n</span><span class="p">[</span><span class="mi">11</span><span class="p">]</span> <span class="o">=</span> <span class="n">b3</span>
+
+            <span class="n">keystream</span> <span class="o">=</span> <span class="n">s20_expand32</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+        <span class="n">outp</span> <span class="o">+=</span> <span class="nb">chr</span><span class="p">(</span><span class="nb">ord</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="o">^</span> <span class="n">keystream</span><span class="p">[(</span><span class="n">si</span><span class="o">+</span><span class="n">i</span><span class="p">)</span> <span class="o">%</span> <span class="mi">64</span><span class="p">])</span>
+</code></pre></div></div>
+
+<p>So what happends when we arrive with our counter set to 0 ?</p>
+
+<p>The keystream is generated from the key and <code class="highlighter-rouge">n</code>. <code class="highlighter-rouge">n</code> is a 16 bytes array, which contains nonce + 4 bytes.
+These 4 bytes are set by <code class="highlighter-rouge">s20_rev_littleendian</code> function, which takes in parameters either either <code class="highlighter-rouge">si</code> or <code class="highlighter-rouge">si+i</code>.</p>
+
+<p>When the function is call for the first time (with the flag message as data) we
+have <code class="highlighter-rouge">si == 0</code> so <code class="highlighter-rouge">si % 64 == 0</code>, so only the second block is called. On first char, we have <code class="highlighter-rouge">si+i == 0</code>.
+After the 64 first chars, we will have <code class="highlighter-rouge">si+i == 64</code>, so <code class="highlighter-rouge">s20_rev_littleendian</code>
+will be called with either <code class="highlighter-rouge">0</code> or <code class="highlighter-rouge">1</code> as parameters.</p>
+
+<p>So, the message is encrypted by chunks of 64 chars, with a keystream created from counter (aka 0) and char position.</p>
+
+<h2 id="exploit">Exploit</h2>
+
+<p>We can already easily guess what the first keystream is. As it is a simple xor,
+all we need to do is to xor the cipher we get with the known plain-text:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">known</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="s">'{"cnt": 0, "data" :"SGVsbG8gbXkgZGVhciBmcmllbmQsIHRoZSBmbGFnIGlz"}'</span><span class="p">)</span>
+<span class="c"># hexdump of data received when we connect</span>
+<span class="n">tofind</span><span class="o">=</span><span class="n">binascii</span><span class="o">.</span><span class="n">unhexlify</span><span class="p">(</span><span class="s">"80c0d3be1f2edb1e142598ca5adec4c281d373b174715661aa8c767282a71ce33c62fe2a627ba0481647b8a2714c2e422775122e3ed776c2a81eb72c210a5bd5b733c25a97e6f8e708fac306c31a9bf805293c09f4737ff598c5cdad8867b4176e905ab886b2a3af46556452c41a8db255af6403b8bd3db9a18139651539063592744c771f111587266e648c2c3e"</span><span class="p">)</span>
+<span class="p">[</span><span class="nb">ord</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">xor</span><span class="p">(</span><span class="n">tofind</span><span class="p">[:</span><span class="mi">64</span><span class="p">],</span><span class="n">known</span><span class="p">)]</span>
+<span class="p">[</span><span class="mi">162</span><span class="p">,</span> <span class="mi">187</span><span class="p">,</span> <span class="mi">143</span><span class="p">,</span> <span class="mi">156</span><span class="p">,</span> <span class="mi">124</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">175</span><span class="p">,</span> <span class="mi">66</span><span class="p">,</span> <span class="mi">54</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">184</span><span class="p">,</span> <span class="mi">250</span><span class="p">,</span> <span class="mi">118</span><span class="p">,</span> <span class="mi">254</span><span class="p">,</span> <span class="mi">152</span><span class="p">,</span> <span class="mi">224</span><span class="p">,</span> <span class="mi">229</span><span class="p">,</span> <span class="mi">178</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">208</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">83</span><span class="p">,</span> <span class="mi">118</span><span class="p">,</span> <span class="mi">91</span><span class="p">,</span> <span class="mi">246</span><span class="p">,</span> <span class="mi">174</span><span class="p">,</span> <span class="mi">37</span><span class="p">,</span> <span class="mi">53</span><span class="p">,</span> <span class="mi">212</span><span class="p">,</span> <span class="mi">212</span><span class="p">,</span> <span class="mi">126</span><span class="p">,</span> <span class="mi">164</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">156</span><span class="p">,</span> <span class="mi">114</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">250</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">47</span><span class="p">,</span> <span class="mi">219</span><span class="p">,</span> <span class="mi">203</span><span class="p">,</span> <span class="mi">51</span><span class="p">,</span> <span class="mi">33</span><span class="p">,</span> <span class="mi">77</span><span class="p">,</span> <span class="mi">47</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">112</span><span class="p">,</span> <span class="mi">67</span><span class="p">,</span> <span class="mi">111</span><span class="p">,</span> <span class="mi">164</span><span class="p">,</span> <span class="mi">63</span><span class="p">,</span> <span class="mi">138</span><span class="p">,</span> <span class="mi">250</span><span class="p">,</span> <span class="mi">113</span><span class="p">,</span> <span class="mi">237</span><span class="p">,</span> <span class="mi">127</span><span class="p">,</span> <span class="mi">99</span><span class="p">,</span> <span class="mi">103</span><span class="p">,</span> <span class="mi">57</span><span class="p">,</span> <span class="mi">146</span><span class="p">]</span>
+</code></pre></div></div>
+
+<p>So this is the first keystream. If you look values of <code class="highlighter-rouge">n[8]</code> to <code class="highlighter-rouge">n[11]</code>, you
+will see that they equals <code class="highlighter-rouge">0</code> for the first keystream, andonly <code class="highlighter-rouge">n[8]</code> is set to
+1 for the second block. Nothing more changes.
+However, this is enough to get a totally diferent keystream. We may be able to
+reverse algorithm to the point where <code class="highlighter-rouge">n</code> is used, then increment <code class="highlighter-rouge">n[8]</code>, but
+seems way too complicated for now.</p>
+
+<p>So, to guess the second keystream, we’d need to be able to call <code class="highlighter-rouge">s20_rev_littleendian</code> with 1 as parameter.
+We know that the counter is incremented every 128 chars only. So if the flag
+(including the ‘Hello my dear …’ string) is less than 128 chars, the counter
+will be set to 1 for the first message we will send.</p>
+
+<p>It means that, for our first block of the first message we send, we will have <code class="highlighter-rouge">si == 1</code>, so first block will be called with :</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="n">b0</span><span class="p">,</span> <span class="n">b1</span><span class="p">,</span> <span class="n">b2</span><span class="p">,</span> <span class="n">b3</span> <span class="o">=</span> <span class="n">s20_rev_littleendian</span><span class="p">(</span><span class="n">si</span> <span class="o">/</span> <span class="mi">64</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>As <code class="highlighter-rouge">si / 64</code> is 0 we wil get the same keystream</p>
+
+<p>so <code class="highlighter-rouge">s20_rev_littleendian</code> will be called with 0, and then, 63 chars later, with</p>
+<ol>
+  <li>So we will get the same keystreams than used to encrypt flag!</li>
+</ol>
+
+<p>Just to check we’re right we patch the <code class="highlighter-rouge">salsa20.py</code> to print keystreams, run it locally, and connect then send some payload, and we see:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># First keystream of flag</span>
+<span class="n">keystream</span> <span class="p">:</span> <span class="p">[</span><span class="mi">27</span><span class="p">,</span> <span class="mi">180</span><span class="p">,</span> <span class="mi">157</span><span class="p">,</span> <span class="mi">138</span><span class="p">,</span> <span class="mi">61</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">177</span><span class="p">,</span> <span class="mi">186</span><span class="p">,</span> <span class="mi">121</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">153</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">211</span><span class="p">,</span> <span class="mi">85</span><span class="p">,</span> <span class="mi">95</span><span class="p">,</span> <span class="mi">34</span><span class="p">,</span> <span class="mi">154</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">232</span><span class="p">,</span> <span class="mi">85</span><span class="p">,</span> <span class="mi">187</span><span class="p">,</span> <span class="mi">124</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mi">83</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">88</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">201</span><span class="p">,</span> <span class="mi">225</span><span class="p">,</span> <span class="mi">99</span><span class="p">,</span> <span class="mi">176</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">144</span><span class="p">,</span> <span class="mi">205</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">68</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">61</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">192</span><span class="p">,</span> <span class="mi">44</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">174</span><span class="p">,</span> <span class="mi">26</span><span class="p">,</span> <span class="mi">99</span><span class="p">,</span> <span class="mi">190</span><span class="p">,</span> <span class="mi">59</span><span class="p">,</span> <span class="mi">186</span><span class="p">,</span> <span class="mi">205</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">230</span><span class="p">,</span> <span class="mi">99</span><span class="p">,</span> <span class="mi">140</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">72</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">91</span><span class="p">,</span> <span class="mi">87</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">213</span><span class="p">]</span>
+<span class="c"># Second keystream of flag</span>
+<span class="n">keystream</span> <span class="p">:</span> <span class="p">[</span><span class="mi">115</span><span class="p">,</span> <span class="mi">51</span><span class="p">,</span> <span class="mi">122</span><span class="p">,</span> <span class="mi">133</span><span class="p">,</span> <span class="mi">149</span><span class="p">,</span> <span class="mi">167</span><span class="p">,</span> <span class="mi">154</span><span class="p">,</span> <span class="mi">74</span><span class="p">,</span> <span class="mi">176</span><span class="p">,</span> <span class="mi">179</span><span class="p">,</span> <span class="mi">164</span><span class="p">,</span> <span class="mi">36</span><span class="p">,</span> <span class="mi">114</span><span class="p">,</span> <span class="mi">82</span><span class="p">,</span> <span class="mi">48</span><span class="p">,</span> <span class="mi">53</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">241</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">101</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">83</span><span class="p">,</span> <span class="mi">66</span><span class="p">,</span> <span class="mi">177</span><span class="p">,</span> <span class="mi">101</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">207</span><span class="p">,</span> <span class="mi">183</span><span class="p">,</span> <span class="mi">159</span><span class="p">,</span> <span class="mi">149</span><span class="p">,</span> <span class="mi">206</span><span class="p">,</span> <span class="mi">249</span><span class="p">,</span> <span class="mi">63</span><span class="p">,</span> <span class="mi">161</span><span class="p">,</span> <span class="mi">241</span><span class="p">,</span> <span class="mi">66</span><span class="p">,</span> <span class="mi">119</span><span class="p">,</span> <span class="mi">221</span><span class="p">,</span> <span class="mi">136</span><span class="p">,</span> <span class="mi">174</span><span class="p">,</span> <span class="mi">254</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">168</span><span class="p">,</span> <span class="mi">82</span><span class="p">,</span> <span class="mi">195</span><span class="p">,</span> <span class="mi">130</span><span class="p">,</span> <span class="mi">142</span><span class="p">,</span> <span class="mi">233</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mi">235</span><span class="p">,</span> <span class="mi">139</span><span class="p">,</span> <span class="mi">84</span><span class="p">,</span> <span class="mi">141</span><span class="p">,</span> <span class="mi">87</span><span class="p">,</span> <span class="mi">49</span><span class="p">,</span> <span class="mi">234</span><span class="p">,</span> <span class="mi">244</span><span class="p">,</span> <span class="mi">41</span><span class="p">,</span> <span class="mi">85</span><span class="p">,</span> <span class="mi">206</span><span class="p">]</span>
+<span class="c"># Third keystream of flag, I put a long flag to test</span>
+<span class="n">keystream</span> <span class="p">:</span> <span class="p">[</span><span class="mi">53</span><span class="p">,</span> <span class="mi">46</span><span class="p">,</span> <span class="mi">176</span><span class="p">,</span> <span class="mi">228</span><span class="p">,</span> <span class="mi">62</span><span class="p">,</span> <span class="mi">164</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">253</span><span class="p">,</span> <span class="mi">71</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">182</span><span class="p">,</span> <span class="mi">48</span><span class="p">,</span> <span class="mi">210</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">237</span><span class="p">,</span> <span class="mi">129</span><span class="p">,</span> <span class="mi">68</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">228</span><span class="p">,</span> <span class="mi">149</span><span class="p">,</span> <span class="mi">130</span><span class="p">,</span> <span class="mi">96</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">204</span><span class="p">,</span> <span class="mi">142</span><span class="p">,</span> <span class="mi">173</span><span class="p">,</span> <span class="mi">202</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">84</span><span class="p">,</span> <span class="mi">118</span><span class="p">,</span> <span class="mi">74</span><span class="p">,</span> <span class="mi">89</span><span class="p">,</span> <span class="mi">178</span><span class="p">,</span> <span class="mi">193</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">191</span><span class="p">,</span> <span class="mi">194</span><span class="p">,</span> <span class="mi">54</span><span class="p">,</span> <span class="mi">108</span><span class="p">,</span> <span class="mi">193</span><span class="p">,</span> <span class="mi">190</span><span class="p">,</span> <span class="mi">243</span><span class="p">,</span> <span class="mi">189</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">147</span><span class="p">,</span> <span class="mi">202</span><span class="p">,</span> <span class="mi">36</span><span class="p">,</span> <span class="mi">33</span><span class="p">,</span> <span class="mi">222</span><span class="p">,</span> <span class="mi">208</span><span class="p">,</span> <span class="mi">207</span><span class="p">,</span> <span class="mi">111</span><span class="p">,</span> <span class="mi">201</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">222</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">185</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">39</span><span class="p">,</span> <span class="mi">125</span><span class="p">]</span>
+<span class="c"># First keystream of message we sent</span>
+<span class="n">keystream</span> <span class="p">:</span> <span class="p">[</span><span class="mi">27</span><span class="p">,</span> <span class="mi">180</span><span class="p">,</span> <span class="mi">157</span><span class="p">,</span> <span class="mi">138</span><span class="p">,</span> <span class="mi">61</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">177</span><span class="p">,</span> <span class="mi">186</span><span class="p">,</span> <span class="mi">121</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">153</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">211</span><span class="p">,</span> <span class="mi">85</span><span class="p">,</span> <span class="mi">95</span><span class="p">,</span> <span class="mi">34</span><span class="p">,</span> <span class="mi">154</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">232</span><span class="p">,</span> <span class="mi">85</span><span class="p">,</span> <span class="mi">187</span><span class="p">,</span> <span class="mi">124</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mi">83</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">88</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">201</span><span class="p">,</span> <span class="mi">225</span><span class="p">,</span> <span class="mi">99</span><span class="p">,</span> <span class="mi">176</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">144</span><span class="p">,</span> <span class="mi">205</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">68</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">61</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">192</span><span class="p">,</span> <span class="mi">44</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">174</span><span class="p">,</span> <span class="mi">26</span><span class="p">,</span> <span class="mi">99</span><span class="p">,</span> <span class="mi">190</span><span class="p">,</span> <span class="mi">59</span><span class="p">,</span> <span class="mi">186</span><span class="p">,</span> <span class="mi">205</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">230</span><span class="p">,</span> <span class="mi">99</span><span class="p">,</span> <span class="mi">140</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">72</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">91</span><span class="p">,</span> <span class="mi">87</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">213</span><span class="p">]</span>
+<span class="c"># 2nd keystream of message we sent</span>
+<span class="n">keystream</span> <span class="p">:</span> <span class="p">[</span><span class="mi">115</span><span class="p">,</span> <span class="mi">51</span><span class="p">,</span> <span class="mi">122</span><span class="p">,</span> <span class="mi">133</span><span class="p">,</span> <span class="mi">149</span><span class="p">,</span> <span class="mi">167</span><span class="p">,</span> <span class="mi">154</span><span class="p">,</span> <span class="mi">74</span><span class="p">,</span> <span class="mi">176</span><span class="p">,</span> <span class="mi">179</span><span class="p">,</span> <span class="mi">164</span><span class="p">,</span> <span class="mi">36</span><span class="p">,</span> <span class="mi">114</span><span class="p">,</span> <span class="mi">82</span><span class="p">,</span> <span class="mi">48</span><span class="p">,</span> <span class="mi">53</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">241</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">101</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">83</span><span class="p">,</span> <span class="mi">66</span><span class="p">,</span> <span class="mi">177</span><span class="p">,</span> <span class="mi">101</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">207</span><span class="p">,</span> <span class="mi">183</span><span class="p">,</span> <span class="mi">159</span><span class="p">,</span> <span class="mi">149</span><span class="p">,</span> <span class="mi">206</span><span class="p">,</span> <span class="mi">249</span><span class="p">,</span> <span class="mi">63</span><span class="p">,</span> <span class="mi">161</span><span class="p">,</span> <span class="mi">241</span><span class="p">,</span> <span class="mi">66</span><span class="p">,</span> <span class="mi">119</span><span class="p">,</span> <span class="mi">221</span><span class="p">,</span> <span class="mi">136</span><span class="p">,</span> <span class="mi">174</span><span class="p">,</span> <span class="mi">254</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">168</span><span class="p">,</span> <span class="mi">82</span><span class="p">,</span> <span class="mi">195</span><span class="p">,</span> <span class="mi">130</span><span class="p">,</span> <span class="mi">142</span><span class="p">,</span> <span class="mi">233</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mi">235</span><span class="p">,</span> <span class="mi">139</span><span class="p">,</span> <span class="mi">84</span><span class="p">,</span> <span class="mi">141</span><span class="p">,</span> <span class="mi">87</span><span class="p">,</span> <span class="mi">49</span><span class="p">,</span> <span class="mi">234</span><span class="p">,</span> <span class="mi">244</span><span class="p">,</span> <span class="mi">41</span><span class="p">,</span> <span class="mi">85</span><span class="p">,</span> <span class="mi">206</span><span class="p">]</span>
+</code></pre></div></div>
+
+<p>Perfect ! However, if you compute your keystream based on the plaintext you submitted on client side you will get :</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">keystream</span> <span class="p">:</span> <span class="p">[</span><span class="mi">180</span><span class="p">,</span> <span class="mi">157</span><span class="p">,</span> <span class="mi">138</span><span class="p">,</span> <span class="mi">61</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">177</span><span class="p">,</span> <span class="mi">186</span><span class="p">,</span> <span class="mi">121</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">153</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">211</span><span class="p">,</span> <span class="mi">85</span><span class="p">,</span> <span class="mi">95</span><span class="p">,</span> <span class="mi">34</span><span class="p">,</span> <span class="mi">154</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">232</span><span class="p">,</span> <span class="mi">85</span><span class="p">,</span> <span class="mi">187</span><span class="p">,</span> <span class="mi">124</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mi">83</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">88</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">201</span><span class="p">,</span> <span class="mi">225</span><span class="p">,</span> <span class="mi">99</span><span class="p">,</span> <span class="mi">176</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">144</span><span class="p">,</span> <span class="mi">205</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">68</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">61</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">192</span><span class="p">,</span> <span class="mi">44</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">174</span><span class="p">,</span> <span class="mi">26</span><span class="p">,</span> <span class="mi">99</span><span class="p">,</span> <span class="mi">190</span><span class="p">,</span> <span class="mi">59</span><span class="p">,</span> <span class="mi">186</span><span class="p">,</span> <span class="mi">205</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">230</span><span class="p">,</span> <span class="mi">99</span><span class="p">,</span> <span class="mi">140</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">72</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">91</span><span class="p">,</span> <span class="mi">87</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">213</span><span class="p">,</span> <span class="mi">115</span><span class="p">]</span>
+</code></pre></div></div>
+
+<p>You will notice that the first char is gone. This is becaus of :</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="n">outp</span> <span class="o">+=</span> <span class="nb">chr</span><span class="p">(</span><span class="nb">ord</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="o">^</span> <span class="n">keystream</span><span class="p">[(</span><span class="n">si</span><span class="o">+</span><span class="n">i</span><span class="p">)</span> <span class="o">%</span> <span class="mi">64</span><span class="p">])</span>
+</code></pre></div></div>
+
+<p>So because <code class="highlighter-rouge">si = 1</code>, the keystream is shifted by one. We don’t really care as we already know first char of the message (‘{‘).</p>
+
+<p>So all we finally need to do is to send a message whose base64 is 128 chars
+long , get the result, xor result with message (including the json part), and
+we’ll get our full keystream!</p>
+
+<p>Getting a 128 chars base64 string is easy, just encode a 128*0.75 chars string:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">len</span><span class="p">(</span><span class="n">base64</span><span class="o">.</span><span class="n">b64encode</span><span class="p">(</span><span class="s">"a"</span><span class="o">*</span><span class="nb">int</span><span class="p">(</span><span class="mi">128</span><span class="o">*</span><span class="mf">0.75</span><span class="p">)))</span>
+<span class="mi">128</span>
+</code></pre></div></div>
+
+<p>Then send it, get the result, xor it, and finally xor with cipher text starting at first char :</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">u</span><span class="o">=</span><span class="n">base64</span><span class="o">.</span><span class="n">b64encode</span><span class="p">(</span><span class="s">"a"</span> <span class="o">*</span> <span class="nb">int</span><span class="p">(</span><span class="mi">128</span><span class="o">*</span><span class="mf">0.75</span><span class="p">))</span>
+<span class="n">j_u</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">({</span><span class="s">"cnt"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s">"data"</span> <span class="p">:</span> <span class="n">u</span> <span class="p">})</span>
+<span class="n">r</span><span class="o">.</span><span class="n">sendline</span><span class="p">(</span><span class="n">base64</span><span class="o">.</span><span class="n">b64decode</span><span class="p">(</span><span class="n">u</span><span class="p">))</span>
+<span class="n">tobreak2</span><span class="o">=</span><span class="n">r</span><span class="o">.</span><span class="n">recv</span><span class="p">()</span>
+<span class="n">second_ks</span><span class="o">=</span><span class="n">xor</span><span class="p">(</span><span class="n">tobreak2</span><span class="p">,</span> <span class="n">j_u</span><span class="p">)</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">xor</span><span class="p">(</span><span class="n">second_ks</span><span class="p">,</span><span class="n">block_unknown</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+<span class="n">log</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s">"FLAG: </span><span class="si">%</span><span class="s">s "</span>  <span class="o">%</span> <span class="p">(</span><span class="n">base64</span><span class="o">.</span><span class="n">b64decode</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="s">"{"</span> <span class="o">+</span> <span class="n">t</span><span class="p">)[</span><span class="s">'data'</span><span class="p">])))</span>
+</code></pre></div></div>
+
+<p>And here you go :</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">$</span>  <span class="o">./</span><span class="n">solve</span><span class="o">.</span><span class="n">py</span>
+<span class="p">[</span><span class="o">+</span><span class="p">]</span> <span class="n">Opening</span> <span class="n">connection</span> <span class="n">to</span> <span class="n">flatearth</span><span class="o">.</span><span class="n">fluxfingers</span><span class="o">.</span><span class="n">net</span> <span class="n">on</span> <span class="n">port</span> <span class="mi">1721</span><span class="p">:</span> <span class="n">Done</span>
+<span class="p">[</span><span class="o">*</span><span class="p">]</span> <span class="n">I</span> <span class="n">have</span> <span class="n">my</span> <span class="n">block</span> <span class="n">of</span> <span class="mi">142</span> <span class="n">chars</span>
+<span class="p">[</span><span class="err">!</span><span class="p">]</span> <span class="n">FLAG</span><span class="p">:</span> <span class="n">Hello</span> <span class="n">my</span> <span class="n">dear</span> <span class="n">friend</span><span class="p">,</span> <span class="n">the</span> <span class="n">flag</span> <span class="ow">is</span> <span class="n">FLAG</span><span class="p">{</span><span class="n">CRYPTO_IS_EASY_TO_BREAK_IF_YOU_ARE_USING_IT_WRONG</span><span class="p">}</span><span class="err">!</span>
+<span class="p">[</span><span class="o">*</span><span class="p">]</span> <span class="n">Closed</span> <span class="n">connection</span> <span class="n">to</span> <span class="n">flatearth</span><span class="o">.</span><span class="n">fluxfingers</span><span class="o">.</span><span class="n">net</span> <span class="n">port</span> <span class="mi">1721</span>
+</code></pre></div></div>
+
+
+</div>
+
+    </main>
+
+    <!-- Optional footer content -->
+
+  </body>
+</html>

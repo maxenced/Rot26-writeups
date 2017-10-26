@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+
+  <title>
+    
+      FlatScience &middot; Rot26
+    
+  </title>
+
+  
+
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface" />
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/favicon.png" />
+<link rel="shortcut icon" href="/favicon.ico" />
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml" />
+
+  <!-- Additional head bits without overriding original head -->
+</head>
+
+
+  <body class="page">
+
+    <div id="sidebar">
+  <header>
+    <div class="site-title">
+      <a href="/">
+        
+          <span class="back-arrow icon"><svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+  <path d="M0 0h24v24H0z" fill="none"/>
+  <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+</svg></span>
+        
+        Rot26
+      </a>
+    </div>
+    <p class="lead"></p>
+  </header>
+  <nav id="sidebar-nav-links">
+  
+  
+
+  
+
+  
+
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+
+  
+
+
+  
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/BreizhCTF.html">BreizhCTF</a>
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/Hacklu.html">Hacklu</a>
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/LabyREnth.html">LabyREnth</a>
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+
+  <h1>Members</h1>
+<a href="https://twitter.com/Memoi2001">Fooker</a>
+<a href="https://twitter.com/kalimer0x00">Kalimer0x00</a>
+<a href="https://twitter.com/govlog">Govlog</a>
+<a href="https://twitter.com/maxencedun">Sp4rKy</a>
+
+
+</nav>
+
+
+  
+
+  <nav id="sidebar-icon-links">
+  
+
+  <a id="subscribe-link"
+     class="icon" title="Subscribe" aria-label="Subscribe"
+     href="/feed.xml">
+    <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <circle cx="6.18" cy="17.82" r="2.18"/>
+    <path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z"/>
+</svg>
+  </a>
+
+  
+  
+  
+  
+
+  
+
+  
+
+  <!-- Optional additional links to insert for icons links -->
+</nav>
+  
+</div>
+
+    <main class="container">
+      <div class="content">
+  <h1 id="flatscience">FlatScience</h1>
+
+<p><code class="highlighter-rouge">The Professor on Flat Earth is Prof. Flux Horst. Only for bragging he made his own Blog showcasing his favorite Papers. Beeing the only Professor, he thinks he is the smartest Person arround the Plate. Can you proof him wrong and log into his Admin-Panel?</code></p>
+
+<p>OK, let’s see…
+robots.txt:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>User-agent: *
+Disallow: /login.php
+Disallow: /admin.php
+</code></pre></div></div>
+
+<p>Let’s look at login.php, always a good place to start…
+“<em>Login Page, do not try to hax here plox!</em>”
+OK, that’s just encouraging us, now for the page source.
+“<em><!-- TODO: Remove ?debug-Parameter! --></em>”
+Smart… yeah right….</p>
+
+<p>One ?debug in the URL and we have the PHP source, more importantly we have:</p>
+<ol>
+  <li><code class="highlighter-rouge">$db = new SQLite3('../fancy.db');</code></li>
+  <li><code class="highlighter-rouge">$res = $db-&gt;query("SELECT id,name from Users where name='".$user."' and password='".sha1($pass."Salz!")."'");</code></li>
+</ol>
+
+<p>OK, so we have the database location, and the salt used to hash the password.</p>
+
+<p>When I was doing this on the first day, the database was freely downloadable, I haven’t been able to get it again since.. maybe a bug?
+Anyway, I have the database!</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">id</th>
+      <th style="text-align: center">name</th>
+      <th style="text-align: center">password</th>
+      <th style="text-align: center">hint</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">1</td>
+      <td style="text-align: center">admin</td>
+      <td style="text-align: center">3fab54a50e770d830c0416df817567662a9dc85c</td>
+      <td style="text-align: center">my fav word in my fav paper?!</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">2</td>
+      <td style="text-align: center">fritze</td>
+      <td style="text-align: center">2f72d9dd0f9d6ef605f402c91f517ea4</td>
+      <td style="text-align: center">my love is…?</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">3</td>
+      <td style="text-align: center">hansi</td>
+      <td style="text-align: center">9e895c06352f4513fe179bf92b498397</td>
+      <td style="text-align: center">the password is password</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>OK, in his papers.. but there are quite a few, all of them his favorite..
+wget -r flatscience.flatearth.fluxfingers.net it is.
+sooo find tells us we have 26 pdf files.. pdf files are well and nice, but txt files are easier:</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>find <span class="nt">-name</span> <span class="k">*</span>.pdf <span class="nt">-exec</span> pdftotext <span class="o">{}</span> <span class="se">\;</span>
+mkdir txts
+find <span class="nt">-name</span> <span class="k">*</span>.txt <span class="nt">-exec</span> cp <span class="o">{}</span> txts <span class="se">\;</span>
+<span class="k">for </span>i <span class="k">in</span> <span class="sb">`</span><span class="nb">ls</span><span class="sb">`</span><span class="p">;</span> <span class="k">do </span>tr <span class="nt">-c</span> <span class="s1">'[:alnum:]'</span> <span class="s1">'[\n*]'</span> &lt; <span class="nv">$i</span> | sort | uniq <span class="p">;</span> <span class="k">done</span> <span class="o">&gt;</span> wordlist
+</code></pre></div></div>
+
+<p>ahhh, don’t you just love pipes :)
+sha1 with salt over a word list, maybe the next part should be python:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">hashlib</span>
+<span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">'wordlist'</span><span class="p">)</span> <span class="k">as</span> <span class="n">words</span><span class="p">:</span>
+    <span class="n">__values__</span> <span class="o">=</span> <span class="n">words</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">__values__</span><span class="p">):</span>
+        <span class="n">word</span> <span class="o">=</span> <span class="n">word</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">hash_object</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">sha1</span><span class="p">(</span><span class="n">b</span><span class="s">""</span><span class="o">+</span><span class="n">word</span><span class="o">+</span><span class="s">"Salz!"</span><span class="p">)</span>
+        <span class="n">hex_dig</span> <span class="o">=</span> <span class="n">hash_object</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>
+        <span class="k">if</span> <span class="s">"3fab54a50e770d830c0416df817567662a9dc85c"</span> <span class="ow">in</span> <span class="n">hex_dig</span><span class="p">:</span>
+            <span class="k">print</span> <span class="n">word</span>
+</code></pre></div></div>
+
+<p>OOOOh, look! a FLAG</p>
+
+</div>
+
+    </main>
+
+    <!-- Optional footer content -->
+
+  </body>
+</html>

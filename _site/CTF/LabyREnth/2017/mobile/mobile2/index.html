@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+
+  <title>
+    
+      Labyrenth/mobile_2 : &middot; Rot26
+    
+  </title>
+
+  
+
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface" />
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/favicon.png" />
+<link rel="shortcut icon" href="/favicon.ico" />
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml" />
+
+  <!-- Additional head bits without overriding original head -->
+</head>
+
+
+  <body class="page">
+
+    <div id="sidebar">
+  <header>
+    <div class="site-title">
+      <a href="/">
+        
+          <span class="back-arrow icon"><svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+  <path d="M0 0h24v24H0z" fill="none"/>
+  <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+</svg></span>
+        
+        Rot26
+      </a>
+    </div>
+    <p class="lead"></p>
+  </header>
+  <nav id="sidebar-nav-links">
+  
+  
+
+  
+
+  
+
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+
+  
+
+
+  
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/BreizhCTF.html">BreizhCTF</a>
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/Hacklu.html">Hacklu</a>
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/LabyREnth.html">LabyREnth</a>
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+
+  <h1>Members</h1>
+<a href="https://twitter.com/Memoi2001">Fooker</a>
+<a href="https://twitter.com/kalimer0x00">Kalimer0x00</a>
+<a href="https://twitter.com/govlog">Govlog</a>
+<a href="https://twitter.com/maxencedun">Sp4rKy</a>
+
+
+</nav>
+
+
+  
+
+  <nav id="sidebar-icon-links">
+  
+
+  <a id="subscribe-link"
+     class="icon" title="Subscribe" aria-label="Subscribe"
+     href="/feed.xml">
+    <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <circle cx="6.18" cy="17.82" r="2.18"/>
+    <path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z"/>
+</svg>
+  </a>
+
+  
+  
+  
+  
+
+  
+
+  
+
+  <!-- Optional additional links to insert for icons links -->
+</nav>
+  
+</div>
+
+    <main class="container">
+      <div class="content">
+  <h1 id="labyrenthmobile_2-">Labyrenth/mobile_2 :</h1>
+
+<p>We are given a MIPS binary, which is probably a ransomware ( hint + filename ).</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>-&gt; file routerlocker
+routerlocker: ELF 32-bit MSB executable, MIPS, MIPS64 version 1 (SYSV), dynamically linked, interpreter /lib/ld.so.1, for GNU/Linux 2.6.26, BuildID[sha1]=b9720b983cafb2a111bbac302b4ead891019e600, not stripped
+</code></pre></div></div>
+
+<h1 id="decompile-it-">Decompile it :</h1>
+
+<p>As I didn’t knew anything in MIPS asm, and quite franckly, didn’t have the time to learn a new arch, I used retdec.com to “decompile” the binary and started looking under the hood :</p>
+
+<p>Once cleaned a bit, we start to get a clear picture of the execution flow :</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    stat_loc = 0 # bp-104
+
+	# forking himself to make debugging "harder"
+    if fork() != 0:
+        wait(&amp;stat_loc)
+        return 0
+
+    # start of the forked process
+
+    .... "obf MIPS asm" part 1 (construct the filename string)
+    .... (not catched by the "decompiler")
+    ....
+
+    ptrace(0) # gdb will not like it
+
+    .... "obf MIPS asm" second part
+    .... (not catched by the "decompiler")
+    ....
+
+    file_path = ???????
+
+    file = fopen(&amp;file_path, "r") # 0x400a1c
+
+    if file == NULL:
+        fwrite("License file not found.\n", 1, 24, stream)
+        fwrite("Lock it up, and lock it out.\n", 1, 29, stream)
+        return 1
+</code></pre></div></div>
+
+<p>Just before the program fork, there is a huge bloc of asm opcodes that create the filename string :</p>
+
+<p><img src="/CTF/labyrenth/mobile/mobile2/obf1.png" alt="create filename string" /></p>
+
+<p>We could have reversed the mips asm, but as I’m a lazy guy and had kept a debian MIPS qemu image, I decided to do it dynamically :</p>
+
+<h1 id="trace-it-">Trace it :</h1>
+
+<p>To obtain the filename easily, we can simply strace the process, but as the process is forking itself, we need to use the -ff switch ( to follow the child execution ).</p>
+
+<p>IMPORTANT : If we decide later to use gdb, we will have to use “set follow-fork-mode child” to be able to break or debug into the forked process.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>root@debian-mips:~# strace -ff -q -e open ./routerlocker
+open("/etc/ld.so.cache", O_RDONLY)      = 4
+open("/lib/mips-linux-gnu/libc.so.6", O_RDONLY) = 4
+[pid  2448] open("/tmp/router.lck", O_RDONLY) = -1 ENOENT (No such file or directory)
+License file not found.
+Lock it up, and lock it out.
+--- SIGCHLD (Child exited) @ 0 (0) ---
+</code></pre></div></div>
+
+<p>Ok, now that we have the filename, let’s continue reading the decompiled code :</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    if fread(&amp;file_buf, 1, 29, v5) &gt;= 29:
+        # 0x400d44
+        fclose(v5)
+</code></pre></div></div>
+
+<p>It read 29 bytes in the license file, which clearly indicates us the size of the license.
+Let’s create a ‘/tmp/router.lck’ file with 29 bytes in it and see what happen in strace :</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[pid  2463] open("/tmp/router.lck", O_RDONLY) = 4
+[pid  2463] fstat64(4, {st_mode=S_IFREG|0644, st_size=30, ...}) = 0
+[pid  2463] old_mmap(NULL, 65536, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x77a7a000
+[pid  2463] read(4, "AAAAAAAAAAAAAAAAAAAAAAAAAAAAA", 4096) = 29
+[pid  2463] close(4)                    = 0
+[pid  2463] munmap(0x77a7a000, 65536)   = 0
+[pid  2463] write(2, "Serial is invalid.\n", 19Serial is invalid.) = 19
+[pid  2463] write(2, "Ambrocious, unlock this door!\n", 30Ambrocious, unlock this door!) = 30
+</code></pre></div></div>
+
+<p>Good. Let’s continue :</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	.... big blob of "obf MIPS asm" to construct a value in v0?
+	....
+	....
+
+        v6 = strlen(&amp;file_buf) # 0x400d1850
+        v7 = (4 * v8 &amp; 252 | v8 % 4) + &amp;g13
+        v9 = 0 # 0x400d484753
+        # branch -&gt; 0x400d44
+
+        while True:
+            # 0x400d44
+            if v9 &lt; v6:
+                v10 = v9 + &amp;v3 # 0x400c58
+                if v10[44] != v10[76] ^ *v7:
+                    # 0x400c84
+                    fwrite("Serial is invalid.\n", 1, 19, g17)
+                    fwrite("Ambrocious, unlock this door!\n", 1, 30, g17)
+</code></pre></div></div>
+
+<p>We see a kind of “weird-crc-magickey-xor-sum” algo, in addition to this, looking at the code through IDA, we clearly see that, before the loop, the program is creating a value by adding stuff to the v0 register and doing other arithmetic operation. The decompiler didn’t catch anything, and I was too lazy to read docs about MIPS arch :D</p>
+
+<p><img src="/CTF/labyrenth/mobile/mobile2/obf2.png" alt="magic key creation ?" /></p>
+
+<h1 id="patch-it-">Patch it :</h1>
+
+<p>Looking at the pseudocode generated by “retdec”, it is clear that if we set a breakpoint before and after 0x400c84, we can get the key by looking at the “comparaison” / “validation” code.</p>
+
+<p>But before that, to be able to debug/break wherever we want in the binary without too much trouble, we have to patch the “ptrace(0)”. To do this, we can replace the call to ptrace(0) by somes NOPs, but wait, there’s no “NOP” in MIPS assembly (as far as I know).</p>
+
+<p>Mips NOPS : http://www.cs.umd.edu/~meesh/cmsc411/mips-pipe/proj-fall11/mips-doc/node11.html tells us that “add 0 0 0” is often used as a “NOP” in MIPS asm.</p>
+
+<p>First we need to find the call to ptrace in the opcode (easy) :</p>
+
+<p><img src="/CTF/labyrenth/mobile/mobile2/ptrace.png" alt="magic key creation ?" /></p>
+
+<p>Then need to compile “add 0 0 0” to bytecode using an online MIPS assembler : https://alanhogan.com/asu/assembler.php which give us : 00000020</p>
+
+<p>To do this :</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>echo $(cat routerlocker |xxd -p)|sed 's/ //g'|sed 's/0c1001dc/00000020/g' |xxd -r -p &gt; routerlocker.patched
+</code></pre></div></div>
+
+<p>Our binary is now ptrace-free \o/</p>
+
+<h1 id="debug-it-">Debug it :</h1>
+
+<p>Now that we have defeated all the anti-debug tricks and obfuscation mechanism, we are ready to extract the key by setting some breakpoints at choosen places.</p>
+
+<p>Here are the two breakpoint I used to extract the first char of the key ( and validate my theory ) :</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>set follow-fork-mode child 
+break *0x00400c78
+break *0x00400c80
+</code></pre></div></div>
+
+<p>And here is how it looks like :</p>
+
+<p><img src="/CTF/labyrenth/mobile/mobile2/key_check.png" alt="magic key creation ?" /></p>
+
+<p>So by looking at theses two registers, we will be able to extract the key, let’s try with the first char of key :</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>root@debian-mips:~# echo -en 'ABCDEFGHIJKLMNOPQRSTUVWXYZ123' &gt; /tmp/router.lck
+
+root@debian-mips:~# gdb -q ./routerlocker.patched
+
+(gdb) set follow-fork-mode child
+(gdb) b * 0x00400c78
+Breakpoint 1 at 0x400c78
+(gdb) b * 0x00400c80
+Breakpoint 2 at 0x400c80
+(gdb) run
+Starting program: /root/routerlocker.patched 
+[New process 2321]
+[Switching to process 2321]
+
+Breakpoint 1, 0x00400c78 in main ()
+
+(gdb) info r a0
+a0: 0x41               &lt;----- Our A char (first char of the current license)
+(gdb) info r v0
+v0: 0xb6               &lt;----- is x0red with b6
+(gdb) c
+Continuing.
+
+Breakpoint 2, 0x00400c80 in main ()
+(gdb) info r a0
+a0: 0x41
+(gdb) info r v0
+v0: 0xf7               &lt;----- 0x41 ^ 0xb6 = 0xf7  ( "A" ^ chr(0xb6) )
+(gdb) info r v1
+v1: 0xc2               &lt;----- then with the branching instruction, v1, will be compared to v0
+(gdb) c                &lt;----- as 0xf7 != 0xc2 it will branch to the failed msg and quit
+Continuing.
+Serial is invalid.
+Ambrocious, unlock this door!
+[Inferior 2 (process 2348) exited with code 03]
+</code></pre></div></div>
+
+<p>We now have everything to solve the challenge, on the GDB session above, we can see that the program is x0ring the license char by char, and compare the result with what is stored in the v1 register.</p>
+
+<p>So to get the first char of our license, we have to do this simple maths :</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>root@debian-mips:~# python -c 'print chr(0xc2 ^ 0xb6)'
+t
+</code></pre></div></div>
+
+<p>So the first letter of the license is ‘t’ (which looks good because of it’s printable properties).
+Let’s try to modify it to see if we are branched to the “failed” msg or if it goes to another char :</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>root@debian-mips:~# echo -en 'tBCDEFGHIJKLMNOPQRSTUVWXYZ123' &gt; /tmp/router.lck
+root@debian-mips:~# gdb -q ./routerlocker.patched
+......
+[New process 2361]
+[Switching to process 2361]
+
+Breakpoint 1, 0x00400c78 in main ()
+(gdb) c
+Continuing.
+
+Breakpoint 2, 0x00400c80 in main ()
+(gdb) c
+Continuing.
+
+Breakpoint 1, 0x00400c78 in main ()     &lt;------ We hit the breakpoint instead of the failed msg \o/
+</code></pre></div></div>
+
+<h1 id="script-it-">Script it :</h1>
+
+<p>Okay, before making your eyes bleeding, just let me tell you that it was my first ever gdb automatisation attempt at a “crackme”. Are you ready ? :</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+
+
+<span class="nv">KEY_LEN</span><span class="o">=</span>29
+<span class="nv">LINE</span><span class="o">=</span><span class="s1">'#############################'</span>
+
+<span class="k">function </span>setkey <span class="o">()</span> <span class="o">{</span>
+	<span class="nv">key</span><span class="o">=</span><span class="nv">$1</span>
+	<span class="nv">key_len</span><span class="o">=</span><span class="k">${#</span><span class="nv">key</span><span class="k">}</span>
+	<span class="nb">echo</span> <span class="nt">-en</span> <span class="sb">`</span><span class="nb">printf</span> <span class="s2">"%s%s</span><span class="se">\n</span><span class="s2">"</span> <span class="nv">$key</span> <span class="s2">"</span><span class="k">${</span><span class="nv">LINE</span>:<span class="k">${#</span><span class="nv">key</span><span class="k">}}</span><span class="s2">"</span><span class="sb">`</span> <span class="o">&gt;</span> /tmp/router.lck
+
+<span class="o">}</span>
+
+<span class="k">function </span>generate <span class="o">()</span> <span class="o">{</span>
+
+    <span class="nv">pos</span><span class="o">=</span><span class="nv">$1</span>
+
+    <span class="nb">echo</span> <span class="s2">"file routerlocker.patched
+	  set follow-fork-mode child
+	  b * 0x00400c78
+	  commands
+	    i r v0
+	  end
+
+	  b * 0x00400c80
+	  commands
+	    i r v1
+	  end
+	  run
+	  c"</span> <span class="o">&gt;</span> /tmp/scr
+
+	  <span class="k">for </span>i <span class="k">in</span> <span class="k">$(</span>seq 1 <span class="nv">$pos</span><span class="k">)</span><span class="p">;</span> <span class="k">do 
+	    </span><span class="nb">echo</span> <span class="s2">"c"</span> <span class="o">&gt;&gt;</span> /tmp/scr
+            <span class="nb">echo</span> <span class="s2">"c"</span> <span class="o">&gt;&gt;</span> /tmp/scr
+	  <span class="k">done
+
+	  </span><span class="nb">echo</span> <span class="s2">"q
+	  y"</span> <span class="o">&gt;&gt;</span> /tmp/scr
+<span class="o">}</span>
+
+<span class="nv">GDB</span><span class="o">=</span><span class="s2">"gdb -q -x /tmp/scr"</span>
+
+<span class="nv">pos</span><span class="o">=</span>0
+
+<span class="nv">key</span><span class="o">=</span><span class="s1">''</span>
+setkey <span class="nv">$key</span>
+
+<span class="k">while</span> <span class="o">((</span>pos&lt;KEY_LEN<span class="o">))</span><span class="p">;</span> <span class="k">do
+	</span>generate <span class="nv">$pos</span>
+	<span class="nv">tmp</span><span class="o">=(</span> <span class="sb">`</span><span class="nv">$GDB</span> 2&gt;&amp;1 | egrep ^v | tail <span class="nt">-n2</span>| awk <span class="s1">'{print $2}'</span>|sed <span class="s1">'s/0x//g'</span><span class="sb">`</span> <span class="o">)</span>
+	<span class="nv">char</span><span class="o">=</span><span class="nv">$[</span>16#<span class="k">${</span><span class="nv">tmp</span><span class="p">[0]</span><span class="k">}</span>^16#<span class="k">${</span><span class="nv">tmp</span><span class="p">[1]</span><span class="k">}</span><span class="o">]</span>
+	key+<span class="o">=</span><span class="sb">`</span>python <span class="nt">-c</span> <span class="s2">"print chr(</span><span class="nv">$char</span><span class="s2">)"</span><span class="sb">`</span>
+	<span class="o">((</span>pos++<span class="o">))</span>
+	<span class="nb">echo</span> <span class="nt">-en</span> <span class="s2">"</span><span class="se">\r</span><span class="s2">current key is </span><span class="nv">$key</span><span class="s2">"</span>
+	setkey <span class="nv">$key</span>
+<span class="k">done
+
+</span><span class="nb">echo</span>
+
+./routerlocker
+</code></pre></div></div>
+
+<p>Which will give us :</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>root@debian-mips:~# ./get_key.sh 
+current key is that_ransomware_ran_somewhere
+Thank you for purchasing RouterLocker v2.0
+Your flag is: PAN{that_ransomware_ran_somewhere}
+</code></pre></div></div>
+
+<p>author : govlog</p>
+
+</div>
+
+    </main>
+
+    <!-- Optional footer content -->
+
+  </body>
+</html>

