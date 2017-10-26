@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+
+  <title>
+    
+       &middot; Rot26
+    
+  </title>
+
+  
+
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface" />
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/favicon.png" />
+<link rel="shortcut icon" href="/favicon.ico" />
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml" />
+
+  <!-- Additional head bits without overriding original head -->
+</head>
+
+
+  <body class="page">
+
+    <div id="sidebar">
+  <header>
+    <div class="site-title">
+      <a href="/">
+        
+          <span class="back-arrow icon"><svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+  <path d="M0 0h24v24H0z" fill="none"/>
+  <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+</svg></span>
+        
+        Rot26
+      </a>
+    </div>
+    <p class="lead"></p>
+  </header>
+  <nav id="sidebar-nav-links">
+  
+  
+
+  
+
+  
+
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+
+  
+
+
+  
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/BreizhCTF.html">BreizhCTF</a>
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/Hacklu.html">Hacklu</a>
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/LabyREnth.html">LabyREnth</a>
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+
+  <h1>Members</h1>
+<a href="https://twitter.com/Memoi2001">Fooker</a>
+<a href="https://twitter.com/kalimer0x00">Kalimer0x00</a>
+<a href="https://twitter.com/govlog">Govlog</a>
+<a href="https://twitter.com/maxencedun">Sp4rKy</a>
+
+
+</nav>
+
+
+  
+
+  <nav id="sidebar-icon-links">
+  
+
+  <a id="subscribe-link"
+     class="icon" title="Subscribe" aria-label="Subscribe"
+     href="/feed.xml">
+    <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <circle cx="6.18" cy="17.82" r="2.18"/>
+    <path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z"/>
+</svg>
+  </a>
+
+  
+  
+  
+  
+
+  
+
+  
+
+  <!-- Optional additional links to insert for icons links -->
+</nav>
+  
+</div>
+
+    <main class="container">
+      <div class="content">
+  <p>Here we get a doc file with some uninteresting text … and a macro. Let the fun begin !</p>
+
+<h1 id="extract-first-macro">Extract first macro</h1>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>olevba MarsSpider_Contract.doc <span class="o">&gt;</span> MarsSpider_Contract.macros.vbs
+</code></pre></div></div>
+
+<p>We get ~ 360 lines of VBS macro, including the creation of a rise.txt file with a big base64 payload. Let’s look at it:</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">grep</span> <span class="s1">'cGlsbHM ='</span> MarsSpider_Contract.macros.vbs |cut <span class="nt">-d</span> <span class="s1">'"'</span> <span class="nt">-f</span> 2 |tr <span class="nt">-d</span> <span class="s1">'\n'</span> |base64 <span class="nt">-d</span> <span class="o">&gt;</span> rise.txt.raw
+</code></pre></div></div>
+
+<p>Looks like garbage, try a quick xor :</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>xortool <span class="nt">-b</span>  rise.txt.raw
+Key-length can be 3<span class="k">*</span>n
+256 possible key<span class="o">(</span>s<span class="o">)</span> of length 15:
+wtm<span class="sb">`</span>avwbvkiievw
+vula<span class="sb">`</span>wvcwjhhdwv
+uvobctu<span class="sb">`</span>tikkgtu
+twncbutauhjjfut
+spidersfrommars
+</code></pre></div></div>
+
+<p>last one looks nice :)</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>xortool-xor <span class="nt">-r</span> spidersfrommars <span class="nt">-f</span> rise.txt.raw
+</code></pre></div></div>
+
+<p>not so good, especially upper and lowercase seems to be mixed. Try :</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>xortool-xor <span class="nt">-r</span> SPIDERSFROMMARS <span class="nt">-f</span> rise.txt.raw <span class="o">&gt;</span> rise.vbs
+</code></pre></div></div>
+
+<p>much better !</p>
+
+<p>rise.vbs seems to contain a powershell part, split it in another file :</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>head <span class="nt">-2</span> rise.vbs <span class="o">&gt;</span> rise.ps
+</code></pre></div></div>
+
+<p>and the VBS part seems to be called “ziggy.vbs”, so :</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>tail +3  rise.vbs | sed <span class="s1">'s/.*ziggy.vbs//'</span>  <span class="o">&gt;</span> ziggy.vbs
+</code></pre></div></div>
+
+<p>Also, it is a windows based file so :</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>file ziggy.vbs
+ziggy.vbs: ASCII text, with very long lines, with CRLF, LF line terminators
+<span class="nv">$ </span>dos2unix ziggy.vbs
+file cGlsbHM.ps
+cGlsbHM.ps: ASCII text, with very long lines, with CRLF line terminators
+</code></pre></div></div>
+
+<h1 id="solve-powershell">Solve PowerShell</h1>
+
+<p>First things first, we have a quick look on powershell file. Cleaning it a bit,
+we can see there are lots of ‘if’ condition which append some stuff to a <code class="highlighter-rouge">$s</code>
+string and, from time to time, a call to <code class="highlighter-rouge">jaREth</code> function with <code class="highlighter-rouge">$s</code> in
+parameter.</p>
+
+<p>Reading the beginning of the code we see this :</p>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$bowielyric</span><span class="o">=</span><span class="nb">IEX</span><span class="o">(</span><span class="s2">"{1}{3}{11}{9}{8} {2}{4}{7}{5}{0}{6}{10}"</span>-f<span class="s2">")"</span>,<span class="s2">"("</span>,<span class="s2">"Win32"</span>,<span class="s2">"Get"</span>,<span class="s2">"_"</span>,<span class="s2">"System"</span>,<span class="s2">"."</span>,<span class="s2">"Computer"</span>,<span class="s2">"Object"</span>,<span class="s2">"Wmi"</span>,<span class="s2">"Domain"</span>,<span class="s2">"-"</span><span class="o">)</span>;
+</code></pre></div></div>
+
+<p>which is just a call to <code class="highlighter-rouge">(Get-WmiObject Win32_ComputerSystem).Domain</code>, which gets current domain.</p>
+
+<p>Then, 4 variables are set from 3 domain’s chars :</p>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$z</span><span class="o">=([</span><span class="kt">Int</span><span class="o">](((</span>2016-[Int]<span class="nv">$bowielyric</span><span class="o">[</span>1]<span class="o">)</span><span class="k">*</span>2<span class="o">)</span>/70-47<span class="o">))</span>;
+<span class="nv">$i</span><span class="o">=([</span><span class="kt">Int</span><span class="o">](([</span><span class="kt">Int</span><span class="o">]</span><span class="nv">$bowielyric</span><span class="o">[</span>3]+1983<span class="o">)</span>/420-1<span class="o">))</span>;
+<span class="nv">$g</span><span class="o">=([</span><span class="kt">Int</span><span class="o">](((</span>1970/[Int]<span class="nv">$bowielyric</span><span class="o">[</span>5]<span class="o">)</span><span class="k">*</span>9<span class="o">)</span>-207<span class="o">))</span>;
+<span class="nv">$y</span><span class="o">=([</span><span class="kt">Int</span><span class="o">](([</span><span class="kt">Int</span><span class="o">]</span><span class="nv">$bowielyric</span><span class="o">[</span>5]<span class="k">*</span>1969<span class="o">)</span>/<span class="o">(</span>278/2<span class="o">)</span>/<span class="o">(</span>200<span class="o">)</span>-5<span class="o">))</span>;
+</code></pre></div></div>
+
+<p>And then all the <code class="highlighter-rouge">if</code> stuff uses these 4 variables to create numbers that are then hex-encoded by calling <code class="highlighter-rouge">jaREth</code>.
+At the end, the hex string is decoded and executed.</p>
+
+<p>So all we have to do is to bruteforce the 3 chars value. As it is a domain, just try with uppercase chars first (by convention).
+So just put all this stuff inside 3 for loop and print the result at the end :</p>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">For</span> <span class="o">(</span><span class="nv">$aa</span><span class="o">=</span>65; <span class="nv">$aa</span> -le 90; <span class="nv">$aa</span>++<span class="o">)</span> <span class="o">{</span>
+	<span class="k">For</span> <span class="o">(</span><span class="nv">$bb</span><span class="o">=</span>65; <span class="nv">$bb</span> -le 90; <span class="nv">$bb</span>++<span class="o">)</span> <span class="o">{</span>
+		<span class="k">For</span> <span class="o">(</span><span class="nv">$cc</span><span class="o">=</span>65; <span class="nv">$cc</span> -le 90; <span class="nv">$cc</span>++<span class="o">)</span> <span class="o">{</span>
+			<span class="nv">$z</span> <span class="o">=</span> <span class="o">([</span><span class="kt">Int</span><span class="o">](((</span>2016 - <span class="nv">$aa</span><span class="o">)</span> <span class="k">*</span> 2<span class="o">)</span> / 70 -47<span class="o">))</span>;
+			<span class="nv">$i</span> <span class="o">=</span> <span class="o">([</span><span class="kt">Int</span><span class="o">]((</span><span class="nv">$bb</span> + 1983<span class="o">)</span> / 420 -1<span class="o">))</span>;
+			<span class="nv">$g</span> <span class="o">=</span> <span class="o">([</span><span class="kt">Int</span><span class="o">](((</span>1970 / <span class="nv">$cc</span><span class="o">)</span> <span class="k">*</span> 9<span class="o">)</span> -207<span class="o">))</span>;
+			<span class="nv">$y</span> <span class="o">=</span> <span class="o">([</span><span class="kt">Int</span><span class="o">]((</span><span class="nv">$cc</span> <span class="k">*</span> 1969<span class="o">)</span> / <span class="o">(</span>278 / 2<span class="o">)</span> / <span class="o">(</span>200<span class="o">)</span> -5<span class="o">))</span>;
+
+			<span class="c1"># All the if stuff untouched</span>
+
+			<span class="o">(</span><span class="nv">$bowiesong</span> -split <span class="s1">'(..)'</span><span class="o">)</span> | % <span class="o">{</span>
+				<span class="o">[</span>Convert]::ToInt32<span class="o">(</span><span class="nv">$_</span>, 16<span class="o">)</span>
+			<span class="o">}</span> | % <span class="o">{</span>
+				<span class="o">[</span>Convert]::ToChar<span class="o">(</span><span class="nv">$_</span><span class="o">)</span>
+			<span class="o">}</span> | % <span class="o">{</span>
+				<span class="nv">$bowiealbum</span> +<span class="o">=</span> <span class="o">(</span><span class="nv">$_</span><span class="o">)</span>
+			<span class="o">}</span>; <span class="c1"># &amp; ("{0}{2}{1}" -f$bowiealbum[4], "x", $bowiealbum[-4]) ($bowiealbum) &amp;</span>
+
+			<span class="nb">Write-Host</span> <span class="nv">$bowiealbum</span>
+		<span class="o">}</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>just run it and look for the result :</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>powershell rise.ps
+D´DdôddiFBFOFOFÔdFOFDÔ<span class="nv">$´$´</span>BFDdDFOFFFd<span class="nv">$d</span>ôdômFDdôdDd<span class="sb">`</span>FBF<span class="sb">`</span>FBFÔdB<span class="nv">$$</span>FIDBBBÔ<span class="nv">$$</span> B<span class="nv">$$</span><span class="nt">-BFBD</span> B<span class="nv">$B</span>Ô<span class="nv">$$$d</span> BBBD-BD B<span class="nv">$BBB</span>Ô<span class="nv">$$</span> B B-B<span class="nv">$d</span> BD BÔ<span class="nv">$d</span><span class="o">)</span>B BFBÔ<span class="o">)</span>BBB BD-B B<span class="nv">$$$B</span>Ô<span class="nv">$B</span> BBB-BD B BD-BFBFB<span class="nv">$BD</span><span class="nt">-BD</span> B<span class="nv">$$</span><span class="o">)</span>BÔ<span class="nv">$BFB$$</span> BBBÔ<span class="nv">$$</span>Dd<span class="nv">$dFBBBB</span><span class="nv">$´</span>BFÔdFd<span class="nv">$-</span>DFFFDdôdMFOFFB<span class="nv">$$</span>FFdôdFOFFFBBdôdddFBD<span class="nv">$iFDmF</span>Ô<span class="err">$</span>
+<span class="o">[</span>...]
+</code></pre></div></div>
+
+<p>and after some time, you will see :</p>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">[</span>Environment]::SetEnvironmentVariable<span class="o">(</span><span class="s2">"HWID"</span>,<span class="s2">"093-75115-37124-50142-30110-87150-78116-83115-81124-51121-50114-67145-51139-47130"</span>,<span class="s2">"User"</span><span class="o">)</span>;<span class="nb">Clear-EventLog</span> <span class="s2">"Windows PowerShell"</span>
+</code></pre></div></div>
+
+<p>Ok, so it only exports a HWID variable. Ready for next step !</p>
+
+<h1 id="ziggy-vbs">Ziggy VBS</h1>
+
+<p>So here we have an obfuscated VBS file. Appart the name mess, we can notice
+there are lot of arithmetic stuff like <code class="highlighter-rouge">&amp;H1ed-703+1hd3</code>, which does not help to
+understand.  Let’s fix that first:</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">grep</span> <span class="nt">-o</span> <span class="s1">'([0-9+-]*&amp;H[^)]\+)'</span> ziggy.vbs | <span class="k">while </span><span class="nb">read </span>line<span class="p">;</span> <span class="k">do </span><span class="nb">echo</span> <span class="nt">-n</span> <span class="s2">"</span><span class="nv">$line</span><span class="s2"> : "</span><span class="p">;</span> <span class="nb">echo</span> <span class="nv">$line</span> | sed <span class="s1">'s/&amp;H/0x/g'</span> | python <span class="nt">-c</span> <span class="s1">'import sys
+; print(eval(sys.stdin.read()))'</span>  <span class="p">;</span><span class="k">done</span>
+<span class="o">(</span>&amp;H36-197+&amp;H92<span class="o">)</span> : 3
+<span class="o">(</span>&amp;H3c8-1128+&amp;Ha0<span class="o">)</span> : 0
+<span class="o">(</span>&amp;H132-1082+&amp;H309<span class="o">)</span> : 1
+<span class="o">(</span>&amp;H1ed-703+&amp;Hd3<span class="o">)</span> : 1
+<span class="o">(</span>&amp;Hf5-553+&amp;H138<span class="o">)</span> : 4
+</code></pre></div></div>
+
+<p>We see lot of very small values. Let’s sed everything :</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">grep</span> <span class="nt">-o</span> <span class="s1">'([0-9+-]*&amp;H[^)]\+)'</span> ziggy.vbs | <span class="k">while </span><span class="nb">read </span>line<span class="p">;</span> <span class="k">do </span><span class="nb">echo</span> <span class="nt">-n</span> <span class="s2">"sed -i </span><span class="se">\"</span><span class="s2">s/</span><span class="nv">$line</span><span class="s2">/"</span><span class="p">;</span> <span class="nb">echo</span> <span class="nv">$line</span> | sed  <span class="s1">'s/&amp;H/0x/g'</span> | python <span class="nt">-c</span> <span class="s1">'import sys; print("("+ str(eval(sys.stdin.read())) + ")/g\" ziggy.vbs")'</span>  <span class="p">;</span><span class="k">done</span> | shell
+</code></pre></div></div>
+
+<p>Much better, but still the name obfuscation to solve.
+After some cleaning/ordering we get this file :</p>
+
+<div class="language-visualbasic highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">' Check some stuff in registry and returns either 0 or 1</span>
+<span class="n">registry_user_software_check_result</span> <span class="o">=</span> <span class="n">registry_user_software_check</span>
+<span class="n">date_now</span> <span class="o">=</span> <span class="n">now</span>
+
+<span class="c1">' Get data in MOVDATA register key</span>
+<span class="c1">' it was stored in MarsSpider_Contract macro and is composed of a date + a string of ascii value</span>
+<span class="n">set</span> <span class="n">shell_object</span> <span class="o">=</span> <span class="n">createobject</span><span class="p">(</span><span class="s">"Wscript.Shell"</span><span class="p">)</span>
+<span class="n">movdata</span> <span class="o">=</span> <span class="n">shell_object</span><span class="p">.</span><span class="n">RegRead</span><span class="p">(</span><span class="s">"HKEY_CURRENT_USER\Volatile Environment\MOVDATA"</span><span class="p">)</span>
+
+<span class="c1">' Chosse either 'TheDarkCrystal!' or 'WhereDidTobyGo?' based on registry check</span>
+<span class="n">if</span> <span class="n">registry_user_software_check_result</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="n">then</span>
+    <span class="n">func3_result</span> <span class="o">=</span> <span class="n">func3</span><span class="p">(</span><span class="s">"VGhlRGFya0NyeXN0YWwh"</span><span class="p">)</span> <span class="c1">' TheDarkCrystal!</span>
+<span class="n">else</span>
+    <span class="n">func3_result</span> <span class="o">=</span> <span class="n">func3</span><span class="p">(</span><span class="s">"V2hlcmVEaWRUb2J5R28/"</span><span class="p">)</span> <span class="c1">' WhereDidTobyGo?</span>
+<span class="n">end</span> <span class="n">if</span>
+
+<span class="c1">' Get date/time part from the movdata</span>
+<span class="n">movdata_datestr</span> <span class="o">=</span> <span class="n">mid</span><span class="p">(</span><span class="n">movdata</span><span class="p">,(</span><span class="mi">1</span><span class="p">),(</span><span class="mi">21</span><span class="p">))</span>
+<span class="n">movdata_date</span> <span class="o">=</span> <span class="k">CDate</span><span class="p">(</span><span class="n">movdata_datestr</span><span class="p">)</span>
+
+<span class="c1">' Check if it is less than 30s from now</span>
+<span class="c1">' likely some anti debug technique, so correct value should be func2(movdata)</span>
+<span class="n">if</span> <span class="n">datediff</span><span class="p">(</span><span class="s">"s"</span><span class="p">,</span><span class="n">movdata_date</span><span class="p">,</span><span class="n">date_now</span><span class="p">)</span> <span class="o">&lt;</span> <span class="p">(</span><span class="mi">30</span><span class="p">)</span> <span class="n">then</span>
+    <span class="n">func2_result</span> <span class="o">=</span> <span class="n">func2</span><span class="p">(</span><span class="n">movdata</span><span class="p">)</span>
+<span class="n">else</span>
+    <span class="n">func2_result</span> <span class="o">=</span> <span class="n">func2</span><span class="p">(</span><span class="n">StrReverse</span><span class="p">(</span><span class="n">movdata</span><span class="p">))</span>
+<span class="n">end</span> <span class="n">if</span>
+
+<span class="c1">' Open main doc file</span>
+<span class="c1">' and extract a subsection of 2156 bytes</span>
+<span class="n">set</span> <span class="n">fs_object</span><span class="o">=</span><span class="n">CreateObject</span><span class="p">(</span><span class="s">"Scripting.FileSystemObject"</span><span class="p">)</span>
+<span class="n">y_marsspider_path</span><span class="o">=</span><span class="s">"Y:\MarsSpider_Contract.doc"</span>
+<span class="n">set</span> <span class="n">y_marsspider_file</span> <span class="o">=</span> <span class="n">fs_object</span><span class="p">.</span><span class="n">GetFile</span><span class="p">(</span><span class="n">y_marsspider_path</span><span class="p">)</span>
+
+<span class="n">with</span> <span class="n">y_marsspider_file</span><span class="p">.</span><span class="n">OpenAsTextStream</span><span class="p">()</span>
+    <span class="n">y_marsspider_content</span> <span class="o">=</span> <span class="p">.</span><span class="n">Read</span><span class="p">(</span><span class="n">y_marsspider_file</span><span class="p">.</span><span class="n">Size</span><span class="p">)</span>
+    <span class="p">.</span><span class="n">Close</span>
+<span class="n">end</span> <span class="n">with</span>
+<span class="n">marsspider_subfile</span> <span class="o">=</span> <span class="n">mid</span><span class="p">(</span><span class="n">y_marsspider_content</span><span class="p">,(</span><span class="mi">269217</span><span class="p">),(</span><span class="mi">2156</span><span class="p">))</span>
+
+<span class="c1">' Decrypt the content</span>
+<span class="n">cryptofunc_res</span> <span class="o">=</span> <span class="n">cryptofunc</span><span class="p">(</span><span class="n">marsspider_subfile</span><span class="p">)</span>
+
+<span class="c1">' Create a bat file and store the decrypted content</span>
+<span class="n">set</span> <span class="n">fs_object</span><span class="o">=</span><span class="n">CreateObject</span><span class="p">(</span><span class="s">"Scripting.FileSystemObject"</span><span class="p">)</span>
+<span class="n">y_594f54_bat</span><span class="o">=</span><span class="s">"Y:\594f54.bat"</span>
+<span class="n">set</span> <span class="n">y_marsspider_file</span> <span class="o">=</span> <span class="n">fs_object</span><span class="p">.</span><span class="n">CreateTextFile</span><span class="p">(</span><span class="n">y_594f54_bat</span><span class="p">,</span><span class="k">True</span><span class="p">)</span>
+<span class="n">y_marsspider_file</span><span class="p">.</span><span class="n">Write</span><span class="p">(</span><span class="n">cryptofunc_res</span><span class="p">)</span>
+<span class="n">y_marsspider_file</span><span class="p">.</span><span class="n">Close</span>
+
+<span class="c1">' and run this bat file</span>
+<span class="n">set</span> <span class="n">y_marsspider_file</span> <span class="o">=</span> <span class="n">fs_object</span><span class="p">.</span><span class="n">GetFile</span><span class="p">(</span><span class="n">y_594f54_bat</span><span class="p">)</span>
+<span class="n">y_marsspider_file</span><span class="p">.</span><span class="n">attributes</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">CreateObject</span><span class="p">(</span><span class="s">"WScript.Shell"</span><span class="p">).</span><span class="n">Run</span> <span class="s">"%COMSPEC% /c y: &amp;&amp; Y:\594f54.bat 594f54.bat"</span>
+
+<span class="k">Function</span> <span class="nf">cryptofunc</span><span class="p">(</span><span class="n">cryptofunc_param1</span><span class="p">)</span>
+    <span class="n">six_bits_array</span><span class="o">=</span><span class="n">Array</span><span class="p">(</span><span class="s">"000000"</span><span class="p">,</span><span class="s">"000001"</span><span class="p">,</span><span class="s">"000010"</span><span class="p">,</span><span class="s">"000011"</span><span class="p">,</span><span class="s">"000100"</span><span class="p">,</span><span class="s">"000101"</span><span class="p">,</span><span class="s">"000110"</span><span class="p">,</span><span class="s">"000111"</span><span class="p">,</span><span class="s">"001000"</span><span class="p">,</span><span class="s">"001001"</span><span class="p">,</span><span class="s">"001010"</span><span class="p">,</span><span class="s">"001011"</span><span class="p">,</span><span class="s">"001100"</span><span class="p">,</span><span class="s">"001101"</span><span class="p">,</span><span class="s">"001110"</span><span class="p">,</span><span class="s">"001111"</span><span class="p">,</span><span class="s">"010000"</span><span class="p">,</span><span class="s">"010001"</span><span class="p">,</span><span class="s">"010010"</span><span class="p">,</span><span class="s">"010011"</span><span class="p">,</span><span class="s">"010100"</span><span class="p">,</span><span class="s">"010101"</span><span class="p">,</span><span class="s">"010110"</span><span class="p">,</span><span class="s">"010111"</span><span class="p">,</span><span class="s">"011000"</span><span class="p">,</span><span class="s">"011001"</span><span class="p">,</span><span class="s">"011010"</span><span class="p">,</span><span class="s">"011011"</span><span class="p">,</span><span class="s">"011100"</span><span class="p">,</span><span class="s">"011101"</span><span class="p">,</span><span class="s">"011110"</span><span class="p">,</span><span class="s">"011111"</span><span class="p">,</span><span class="s">"100000"</span><span class="p">,</span><span class="s">"100001"</span><span class="p">,</span><span class="s">"100010"</span><span class="p">,</span><span class="s">"100011"</span><span class="p">,</span><span class="s">"100100"</span><span class="p">,</span><span class="s">"100101"</span><span class="p">,</span><span class="s">"100110"</span><span class="p">,</span><span class="s">"100111"</span><span class="p">,</span><span class="s">"101000"</span><span class="p">,</span><span class="s">"101001"</span><span class="p">,</span><span class="s">"101010"</span><span class="p">,</span><span class="s">"101011"</span><span class="p">,</span><span class="s">"101100"</span><span class="p">,</span><span class="s">"101101"</span><span class="p">,</span><span class="s">"101110"</span><span class="p">,</span><span class="s">"101111"</span><span class="p">,</span><span class="s">"110000"</span><span class="p">,</span><span class="s">"110001"</span><span class="p">,</span><span class="s">"110010"</span><span class="p">,</span><span class="s">"110011"</span><span class="p">,</span><span class="s">"110100"</span><span class="p">,</span><span class="s">"110101"</span><span class="p">,</span><span class="s">"110110"</span><span class="p">,</span><span class="s">"110111"</span><span class="p">,</span><span class="s">"111000"</span><span class="p">,</span><span class="s">"111001"</span><span class="p">,</span><span class="s">"111010"</span><span class="p">,</span><span class="s">"111011"</span><span class="p">,</span><span class="s">"111100"</span><span class="p">,</span><span class="s">"111101"</span><span class="p">,</span><span class="s">"111110"</span><span class="p">,</span><span class="s">"111111"</span><span class="p">)</span>
+    <span class="n">do</span> <span class="n">until</span> <span class="n">Len</span><span class="p">(</span><span class="n">cryptofunc_param1</span><span class="p">)</span> <span class="ow">Mod</span> <span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">cryptofunc_param1</span> <span class="o">=</span> <span class="n">cryptofunc_param1</span> <span class="o">&amp;</span> <span class="n">Chr</span><span class="p">(</span><span class="mi">61</span><span class="p">)</span>
+    <span class="n">loop</span>
+    <span class="n">cryptofunc_result</span> <span class="o">=</span> <span class="s">""</span>
+    <span class="k">For</span> <span class="n">i</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="k">To</span> <span class="n">Len</span><span class="p">(</span><span class="n">cryptofunc_param1</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="k">Step</span> <span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+        <span class="n">cryptofunc_param1_4chars</span> <span class="o">=</span> <span class="n">Mid</span><span class="p">(</span><span class="n">cryptofunc_param1</span><span class="p">,</span><span class="n">i</span><span class="p">,(</span><span class="mi">4</span><span class="p">))</span>
+        <span class="n">str2</span> <span class="o">=</span> <span class="s">""</span>
+        <span class="k">For</span> <span class="n">j</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="k">To</span> <span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+            <span class="n">if</span> <span class="n">mid</span><span class="p">(</span><span class="n">cryptofunc_param1_4chars</span><span class="p">,</span><span class="n">j</span><span class="p">,(</span><span class="mi">1</span><span class="p">))</span> <span class="o">=</span> <span class="n">Chr</span><span class="p">(</span><span class="mi">61</span><span class="p">)</span> <span class="n">then</span>
+                <span class="n">str2</span> <span class="o">=</span> <span class="n">str2</span> <span class="o">&amp;</span> <span class="s">"00000000"</span>
+            <span class="n">else</span>
+                <span class="n">six_bits_index</span> <span class="o">=</span> <span class="n">instr</span><span class="p">(</span><span class="n">func2_result</span><span class="p">,</span> <span class="n">Mid</span><span class="p">(</span><span class="n">cryptofunc_param1_4chars</span><span class="p">,</span><span class="n">j</span><span class="p">,(</span><span class="mi">1</span><span class="p">)))</span> <span class="o">-</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+                <span class="n">str2</span> <span class="o">=</span> <span class="n">str2</span> <span class="o">&amp;</span> <span class="n">six_bits_array</span><span class="p">(</span><span class="n">six_bits_index</span><span class="p">)</span>
+            <span class="n">end</span> <span class="n">if</span>
+        <span class="k">Next</span>
+        <span class="n">str3</span> <span class="o">=</span> <span class="n">mid</span><span class="p">(</span><span class="n">str2</span><span class="p">,(</span><span class="mi">19</span><span class="p">),(</span><span class="mi">6</span><span class="p">))</span> <span class="o">&amp;</span> <span class="n">mid</span><span class="p">(</span><span class="n">str2</span><span class="p">,(</span><span class="mi">7</span><span class="p">),(</span><span class="mi">2</span><span class="p">))</span>
+        <span class="n">int1</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">str4</span> <span class="o">=</span> <span class="n">mid</span><span class="p">(</span><span class="n">str2</span><span class="p">,(</span><span class="mi">9</span><span class="p">),(</span><span class="mi">8</span><span class="p">))</span>
+        <span class="n">powerof2</span><span class="o">=</span><span class="n">Array</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span><span class="mi">64</span><span class="p">,</span><span class="mi">32</span><span class="p">,</span><span class="mi">16</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+
+        <span class="n">str5</span> <span class="o">=</span> <span class="n">mid</span><span class="p">(</span><span class="n">str2</span><span class="p">,(</span><span class="mi">17</span><span class="p">),(</span><span class="mi">2</span><span class="p">))</span> <span class="o">&amp;</span> <span class="n">mid</span><span class="p">(</span><span class="n">str2</span><span class="p">,(</span><span class="mi">1</span><span class="p">),(</span><span class="mi">6</span><span class="p">))</span>
+        <span class="n">for</span> <span class="n">z</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="n">to</span> <span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+            <span class="n">if</span> <span class="n">mid</span><span class="p">(</span><span class="n">str3</span><span class="p">,</span><span class="n">z</span><span class="p">,(</span><span class="mi">1</span><span class="p">))</span> <span class="o">=</span> <span class="n">Chr</span><span class="p">(</span><span class="mi">49</span><span class="p">)</span> <span class="n">then</span>
+                <span class="n">int1</span> <span class="o">=</span> <span class="n">int1</span> <span class="o">+</span> <span class="n">powerof2</span><span class="p">(</span><span class="n">z</span> <span class="o">-</span> <span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+            <span class="n">end</span> <span class="n">if</span>
+        <span class="n">next</span>
+        <span class="n">cryptofunc_result</span> <span class="o">=</span> <span class="n">cryptofunc_result</span> <span class="o">&amp;</span> <span class="n">Chr</span><span class="p">(</span><span class="n">int1</span> <span class="ow">Xor</span> <span class="n">func3_result</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+        <span class="n">int1</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">for</span> <span class="n">z</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="n">to</span> <span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+            <span class="n">if</span> <span class="n">mid</span><span class="p">(</span><span class="n">str4</span><span class="p">,</span><span class="n">z</span><span class="p">,(</span><span class="mi">1</span><span class="p">))</span> <span class="o">=</span> <span class="n">Chr</span><span class="p">(</span><span class="mi">49</span><span class="p">)</span> <span class="n">then</span>
+                <span class="n">int1</span> <span class="o">=</span> <span class="n">int1</span> <span class="o">+</span> <span class="n">powerof2</span><span class="p">(</span><span class="n">z</span> <span class="o">-</span> <span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+            <span class="n">end</span> <span class="n">if</span>
+        <span class="n">next</span>
+        <span class="n">cryptofunc_result</span> <span class="o">=</span> <span class="n">cryptofunc_result</span> <span class="o">&amp;</span> <span class="n">Chr</span><span class="p">(</span><span class="n">int1</span> <span class="ow">Xor</span> <span class="n">func3_result</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+        <span class="n">int1</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">for</span> <span class="n">z</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="n">to</span> <span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+            <span class="n">if</span> <span class="n">mid</span><span class="p">(</span><span class="n">str5</span><span class="p">,</span><span class="n">z</span><span class="p">,(</span><span class="mi">1</span><span class="p">))</span> <span class="o">=</span> <span class="n">Chr</span><span class="p">(</span><span class="mi">49</span><span class="p">)</span> <span class="n">then</span>
+                <span class="n">int1</span> <span class="o">=</span> <span class="n">int1</span> <span class="o">+</span> <span class="n">powerof2</span><span class="p">(</span><span class="n">z</span> <span class="o">-</span> <span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+            <span class="n">end</span> <span class="n">if</span>
+        <span class="n">next</span>
+        <span class="n">cryptofunc_result</span> <span class="o">=</span> <span class="n">cryptofunc_result</span> <span class="o">&amp;</span> <span class="n">Chr</span><span class="p">(</span><span class="n">int1</span> <span class="ow">Xor</span> <span class="n">func3_result</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+    <span class="k">Next</span>
+    <span class="n">cryptofunc</span> <span class="o">=</span> <span class="n">cryptofunc_result</span>
+<span class="k">End</span> <span class="k">Function</span>
+
+<span class="n">function</span> <span class="n">func3</span><span class="p">(</span><span class="n">func3_param</span><span class="p">)</span>
+    <span class="n">if</span> <span class="n">func3_param</span> <span class="o">=</span> <span class="s">"VGhlRGFya0NyeXN0YWwh"</span> <span class="n">then</span> <span class="c1">' TheDarkCrystal!</span>
+        <span class="n">set</span> <span class="n">fs_object</span> <span class="o">=</span> <span class="n">CreateObject</span><span class="p">(</span><span class="s">"Scripting.FileSystemObject"</span><span class="p">)</span>
+        <span class="n">if</span> <span class="n">fs_object</span><span class="p">.</span><span class="n">FileExists</span><span class="p">(</span><span class="s">"Y:\MarsSpider_Contract.doc"</span><span class="p">)</span> <span class="n">then</span>
+            <span class="n">rma</span> <span class="o">=</span> <span class="n">Array</span><span class="p">((</span><span class="mi">82</span><span class="p">),(</span><span class="mi">77</span><span class="p">),(</span><span class="mi">65</span><span class="p">))</span>
+            <span class="n">func3</span> <span class="o">=</span> <span class="n">rma</span>
+        <span class="n">end</span> <span class="n">if</span>
+    <span class="n">end</span> <span class="n">if</span>
+    <span class="n">if</span> <span class="n">func3_param</span> <span class="o">=</span> <span class="s">"V2hlcmVEaWRUb2J5R28/"</span> <span class="n">then</span> <span class="c1">' WhereDidTobyGo?</span>
+        <span class="n">set</span> <span class="n">fs_object</span> <span class="o">=</span> <span class="n">CreateObject</span><span class="p">(</span><span class="s">"Scripting.FileSystemObject"</span><span class="p">)</span>
+        <span class="n">if</span> <span class="n">fs_object</span><span class="p">.</span><span class="n">FileExists</span><span class="p">(</span><span class="s">"Y:\MarsSpider_Contract.doc"</span><span class="p">)</span> <span class="n">then</span>
+            <span class="n">mar</span> <span class="o">=</span> <span class="n">Array</span><span class="p">((</span><span class="mi">77</span><span class="p">),(</span><span class="mi">65</span><span class="p">),(</span><span class="mi">82</span><span class="p">))</span>
+            <span class="n">func3</span> <span class="o">=</span> <span class="n">mar</span>
+        <span class="n">end</span> <span class="n">if</span>
+    <span class="n">end</span> <span class="n">if</span>
+<span class="n">end</span> <span class="n">function</span>
+
+<span class="n">function</span> <span class="n">func2</span><span class="p">(</span><span class="n">movdata</span><span class="p">)</span>
+    <span class="n">func2_res</span> <span class="o">=</span> <span class="s">""</span>
+    <span class="n">movdata_chrs</span> <span class="o">=</span> <span class="n">Split</span><span class="p">(</span><span class="n">mid</span><span class="p">(</span><span class="n">movdata</span><span class="p">,(</span><span class="mi">22</span><span class="p">),(</span><span class="mi">195</span><span class="p">)),</span><span class="s">","</span><span class="p">)</span>
+    <span class="n">movdata_date</span> <span class="o">=</span> <span class="n">mid</span><span class="p">(</span><span class="n">movdata</span><span class="p">,(</span><span class="mi">1</span><span class="p">),(</span><span class="mi">9</span><span class="p">))</span>
+    <span class="n">dim</span> <span class="n">array8</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+    <span class="n">for</span> <span class="n">k</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="n">to</span> <span class="n">len</span><span class="p">(</span><span class="n">movdata_date</span><span class="p">)</span>
+        <span class="n">array8</span><span class="p">(</span><span class="n">k</span><span class="o">-</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span> <span class="o">=</span> <span class="n">mid</span><span class="p">(</span><span class="n">movdata_date</span><span class="p">,</span><span class="n">k</span><span class="p">,(</span><span class="mi">1</span><span class="p">))</span>
+    <span class="n">next</span>
+    <span class="n">for</span> <span class="n">l</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="n">to</span> <span class="n">UBound</span><span class="p">(</span><span class="n">movdata_chrs</span><span class="p">)</span>
+        <span class="n">func2_res</span> <span class="o">=</span> <span class="n">func2_res</span> <span class="o">&amp;</span> <span class="n">Chr</span><span class="p">(</span><span class="n">Cint</span><span class="p">(</span><span class="n">movdata_chrs</span><span class="p">(</span><span class="n">l</span><span class="p">))</span> <span class="ow">Xor</span> <span class="n">Asc</span><span class="p">(</span><span class="n">array8</span><span class="p">(</span><span class="n">l</span> <span class="ow">Mod</span> <span class="n">len</span><span class="p">(</span><span class="n">movdata_date</span><span class="p">))))</span>
+    <span class="n">next</span>
+    <span class="n">func2</span> <span class="o">=</span> <span class="n">func2_res</span>
+<span class="n">end</span> <span class="n">function</span>
+
+<span class="k">Function</span> <span class="nf">registry_user_software_check</span><span class="p">()</span>
+    <span class="k">Set</span> <span class="n">stdregprov</span><span class="o">=</span><span class="n">GetObject</span><span class="p">(</span><span class="s">"winmgmts:{impersonationLevel=impersonate}!\\.\root\default:StdRegProv"</span><span class="p">)</span>
+    <span class="n">stdregprov</span><span class="p">.</span><span class="n">EnumKey</span> <span class="mi">2147483649</span><span class="p">,</span> <span class="s">"Software"</span><span class="p">,</span> <span class="n">software_subtree</span> <span class="c1">' 2147483649 is HKEY_CURRENT_USER</span>
+    <span class="n">registry_user_software_check_result</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="k">For</span> <span class="k">Each</span> <span class="n">obj</span> <span class="n">in</span> <span class="n">software_subtree</span>
+        <span class="n">if</span> <span class="n">mid</span><span class="p">(</span><span class="n">obj</span><span class="p">,(</span><span class="mi">1</span><span class="p">),(</span><span class="mi">1</span><span class="p">))</span> <span class="o">=</span> <span class="n">Chr</span><span class="p">(</span><span class="mi">86</span><span class="p">)</span> <span class="n">and</span> <span class="n">mid</span><span class="p">(</span><span class="n">obj</span><span class="p">,(</span><span class="mi">7</span><span class="p">),(</span><span class="mi">1</span><span class="p">))</span> <span class="o">=</span> <span class="n">Chr</span><span class="p">(</span><span class="mi">44</span><span class="p">)</span> <span class="n">then</span>
+            <span class="n">registry_user_software_check_result</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">elseif</span> <span class="n">mid</span><span class="p">(</span><span class="n">obj</span><span class="p">,(</span><span class="mi">1</span><span class="p">),(</span><span class="mi">1</span><span class="p">))</span> <span class="o">=</span> <span class="n">Chr</span><span class="p">(</span><span class="mi">72</span><span class="p">)</span> <span class="n">and</span> <span class="n">mid</span><span class="p">(</span><span class="n">obj</span><span class="p">,(</span><span class="mi">4</span><span class="p">),(</span><span class="mi">1</span><span class="p">))</span> <span class="o">=</span> <span class="n">Chr</span><span class="p">(</span><span class="mi">45</span><span class="p">)</span> <span class="n">then</span>
+            <span class="n">registry_user_software_check_result</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">elseif</span> <span class="n">mid</span><span class="p">(</span><span class="n">obj</span><span class="p">,(</span><span class="mi">1</span><span class="p">),(</span><span class="mi">1</span><span class="p">))</span> <span class="o">=</span> <span class="n">Chr</span><span class="p">(</span><span class="mi">55</span><span class="p">)</span> <span class="n">and</span> <span class="n">mid</span><span class="p">(</span><span class="n">obj</span><span class="p">,(</span><span class="mi">2</span><span class="p">),(</span><span class="mi">1</span><span class="p">))</span> <span class="o">=</span> <span class="n">Chr</span><span class="p">(</span><span class="mi">45</span><span class="p">)</span> <span class="n">then</span>
+            <span class="n">registry_user_software_check_result</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">elseif</span> <span class="n">mid</span><span class="p">(</span><span class="n">obj</span><span class="p">,(</span><span class="mi">1</span><span class="p">),(</span><span class="mi">1</span><span class="p">))</span> <span class="o">=</span> <span class="n">Chr</span><span class="p">(</span><span class="mi">83</span><span class="p">)</span> <span class="n">and</span> <span class="n">mid</span><span class="p">(</span><span class="n">obj</span><span class="p">,(</span><span class="mi">4</span><span class="p">),(</span><span class="mi">1</span><span class="p">))</span> <span class="o">=</span> <span class="n">Chr</span><span class="p">(</span><span class="mi">105</span><span class="p">)</span> <span class="n">then</span>
+            <span class="n">registry_user_software_check_result</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">end</span> <span class="n">if</span>
+    <span class="k">Next</span>
+    <span class="n">registry_user_software_check</span> <span class="o">=</span> <span class="n">registry_user_software_check_result</span>
+<span class="k">End</span> <span class="k">Function</span>
+</code></pre></div></div>
+
+<p>So, as we can see, the first part is mainly anti debugging stuff. It:</p>
+
+<ul>
+  <li>Checks that this macro is started at most 30s after the first one (by getting MOVDATA register key)</li>
+  <li>Checks some registry entries and set a value based on the result</li>
+</ul>
+
+<h2 id="movdata">MOVDATA</h2>
+
+<p>So first, try to guess what MOVDATA contains. If we look at <code class="highlighter-rouge">MarsSpider_Contract.macros.vbs</code> we can see that :</p>
+
+<div class="language-visualbasic highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">VG9t</span> <span class="o">=</span> <span class="n">MsgBox</span><span class="p">(</span><span class="s">"Use 'Attack of the MARS SPIDER' for movie title?"</span><span class="p">,</span> <span class="p">(</span><span class="o">&amp;</span><span class="n">H98</span> <span class="o">-</span> <span class="mi">437</span> <span class="o">+</span> <span class="o">&amp;</span><span class="n">H121</span><span class="p">),</span> <span class="s">"Movie Title"</span><span class="p">)</span>
+<span class="k">If</span> <span class="n">VG9t</span> <span class="o">=</span> <span class="p">(</span><span class="o">&amp;</span><span class="n">HC9</span> <span class="o">-</span> <span class="mi">574</span> <span class="o">+</span> <span class="o">&amp;</span><span class="n">H176</span><span class="p">)</span> <span class="k">Then</span>
+<span class="n">VGFrZQ</span> <span class="o">=</span> <span class="s">"111,49,83,6,61,53,73,91,1,128,57,8,110,111,101,114,101,40,99,90,60,113,112,70,11,116,71,77,123,32,110,5,52,106,28,20,106,111,47,93,82,31,27,109,38,56,118,6,96,37,32,94,42,118,118,9,56,94,103,43,12,3,123,128"</span>
+<span class="k">Else</span>
+<span class="n">VGFrZQ</span> <span class="o">=</span> <span class="s">"31,1,109,69,0,116,109,97,4,5,116,87,91,85,96,91,3,123,12,118,3,124,111,23,81,101,22,80,2,12,15,7,124,10,66,111,101,70,85,118,66,25,106,18,16,72,11,71,30,22,120,7,70,2,119,19,2,106,9,79,25,72,3,11"</span>
+<span class="k">End</span> <span class="k">If</span>
+
+
+<span class="n">CreateObject</span><span class="p">(</span><span class="s">"WScript.Shell"</span><span class="p">).</span><span class="n">RegWrite</span> <span class="s">"HKCU\Volatile Environment\MOVDATA"</span><span class="p">,</span> <span class="n">Now</span> <span class="o">&amp;</span> <span class="n">VGFrZQ</span><span class="p">,</span> <span class="s">"REG_SZ"</span>
+</code></pre></div></div>
+
+<p>So we have to find the date. <code class="highlighter-rouge">VGFrZQ</code> has only 2 possibilities.</p>
+
+<p>Looking at various place, we see some dates :</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ LC_ALL</span><span class="o">=</span>C stat MarsSpider_Contract.doc
+  File: MarsSpider_Contract.doc
+  Size: 435712          Blocks: 856        IO Block: 4096   regular file
+Device: fd01h/64769d    Inode: 7519040     Links: 1
+Access: <span class="o">(</span>0700/-rwx------<span class="o">)</span>  Uid: <span class="o">(</span> 1000/ maxence<span class="o">)</span>   Gid: <span class="o">(</span> 1000/ maxence<span class="o">)</span>
+Access: 2017-07-20 10:08:46.161541575 +0200
+Modify: 2017-04-04 18:57:53.000000000 +0200
+Change: 2017-07-20 10:08:36.853644508 +0200
+ Birth: -
+
+<span class="nv">$ </span>strings MarsSpider_Contract.doc|grep 2017
+3/24/2017 10:17:12 AM
+</code></pre></div></div>
+
+<p>The one from strings seems nice, as it has exactly 22 chars (look at ziggy.vbs,
+it splits the MOVDATA at this size). So let’s try it. So MOVDATA will be one of :</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>3/24/2017 10:17:12 AM111,49,83,6,61,53,73,91,1,128,57,8,110,111,101,114,101,40,99,90,60,113,112,70,11,116,71,77,123,32,110,5,52,106,28,20,106,111,47,93,82,31,27,109,38,56,118,6,96,37,32,94,42,118,118,9,56,94,103,43,12,3,123,128
+</code></pre></div></div>
+
+<p>or :</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>3/24/2017 10:17:12 AM31,1,109,69,0,116,109,97,4,5,116,87,91,85,96,91,3,123,12,118,3,124,111,23,81,101,22,80,2,12,15,7,124,10,66,111,101,70,85,118,66,25,106,18,16,72,11,71,30,22,120,7,70,2,119,19,2,106,9,79,25,72,3,11
+</code></pre></div></div>
+
+<h2 id="registry">Registry</h2>
+
+<p>Looks like the check has a default return value of ‘0’ and return ‘1’ if some
+values match special char. We can try both values, but it is only used to
+choose between 2 base64 strings :</p>
+
+<ul>
+  <li>VGhlRGFya0NyeXN0YWwh</li>
+  <li>V2hlcmVEaWRUb2J5R28/</li>
+</ul>
+
+<p>which in turn is only used to choose between 2 arrays :</p>
+
+<ul>
+  <li>[82,77,65] = RMA</li>
+  <li>[77,65,82] = MAR</li>
+</ul>
+
+<p>So we may try both of them. We expect that expected value is ‘1’ so we will first try with VGhlRGFya0NyeXN0YWwh / [82,77,65]</p>
+
+<h2 id="extract-subfile">Extract subfile</h2>
+
+<p>So, we’re done with the anti-debugging stuff. We have 4 possible combinations of values.
+If we go further in the script we see this part :</p>
+
+<div class="language-visualbasic highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">marsspider_subfile</span> <span class="o">=</span> <span class="n">mid</span><span class="p">(</span><span class="n">y_marsspider_content</span><span class="p">,(</span><span class="mi">269217</span><span class="p">),(</span><span class="mi">2156</span><span class="p">))</span>
+<span class="n">cryptofunc_res</span> <span class="o">=</span> <span class="n">cryptofunc</span><span class="p">(</span><span class="n">marsspider_subfile</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>So the script gets a chunk of 2156 bytes from the main doc. Let’s get it :</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>dd <span class="k">if</span><span class="o">=</span>MarsSpider_Contract.doc <span class="nv">skip</span><span class="o">=</span>269216  <span class="nv">bs</span><span class="o">=</span>1 <span class="nv">count</span><span class="o">=</span>2156
+L22qJ2^.1N-,./<span class="s1">'2;.1_YN3,%@/,*J,3@?237_w[D_2zsqV_:_)e)_06./'</span>2J.H[NsVe?@<span class="s1">'T&lt;P9T:J-oa/9(N*0[&lt;@Lcc]/e&amp;DF39D2c&amp;Yz6}*FT}]z!y21c(@ic%73L{@FR&lt;]L-7J1o:/'</span>2J.H[120q<span class="o">&lt;&lt;</span><span class="no">9_</span><span class="sh">)q)!a/9egN2ku%^cmP^c4&lt;Fo(].(&lt;93L+@/R&lt;P9omq)!a/9egs2k4?-cgs,3sB.zu&lt;1a2_1-aV93a/9TgN2PYL/c%2V].L1FY./-%2V](LHF1JNL&lt;@zc*gL-u%9ce@ocLD/c4_wq%%'c]2NFa19cJ,&gt;6z.0!ws-,&lt;_36):^/gJ2k)qoRu]F!X]F-&amp;@F(:/'2P,)!m25,4&lt;:o]]2(F2Vc-]2.;,w]s7y&gt;&lt;%.a&gt;N3/cNm,XP9_i&lt;.;}/{2422cJNLka19T-g2P;,w]#7y&gt;&lt;%.a!@/R&lt;N:];92,'%',X@5(L.0!TN0,u,L.gPL(aw9;a/9T,J0_w@0cg@oc&lt;sm3u763JDzT7]2!)?Nc5@ic}9)[D9)3NX1ko9)/!@oc@NN]o9)cz@2cwN0/9JN[z.0[yJwa&lt;_HeJg:!J2^_a19T]s2kzL0c;2*F]9oa&lt;&lt;9_(_.!w*NL!@,c@NN]&gt;N3/cNm,J]._XJ23+@,cJ].oa19Tgs2k7@0cz@oc(:V/,@),u2&gt;]z.0c;2*F]9oa'&lt;'_4PL(8D.(+@,Ty].oBP.((]zTJD:L:,w[&amp;]F[:/'2J.H_Js.az90c;2*F]9oa7&lt;9_[:0/),5,191PX7y&gt;N]5;&amp;]+cuqmcX]^c}PL(aw9ca/9Ta/9T]N2P7@0czL0cws-,&lt;_36):^/gJ2k)qoRXP9aa19(NJ0_;@0c&lt;@Lc}]/e&amp;DF,X@5(z@2a(:V/,@),&lt;2&gt;]D]/T&amp;gF,}/'2&lt;DF[J_.!JP9-&amp;@F(:/'2JqH_Y9/c%2V].L1F&lt;gLFu.9eF,Vcm,H.4&lt;.o*D.(}/{2422cJsLPa19T,J0_&lt;@Lc}g/c&amp;DF,z.0cws-,&lt;_36):^/gJ2k)qoRJ]:cJ?^_a19Tgs2k_@oc!.1q].V_&lt;:+Pk_,!!],-@NN]&lt;7y&gt;4]6!*g.(./'2J.H[uD+aY./!%2V].L1F:7y&gt;&lt;%.aY./!%2V].L1FN7y&gt;&lt;%.aY./!%2V].L1FV7y&gt;&lt;%.aY./!%2V].L1Fs7y&gt;&lt;%.a}/{2}/{2./'2J.H_Js.az90cws-,&lt;_36):^/gJ2k)qoR:B9Taw9ca/9TJ&lt;{&gt;gJ03:]/[w_w[s]Fc:%.zy?-c!D/k@NN]&gt;N3/cNm,a/9_N*0[;@0c&lt;@Lc}]/e&amp;DF3J@5(J]5(z.0!;2*F]9oa}DL_y?1c(@ic%73Ly@FRY]/e6*aPk%,!J%9c7]2!&lt;@Lc(%zc1JNLY@,c6*aPk%,!u]Fcs]F-(@icY*3LJ?53JDT&gt;7]2!s@9c(%Hc(D:Lw*NLY@,c6*aPk%,!u]FcX]F-(@icY*3LJ?53JDT&gt;7]2!s@+c(%zc(D:L8J3Ly@F[&lt;g/e]?NF*@0c&lt;@,cy7ok&lt;Jwk4J2Ra/9cgN2k8@zc7%9(7PFa%P*cg?NzDs0q:,,[}sNe(]zc(D:L&lt;*/LyNVq-20c:/'2o71/N.)eJ7H/JDzc)D.cog,ToD0&gt;8g.a*@.(7/{27PFa?/'2&amp;_3[&gt;g/,(*&gt;_5&lt;{L1/'2JXz39]L!-?Nc&lt;@icJg:(J2^[a19Tgs2P7@0c{@zc7]i-]2,P[22.6L3]kP,!N]Lc?@,z1N-,s7y&gt;7%zao.)T7Yi(120q'&lt;'_9]L!7%zaaw9ca/9T}.V_y@F]&lt;DFe(gL-%&lt;'L]2NF:/'2JqH[;92,&lt;%9,%.3]Y*)P&lt;,L,}/'2&lt;DF_yJw[+q1e)PF(&lt;Y9;u%9c-@2c;,w]g7y&gt;&lt;%6a(@ic%73Lw@/]7?03XY+Rg@y(DP*o)J^qzJ)[9q3_&lt;q/e:?0_7sVq9J,kN?2RaV9kgN2kzL0cws-,&lt;_36):^/gJ2k)qoR(PF-&lt;93L*@FRk:wF-],-;,w]*,Fcm/{2aw9T]N2PRLmc7P9/k:wFX7y&gt;a/9c]s2k7@0cz@ocwN0/9JN[z.0[&lt;7oaNY2RuD+3(]z(wJNL&gt;?)c*@FRR.m!*]L/u%9c?@ocHD/c&gt;X1,(@{c&lt;73Lz@/RwN0/9JN[z.0[yJwau_He&amp;_3!0Dik&lt;@:q}/{2&lt;/'2]2Nz*@0cz@2cwN0/9JN[z.0[yJwa&lt;_Hem/{2@,)_&lt;/'2g?NF
+</span></code></pre></div></div>
+
+<p>So here is our subfile, which is then decrypted and stored as bat file.</p>
+
+<h2 id="get-bat-file">Get bat file</h2>
+
+<p>We can now patch ziggy.vbs to remove all the filesystem &amp; antidebug stuff (I’m
+on linux only so can’t play with CreateObject stuff). We also add something to write decrypted content locally.</p>
+
+<p>So basically, here is my modified macro :</p>
+
+<div class="language-visualbasic highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">' Check some stuff in registry and returns either 0 or 1</span>
+<span class="n">registry_user_software_check_result</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1">' registry_user_software_check</span>
+<span class="n">movdata</span> <span class="o">=</span> <span class="s">"3/24/2017 10:17:12 AM111,49,83,6,61,53,73,91,1,128,57,8,110,111,101,114,101,40,99,90,60,113,112,70,11,116,71,77,123,32,110,5,52,106,28,20,106,111,47,93,82,31,27,109,38,56,118,6,96,37,32,94,42,118,118,9,56,94,103,43,12,3,123,128"</span>
+
+<span class="n">func3_result</span>  <span class="o">=</span><span class="n">Array</span><span class="p">(</span><span class="mi">82</span><span class="p">,</span><span class="mi">77</span><span class="p">,</span><span class="mi">65</span><span class="p">)</span> <span class="c1">' func3("VGhlRGFya0NyeXN0YWwh") ' TheDarkCrystal!</span>
+<span class="c1">'    func3_result = func3("V2hlcmVEaWRUb2J5R28/") ' WhereDidTobyGo?</span>
+
+<span class="c1">' Get date/time part from the movdata</span>
+<span class="n">movdata_datestr</span> <span class="o">=</span> <span class="n">mid</span><span class="p">(</span><span class="n">movdata</span><span class="p">,(</span><span class="mi">1</span><span class="p">),(</span><span class="mi">21</span><span class="p">))</span>
+
+
+<span class="c1">' Check if it is less than 30s from now</span>
+<span class="c1">' likely some anti debug technique, so correct value should be func2(movdata)</span>
+<span class="n">func2_result</span> <span class="o">=</span> <span class="n">func2</span><span class="p">(</span><span class="n">movdata</span><span class="p">)</span>
+
+<span class="n">marsspider_subfile</span><span class="o">=</span><span class="s">"L22qJ2^.1N-,./'2;.1_YN3,%@/,*J,3@?237_w[D_2zsqV_:_)e)_06./'2J.H[NsVe?@'T&lt;P9T:J-oa/9(N*0[&lt;@Lcc]/e&amp;DF39D2c&amp;Yz6}*FT}]z!y21c(@ic%73L{@FR&lt;]L-7J1o:/'2J.H[120q&lt;&lt;9_)q)!a/9egN2ku%^cmP^c4&lt;Fo(].(&lt;93L+@/R&lt;P9omq)!a/9egs2k4?-cgs,3sB.zu&lt;1a2_1-aV93a/9TgN2PYL/c%2V].L1FY./-%2V](LHF1JNL&lt;@zc*gL-u%9ce@ocLD/c4_wq%%'c]2NFa19cJ,&gt;6z.0!ws-,&lt;_36):^/gJ2k)qoRu]F!X]F-&amp;@F(:/'2P,)!m25,4&lt;:o]]2(F2Vc-]2.;,w]s7y&gt;&lt;%.a&gt;N3/cNm,XP9_i&lt;.;}/{2422cJNLka19T-g2P;,w]#7y&gt;&lt;%.a!@/R&lt;N:];92,'%',X@5(L.0!TN0,u,L.gPL(aw9;a/9T,J0_w@0cg@oc&lt;sm3u763JDzT7]2!)?Nc5@ic}9)[D9)3NX1ko9)/!@oc@NN]o9)cz@2cwN0/9JN[z.0[yJwa&lt;_HeJg:!J2^_a19T]s2kzL0c;2*F]9oa&lt;&lt;9_(_.!w*NL!@,c@NN]&gt;N3/cNm,J]._XJ23+@,cJ].oa19Tgs2k7@0cz@oc(:V/,@),u2&gt;]z.0c;2*F]9oa'&lt;'_4PL(8D.(+@,Ty].oBP.((]zTJD:L:,w[&amp;]F[:/'2J.H_Js.az90c;2*F]9oa7&lt;9_[:0/),5,191PX7y&gt;N]5;&amp;]+cuqmcX]^c}PL(aw9ca/9Ta/9T]N2P7@0czL0cws-,&lt;_36):^/gJ2k)qoRXP9aa19(NJ0_;@0c&lt;@Lc}]/e&amp;DF,X@5(z@2a(:V/,@),&lt;2&gt;]D]/T&amp;gF,}/'2&lt;DF[J_.!JP9-&amp;@F(:/'2JqH_Y9/c%2V].L1F&lt;gLFu.9eF,Vcm,H.4&lt;.o*D.(}/{2422cJsLPa19T,J0_&lt;@Lc}g/c&amp;DF,z.0cws-,&lt;_36):^/gJ2k)qoRJ]:cJ?^_a19Tgs2k_@oc!.1q].V_&lt;:+Pk_,!!],-@NN]&lt;7y&gt;4]6!*g.(./'2J.H[uD+aY./!%2V].L1F:7y&gt;&lt;%.aY./!%2V].L1FN7y&gt;&lt;%.aY./!%2V].L1FV7y&gt;&lt;%.aY./!%2V].L1Fs7y&gt;&lt;%.a}/{2}/{2./'2J.H_Js.az90cws-,&lt;_36):^/gJ2k)qoR:B9Taw9ca/9TJ&lt;{&gt;gJ03:]/[w_w[s]Fc:%.zy?-c!D/k@NN]&gt;N3/cNm,a/9_N*0[;@0c&lt;@Lc}]/e&amp;DF3J@5(J]5(z.0!;2*F]9oa}DL_y?1c(@ic%73Ly@FRY]/e6*aPk%,!J%9c7]2!&lt;@Lc(%zc1JNLY@,c6*aPk%,!u]Fcs]F-(@icY*3LJ?53JDT&gt;7]2!s@9c(%Hc(D:Lw*NLY@,c6*aPk%,!u]FcX]F-(@icY*3LJ?53JDT&gt;7]2!s@+c(%zc(D:L8J3Ly@F[&lt;g/e]?NF*@0c&lt;@,cy7ok&lt;Jwk4J2Ra/9cgN2k8@zc7%9(7PFa%P*cg?NzDs0q:,,[}sNe(]zc(D:L&lt;*/LyNVq-20c:/'2o71/N.)eJ7H/JDzc)D.cog,ToD0&gt;8g.a*@.(7/{27PFa?/'2&amp;_3[&gt;g/,(*&gt;_5&lt;{L1/'2JXz39]L!-?Nc&lt;@icJg:(J2^[a19Tgs2P7@0c{@zc7]i-]2,P[22.6L3]kP,!N]Lc?@,z1N-,s7y&gt;7%zao.)T7Yi(120q'&lt;'_9]L!7%zaaw9ca/9T}.V_y@F]&lt;DFe(gL-%&lt;'L]2NF:/'2JqH[;92,&lt;%9,%.3]Y*)P&lt;,L,}/'2&lt;DF_yJw[+q1e)PF(&lt;Y9;u%9c-@2c;,w]g7y&gt;&lt;%6a(@ic%73Lw@/]7?03XY+Rg@y(DP*o)J^qzJ)[9q3_&lt;q/e:?0_7sVq9J,kN?2RaV9kgN2kzL0cws-,&lt;_36):^/gJ2k)qoR(PF-&lt;93L*@FRk:wF-],-;,w]*,Fcm/{2aw9T]N2PRLmc7P9/k:wFX7y&gt;a/9c]s2k7@0cz@ocwN0/9JN[z.0[&lt;7oaNY2RuD+3(]z(wJNL&gt;?)c*@FRR.m!*]L/u%9c?@ocHD/c&gt;X1,(@{c&lt;73Lz@/RwN0/9JN[z.0[yJwau_He&amp;_3!0Dik&lt;@:q}/{2&lt;/'2]2Nz*@0cz@2cwN0/9JN[z.0[yJwa&lt;_Hem/{2@,)_&lt;/'2g?NF"</span>
+<span class="n">cryptofunc_res</span> <span class="o">=</span> <span class="n">cryptofunc</span><span class="p">(</span><span class="n">marsspider_subfile</span><span class="p">)</span>
+
+<span class="n">rawf</span> <span class="o">=</span> <span class="s">"/tmp/result.bat"</span>   <span class="c1">'</span>
+<span class="n">FF</span> <span class="o">=</span> <span class="n">FreeFile</span>
+<span class="n">Open</span> <span class="n">rawf</span> <span class="k">For</span> <span class="n">Binary</span> <span class="n">Access</span> <span class="n">Write</span> <span class="ow">As</span> <span class="p">#</span><span class="n">FF</span>          <span class="c1">'</span>
+<span class="n">Put</span> <span class="p">#</span><span class="n">FF</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">cryptofunc_res</span>
+<span class="n">Close</span> <span class="p">#</span><span class="n">FF</span>
+
+<span class="k">Function</span> <span class="nf">cryptofunc</span><span class="p">(</span><span class="n">cryptofunc_param1</span><span class="p">)</span>
+    <span class="n">six_bits_array</span><span class="o">=</span><span class="n">Array</span><span class="p">(</span><span class="s">"000000"</span><span class="p">,</span><span class="s">"000001"</span><span class="p">,</span><span class="s">"000010"</span><span class="p">,</span><span class="s">"000011"</span><span class="p">,</span><span class="s">"000100"</span><span class="p">,</span><span class="s">"000101"</span><span class="p">,</span><span class="s">"000110"</span><span class="p">,</span><span class="s">"000111"</span><span class="p">,</span><span class="s">"001000"</span><span class="p">,</span><span class="s">"001001"</span><span class="p">,</span><span class="s">"001010"</span><span class="p">,</span><span class="s">"001011"</span><span class="p">,</span><span class="s">"001100"</span><span class="p">,</span><span class="s">"001101"</span><span class="p">,</span><span class="s">"001110"</span><span class="p">,</span><span class="s">"001111"</span><span class="p">,</span><span class="s">"010000"</span><span class="p">,</span><span class="s">"010001"</span><span class="p">,</span><span class="s">"010010"</span><span class="p">,</span><span class="s">"010011"</span><span class="p">,</span><span class="s">"010100"</span><span class="p">,</span><span class="s">"010101"</span><span class="p">,</span><span class="s">"010110"</span><span class="p">,</span><span class="s">"010111"</span><span class="p">,</span><span class="s">"011000"</span><span class="p">,</span><span class="s">"011001"</span><span class="p">,</span><span class="s">"011010"</span><span class="p">,</span><span class="s">"011011"</span><span class="p">,</span><span class="s">"011100"</span><span class="p">,</span><span class="s">"011101"</span><span class="p">,</span><span class="s">"011110"</span><span class="p">,</span><span class="s">"011111"</span><span class="p">,</span><span class="s">"100000"</span><span class="p">,</span><span class="s">"100001"</span><span class="p">,</span><span class="s">"100010"</span><span class="p">,</span><span class="s">"100011"</span><span class="p">,</span><span class="s">"100100"</span><span class="p">,</span><span class="s">"100101"</span><span class="p">,</span><span class="s">"100110"</span><span class="p">,</span><span class="s">"100111"</span><span class="p">,</span><span class="s">"101000"</span><span class="p">,</span><span class="s">"101001"</span><span class="p">,</span><span class="s">"101010"</span><span class="p">,</span><span class="s">"101011"</span><span class="p">,</span><span class="s">"101100"</span><span class="p">,</span><span class="s">"101101"</span><span class="p">,</span><span class="s">"101110"</span><span class="p">,</span><span class="s">"101111"</span><span class="p">,</span><span class="s">"110000"</span><span class="p">,</span><span class="s">"110001"</span><span class="p">,</span><span class="s">"110010"</span><span class="p">,</span><span class="s">"110011"</span><span class="p">,</span><span class="s">"110100"</span><span class="p">,</span><span class="s">"110101"</span><span class="p">,</span><span class="s">"110110"</span><span class="p">,</span><span class="s">"110111"</span><span class="p">,</span><span class="s">"111000"</span><span class="p">,</span><span class="s">"111001"</span><span class="p">,</span><span class="s">"111010"</span><span class="p">,</span><span class="s">"111011"</span><span class="p">,</span><span class="s">"111100"</span><span class="p">,</span><span class="s">"111101"</span><span class="p">,</span><span class="s">"111110"</span><span class="p">,</span><span class="s">"111111"</span><span class="p">)</span>
+    <span class="n">do</span> <span class="n">until</span> <span class="n">Len</span><span class="p">(</span><span class="n">cryptofunc_param1</span><span class="p">)</span> <span class="ow">Mod</span> <span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">cryptofunc_param1</span> <span class="o">=</span> <span class="n">cryptofunc_param1</span> <span class="o">&amp;</span> <span class="n">Chr</span><span class="p">(</span><span class="mi">61</span><span class="p">)</span>
+    <span class="n">loop</span>
+    <span class="n">cryptofunc_result</span> <span class="o">=</span> <span class="s">""</span>
+    <span class="k">For</span> <span class="n">i</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="k">To</span> <span class="n">Len</span><span class="p">(</span><span class="n">cryptofunc_param1</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="k">Step</span> <span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+        <span class="n">cryptofunc_param1_4chars</span> <span class="o">=</span> <span class="n">Mid</span><span class="p">(</span><span class="n">cryptofunc_param1</span><span class="p">,</span><span class="n">i</span><span class="p">,(</span><span class="mi">4</span><span class="p">))</span>
+        <span class="n">str2</span> <span class="o">=</span> <span class="s">""</span>
+        <span class="k">For</span> <span class="n">j</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="k">To</span> <span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+            <span class="n">if</span> <span class="n">mid</span><span class="p">(</span><span class="n">cryptofunc_param1_4chars</span><span class="p">,</span><span class="n">j</span><span class="p">,(</span><span class="mi">1</span><span class="p">))</span> <span class="o">=</span> <span class="n">Chr</span><span class="p">(</span><span class="mi">61</span><span class="p">)</span> <span class="n">then</span>
+                <span class="n">str2</span> <span class="o">=</span> <span class="n">str2</span> <span class="o">&amp;</span> <span class="s">"00000000"</span>
+            <span class="n">else</span>
+				<span class="n">movdata</span> <span class="o">=</span> <span class="s">"3/24/2017 10:17:12 AM111,49,83,6,61,53,73,91,1,128,57,8,110,111,101,114,101,40,99,90,60,113,112,70,11,116,71,77,123,32,110,5,52,106,28,20,106,111,47,93,82,31,27,109,38,56,118,6,96,37,32,94,42,118,118,9,56,94,103,43,12,3,123,128"</span>
+                <span class="n">func2_result</span><span class="o">=</span><span class="n">func2</span><span class="p">(</span><span class="n">movdata</span><span class="p">)</span>
+                <span class="n">six_bits_index</span> <span class="o">=</span> <span class="n">instr</span><span class="p">(</span><span class="n">func2_result</span><span class="p">,</span> <span class="n">Mid</span><span class="p">(</span><span class="n">cryptofunc_param1_4chars</span><span class="p">,</span><span class="n">j</span><span class="p">,(</span><span class="mi">1</span><span class="p">)))</span> <span class="o">-</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+                <span class="n">str2</span> <span class="o">=</span> <span class="n">str2</span> <span class="o">&amp;</span> <span class="n">six_bits_array</span><span class="p">(</span><span class="n">six_bits_index</span><span class="p">)</span>
+            <span class="n">end</span> <span class="n">if</span>
+        <span class="k">Next</span>
+        <span class="n">str3</span> <span class="o">=</span> <span class="n">mid</span><span class="p">(</span><span class="n">str2</span><span class="p">,(</span><span class="mi">19</span><span class="p">),(</span><span class="mi">6</span><span class="p">))</span> <span class="o">&amp;</span> <span class="n">mid</span><span class="p">(</span><span class="n">str2</span><span class="p">,(</span><span class="mi">7</span><span class="p">),(</span><span class="mi">2</span><span class="p">))</span>
+        <span class="n">int1</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">str4</span> <span class="o">=</span> <span class="n">mid</span><span class="p">(</span><span class="n">str2</span><span class="p">,(</span><span class="mi">9</span><span class="p">),(</span><span class="mi">8</span><span class="p">))</span>
+        <span class="n">powerof2</span><span class="o">=</span><span class="n">Array</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span><span class="mi">64</span><span class="p">,</span><span class="mi">32</span><span class="p">,</span><span class="mi">16</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+
+        <span class="n">str5</span> <span class="o">=</span> <span class="n">mid</span><span class="p">(</span><span class="n">str2</span><span class="p">,(</span><span class="mi">17</span><span class="p">),(</span><span class="mi">2</span><span class="p">))</span> <span class="o">&amp;</span> <span class="n">mid</span><span class="p">(</span><span class="n">str2</span><span class="p">,(</span><span class="mi">1</span><span class="p">),(</span><span class="mi">6</span><span class="p">))</span>
+        <span class="n">for</span> <span class="n">z</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="n">to</span> <span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+            <span class="n">if</span> <span class="n">mid</span><span class="p">(</span><span class="n">str3</span><span class="p">,</span><span class="n">z</span><span class="p">,(</span><span class="mi">1</span><span class="p">))</span> <span class="o">=</span> <span class="n">Chr</span><span class="p">(</span><span class="mi">49</span><span class="p">)</span> <span class="n">then</span>
+                <span class="n">int1</span> <span class="o">=</span> <span class="n">int1</span> <span class="o">+</span> <span class="n">powerof2</span><span class="p">(</span><span class="n">z</span> <span class="o">-</span> <span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+            <span class="n">end</span> <span class="n">if</span>
+        <span class="n">next</span>
+        <span class="n">func3_result</span>  <span class="o">=</span><span class="n">Array</span><span class="p">(</span><span class="mi">77</span><span class="p">,</span><span class="mi">65</span><span class="p">,</span><span class="mi">82</span><span class="p">)</span>
+        <span class="n">cryptofunc_result</span> <span class="o">=</span> <span class="n">cryptofunc_result</span> <span class="o">&amp;</span> <span class="n">Chr</span><span class="p">(</span><span class="n">int1</span> <span class="ow">Xor</span> <span class="n">func3_result</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+        <span class="n">int1</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">for</span> <span class="n">z</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="n">to</span> <span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+            <span class="n">if</span> <span class="n">mid</span><span class="p">(</span><span class="n">str4</span><span class="p">,</span><span class="n">z</span><span class="p">,(</span><span class="mi">1</span><span class="p">))</span> <span class="o">=</span> <span class="n">Chr</span><span class="p">(</span><span class="mi">49</span><span class="p">)</span> <span class="n">then</span>
+                <span class="n">int1</span> <span class="o">=</span> <span class="n">int1</span> <span class="o">+</span> <span class="n">powerof2</span><span class="p">(</span><span class="n">z</span> <span class="o">-</span> <span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+            <span class="n">end</span> <span class="n">if</span>
+        <span class="n">next</span>
+        <span class="n">cryptofunc_result</span> <span class="o">=</span> <span class="n">cryptofunc_result</span> <span class="o">&amp;</span> <span class="n">Chr</span><span class="p">(</span><span class="n">int1</span> <span class="ow">Xor</span> <span class="n">func3_result</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+        <span class="n">int1</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">for</span> <span class="n">z</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="n">to</span> <span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+            <span class="n">if</span> <span class="n">mid</span><span class="p">(</span><span class="n">str5</span><span class="p">,</span><span class="n">z</span><span class="p">,(</span><span class="mi">1</span><span class="p">))</span> <span class="o">=</span> <span class="n">Chr</span><span class="p">(</span><span class="mi">49</span><span class="p">)</span> <span class="n">then</span>
+                <span class="n">int1</span> <span class="o">=</span> <span class="n">int1</span> <span class="o">+</span> <span class="n">powerof2</span><span class="p">(</span><span class="n">z</span> <span class="o">-</span> <span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+            <span class="n">end</span> <span class="n">if</span>
+        <span class="n">next</span>
+        <span class="n">cryptofunc_result</span> <span class="o">=</span> <span class="n">cryptofunc_result</span> <span class="o">&amp;</span> <span class="n">Chr</span><span class="p">(</span><span class="n">int1</span> <span class="ow">Xor</span> <span class="n">func3_result</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+    <span class="k">Next</span>
+    <span class="n">cryptofunc</span> <span class="o">=</span> <span class="n">cryptofunc_result</span>
+<span class="k">End</span> <span class="k">Function</span>
+
+
+<span class="n">function</span> <span class="n">func2</span><span class="p">(</span><span class="n">movdata</span><span class="p">)</span>
+    <span class="n">func2_res</span> <span class="o">=</span> <span class="s">""</span>
+    <span class="n">movdata_chrs</span> <span class="o">=</span> <span class="n">Split</span><span class="p">(</span><span class="n">mid</span><span class="p">(</span><span class="n">movdata</span><span class="p">,(</span><span class="mi">22</span><span class="p">),(</span><span class="mi">195</span><span class="p">)),</span><span class="s">","</span><span class="p">)</span>
+    <span class="n">movdata_date</span> <span class="o">=</span> <span class="n">mid</span><span class="p">(</span><span class="n">movdata</span><span class="p">,(</span><span class="mi">1</span><span class="p">),(</span><span class="mi">9</span><span class="p">))</span>
+    <span class="n">dim</span> <span class="n">array8</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+    <span class="n">for</span> <span class="n">k</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="n">to</span> <span class="n">len</span><span class="p">(</span><span class="n">movdata_date</span><span class="p">)</span>
+        <span class="n">array8</span><span class="p">(</span><span class="n">k</span><span class="o">-</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span> <span class="o">=</span> <span class="n">mid</span><span class="p">(</span><span class="n">movdata_date</span><span class="p">,</span><span class="n">k</span><span class="p">,(</span><span class="mi">1</span><span class="p">))</span>
+    <span class="n">next</span>
+    <span class="n">for</span> <span class="n">l</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="n">to</span> <span class="n">UBound</span><span class="p">(</span><span class="n">movdata_chrs</span><span class="p">)</span>
+        <span class="n">func2_res</span> <span class="o">=</span> <span class="n">func2_res</span> <span class="o">&amp;</span> <span class="n">Chr</span><span class="p">(</span><span class="n">Cint</span><span class="p">(</span><span class="n">movdata_chrs</span><span class="p">(</span><span class="n">l</span><span class="p">))</span> <span class="ow">Xor</span> <span class="n">Asc</span><span class="p">(</span><span class="n">array8</span><span class="p">(</span><span class="n">l</span> <span class="ow">Mod</span> <span class="n">len</span><span class="p">(</span><span class="n">movdata_date</span><span class="p">))))</span>
+    <span class="n">next</span>
+    <span class="n">func2</span> <span class="o">=</span> <span class="n">func2_res</span>
+<span class="n">end</span> <span class="n">function</span>
+
+
+
+</code></pre></div></div>
+
+<p>You will notice that some variables are duplicated. I suspect that variable
+scope is different in LibreOffice and Microsoft Office.  If you try it in
+LibreOffice macro, it will fail at the line :</p>
+
+<div class="language-visualbasic highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="n">str2</span> <span class="o">=</span> <span class="n">str2</span> <span class="o">&amp;</span> <span class="n">six_bits_array</span><span class="p">(</span><span class="n">six_bits_index</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>with a “out of range” error. Likely our combination are not good. Let’s try the others.</p>
+
+<p>At the end, the good combination is :</p>
+
+<ul>
+  <li>3/24/2017 10:17:12 AM31,1,109,69,0,116,109,97,4,5,116,87,91,85,96,91,3,123,12,118,3,124,111,23,81,101,22,80,2,12,15,7,124,10,66,111,101,70,85,118,66,25,106,18,16,72,11,71,30,22,120,7,70,2,119,19,2,106,9,79,25,72,3,11</li>
+  <li>func3_result=Array(77,65,82)</li>
+</ul>
+
+<p>We get a new bat file in /tmp/result.file. Let’s call it 594f54.bat for now.</p>
+
+<h1 id="594f54bat-file">594f54.bat file</h1>
+
+<p>So once again, we get a - somehow - obfuscated file. The obfuscation is mainly base on funky variable names like:</p>
+
+<ul>
+  <li>float{10.4}</li>
+  <li>@OFF</li>
+  <li>?</li>
+  <li>__XML.RTF</li>
+  <li>{}</li>
+</ul>
+
+<p>etc … Also, lot of batch parameters magic is used. You want to read
+https://www.microsoft.com/resources/documentation/windows/xp/all/proddocs/en-us/percent.mspx
+if batch scripting is not your usual scripting language. Also, look at delayed expansion :)</p>
+
+<p>So the script set a few variables from file name/path etc … starts to jump to
+EXIT label, does some checks based on username and file name, then goes back to
+beginning.</p>
+
+<p>Remeber the file is called with :</p>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>CreateObject<span class="o">(</span><span class="s2">"WScript.Shell"</span><span class="o">)</span>.Run <span class="s2">"%COMSPEC% /c y: &amp;&amp; Y:\594f54.bat 594f54.bat"</span>
+</code></pre></div></div>
+
+<p>So, at the end of the first for loop, we should have :</p>
+
+<ul>
+  <li>? = Y (first letter of drive)</li>
+  <li>@OFF = parameter name without extension : 594f54</li>
+  <li>{} = the size of the file : 2325</li>
+  <li>float{10.4} = dBo (just a string)</li>
+</ul>
+
+<p>So the test part (Exit label) just :</p>
+
+<ul>
+  <li>checks that the 4,5 and 6th letters of USERNAME are dBo</li>
+  <li>set <strong>Office</strong>.return = 10</li>
+  <li>set <strong>Office</strong>.load=chr(*@) (which is the parameter, aka 594f54.bat)</li>
+</ul>
+
+<p>Then, the code set (if the test if ok) HWID_COOKIE=1617, and :</p>
+
+<pre><code class="language-batch">    FoR /f "tokens=*" %%a in ('findstr "HWID" %__Office__.load%') DO (
+            set __XML.RTF=%%a
+            If !HWID_COOKIE! neq !{}! (
+                set /a "__XML.RTF=!__XML.RTF:~15,2!-(!{}!/115)"
+            ) eLse (
+                set /a "__XML.RTF=!__XML.RTF:~15,2!+(!{}!/115)"
+            )
+        )
+</code></pre>
+
+<p>this simply grep the file for HWID and set __XML.RTF to the 15 and 16th chars. At the end of this loop, the last line is :</p>
+
+<pre><code class="language-batch">:: note self! 0x13 fAr HWID_COOKIE
+</code></pre>
+
+<p>The ‘::’ is split by the “tokens=*” parameter, so __XML.RTF = 13 at the end.</p>
+
+<p>Then, it builds a string from HWID (remember the env var from PowerShell) : it builds a string PATHEXTS from HWID chars, then get data in another order.</p>
+
+<p>Finally, the last loop get ascii values from the string, and “start” will open the “path”.
+The attribute of <code class="highlighter-rouge">start</code> call contains ‘://’, so we may find an url.</p>
+
+<p>As it seems very specific to some batch version, I rewrote this script in python, which gives :</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/usr/bin/env python3</span>
+<span class="c">#coding: utf-8</span>
+
+
+<span class="n">HWID</span><span class="o">=</span><span class="s">"093-75115-37124-50142-30110-87150-78116-83115-81124-51121-50114-67145-51139-47130"</span>
+<span class="n">HWID_COOKIE</span><span class="o">=</span><span class="mi">1617</span>
+<span class="n">OFF</span><span class="o">=</span><span class="s">"594f54.bat"</span>
+<span class="n">xmlrtf</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="mi">13</span><span class="o">+</span><span class="mi">1617</span><span class="o">/</span><span class="mi">115</span><span class="p">)</span>
+
+<span class="n">url</span><span class="o">=</span><span class="s">""</span>
+<span class="n">pathexts</span><span class="o">=</span><span class="p">[]</span>
+<span class="n">office_return</span><span class="o">=</span><span class="mi">0</span>
+
+<span class="k">def</span> <span class="nf">callme</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span><span class="n">p2</span><span class="p">,</span><span class="n">p3</span><span class="p">):</span>
+    <span class="k">global</span> <span class="n">pathexts</span>
+    <span class="k">global</span> <span class="n">OFF</span>
+    <span class="n">res</span><span class="o">=</span><span class="p">(</span><span class="s">"("</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">pathexts</span><span class="p">[</span><span class="n">p1</span><span class="p">]))</span> <span class="o">+</span> <span class="n">p2</span> <span class="o">+</span> <span class="s">"x"</span> <span class="o">+</span> <span class="n">OFF</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="s">")^ 0x"</span> <span class="o">+</span> <span class="n">OFF</span><span class="p">[</span><span class="n">p3</span><span class="p">:</span><span class="n">p3</span><span class="o">+</span><span class="mi">2</span><span class="p">])</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"[callme] res = </span><span class="si">%</span><span class="s">s"</span> <span class="o">%</span> <span class="n">res</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"[callme] eval(res) = </span><span class="si">%</span><span class="s">s"</span> <span class="o">%</span> <span class="nb">int</span><span class="p">(</span><span class="nb">eval</span><span class="p">(</span><span class="n">res</span><span class="p">)))</span>
+    <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="nb">eval</span><span class="p">(</span><span class="n">res</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">xmlrtf</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">a</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">pathexts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">HWID</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">pathexts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">HWID</span><span class="p">[</span><span class="n">office_return</span><span class="p">:</span><span class="n">office_return</span><span class="o">+</span><span class="mi">3</span><span class="p">])</span>
+
+    <span class="n">office_return</span> <span class="o">+=</span> <span class="mi">3</span>
+
+<span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">xmlrtf</span><span class="p">):</span>
+    <span class="n">arg1</span> <span class="o">=</span> <span class="n">a</span> <span class="o">%</span> <span class="mi">2</span>
+    <span class="k">if</span> <span class="n">arg1</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">c</span> <span class="o">=</span> <span class="n">callme</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="s">"-0"</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">arg1</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">c</span> <span class="o">=</span> <span class="n">callme</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="s">"+0"</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"[callme_result] Got </span><span class="si">%</span><span class="s">s which is </span><span class="si">%</span><span class="s">s"</span> <span class="o">%</span> <span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="nb">chr</span><span class="p">(</span><span class="n">c</span><span class="p">)))</span>
+    <span class="n">url</span> <span class="o">+=</span> <span class="nb">chr</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s">"Enjoy : </span><span class="si">%</span><span class="s">s"</span> <span class="o">%</span> <span class="n">url</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h1 id="flag">Flag</h1>
+
+<p>Just run my script and :</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>./getflag.py
+<span class="o">[</span>...]
+Enjoy : PAN<span class="o">{</span>whatAMiDOINGwithMYlife<span class="o">}</span>
+</code></pre></div></div>
+
+<p>\o/</p>
+
+
+</div>
+
+    </main>
+
+    <!-- Optional footer content -->
+
+  </body>
+</html>

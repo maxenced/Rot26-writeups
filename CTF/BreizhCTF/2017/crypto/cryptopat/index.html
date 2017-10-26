@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+
+  <title>
+    
+      Cryptopat &middot; Rot26
+    
+  </title>
+
+  
+
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface" />
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/favicon.png" />
+<link rel="shortcut icon" href="/favicon.ico" />
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml" />
+
+  <!-- Additional head bits without overriding original head -->
+</head>
+
+
+  <body class="page">
+
+    <div id="sidebar">
+  <header>
+    <div class="site-title">
+      <a href="/">
+        
+          <span class="back-arrow icon"><svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+  <path d="M0 0h24v24H0z" fill="none"/>
+  <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+</svg></span>
+        
+        Rot26
+      </a>
+    </div>
+    <p class="lead"></p>
+  </header>
+  <nav id="sidebar-nav-links">
+  
+  
+
+  
+
+  
+
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+
+  
+
+
+  
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/BreizhCTF.html">BreizhCTF</a>
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/Hacklu.html">Hacklu</a>
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/LabyREnth.html">LabyREnth</a>
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+
+  <h1>Members</h1>
+<a href="https://twitter.com/Memoi2001">Fooker</a>
+<a href="https://twitter.com/kalimer0x00">Kalimer0x00</a>
+<a href="https://twitter.com/govlog">Govlog</a>
+<a href="https://twitter.com/maxencedun">Sp4rKy</a>
+
+
+</nav>
+
+
+  
+
+  <nav id="sidebar-icon-links">
+  
+
+  <a id="subscribe-link"
+     class="icon" title="Subscribe" aria-label="Subscribe"
+     href="/feed.xml">
+    <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <circle cx="6.18" cy="17.82" r="2.18"/>
+    <path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z"/>
+</svg>
+  </a>
+
+  
+  
+  
+  
+
+  
+
+  
+
+  <!-- Optional additional links to insert for icons links -->
+</nav>
+  
+</div>
+
+    <main class="container">
+      <div class="content">
+  <h1 id="cryptopat">Cryptopat</h1>
+
+<p>Sur ce challenge on a un échange de 5 messages entre Alice et Bob.</p>
+
+<p>Les messages 3 et 4 sont intéressants:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Attention je pense que ta clé publique est vulnérable à Wiener, je te conseille fortement de la changer !  bzhctf{B3g1N_0f_Fl4g%
+</code></pre></div></div>
+
+<p>et :</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Voilà, j'ai ajouté 15 bits de poids fort à ma nouvelle clé privée, maintenant je ne suis plus vulnérable à Wiener ;)
+Tu peux m'envoyer le flag sans soucis ;)
+</code></pre></div></div>
+
+<h2 id="récupération-de-la-clé-privée-vulnérable">Récupération de la clé privée vulnérable</h2>
+
+<p>On sait qu’on a également 2 clés publiques. La première est donc vulnérable à
+Wiener. On s’embete pas à réimplémenter l’attaque et on utilise
+<a href="https://github.com/pablocelayes/rsa-wiener-attack.git">un code déja bien utile</a>.</p>
+
+<p>Basé sur ces librairies, on crack la clé privée avec :</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">ContinuedFractions</span><span class="p">,</span> <span class="n">Arithmetic</span><span class="p">,</span> <span class="n">RSAvulnerableKeyGenerator</span>
+
+<span class="k">def</span> <span class="nf">hack_RSA</span><span class="p">(</span><span class="n">e</span><span class="p">,</span><span class="n">n</span><span class="p">):</span>
+    <span class="s">'''
+    Finds d knowing (e,n)
+    applying the Wiener continued fraction attack
+    '''</span>
+    <span class="n">frac</span> <span class="o">=</span> <span class="n">ContinuedFractions</span><span class="o">.</span><span class="n">rational_to_contfrac</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+    <span class="n">convergents</span> <span class="o">=</span> <span class="n">ContinuedFractions</span><span class="o">.</span><span class="n">convergents_from_contfrac</span><span class="p">(</span><span class="n">frac</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">d</span><span class="p">)</span> <span class="ow">in</span> <span class="n">convergents</span><span class="p">:</span>
+
+        <span class="c">#check if d is actually the key</span>
+        <span class="k">if</span> <span class="n">k</span><span class="o">!=</span><span class="mi">0</span> <span class="ow">and</span> <span class="p">(</span><span class="n">e</span><span class="o">*</span><span class="n">d</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">%</span><span class="n">k</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">phi</span> <span class="o">=</span> <span class="p">(</span><span class="n">e</span><span class="o">*</span><span class="n">d</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">//</span><span class="n">k</span>
+            <span class="n">s</span> <span class="o">=</span> <span class="n">n</span> <span class="o">-</span> <span class="n">phi</span> <span class="o">+</span> <span class="mi">1</span>
+            <span class="c"># check if the equation x^2 - s*x + n = 0</span>
+            <span class="c"># has integer roots</span>
+            <span class="n">discr</span> <span class="o">=</span> <span class="n">s</span><span class="o">*</span><span class="n">s</span> <span class="o">-</span> <span class="mi">4</span><span class="o">*</span><span class="n">n</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">discr</span><span class="o">&gt;=</span><span class="mi">0</span><span class="p">):</span>
+                <span class="n">t</span> <span class="o">=</span> <span class="n">Arithmetic</span><span class="o">.</span><span class="n">is_perfect_square</span><span class="p">(</span><span class="n">discr</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">t</span><span class="o">!=-</span><span class="mi">1</span> <span class="ow">and</span> <span class="p">(</span><span class="n">s</span><span class="o">+</span><span class="n">t</span><span class="p">)</span><span class="o">%</span><span class="mi">2</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+                    <span class="k">print</span><span class="p">(</span><span class="s">"Hacked!"</span><span class="p">)</span>
+                    <span class="k">return</span> <span class="n">d</span>
+
+<span class="c"># On obtient les infos avec, par ex : cat chall_RSA_patch/alice_pubkey.pem | openssl rsa -pubin -inform PEM -text -noout</span>
+
+<span class="n">e</span> <span class="o">=</span> <span class="mi">16067237575020587365684949537420553336297887103135251158340199512381342010923839836839175967325518093593560110120570374561901329018544177783237636785681314899727902679813927972179168522909753478009724591422216350692572367061594386736432185783023783174089153239340683425146614617576982658612935026396194106151415411217524493358793036726760191073155065415520850657018370352272434786522789821689214574254518236229610852662142538480531553720751475315717565073720813420644610699973129707918058953693919886720862302627135853709794021492252785770199014347088152633180606499239183317651309326779783097912048103050277929517453</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">19668895384782468617428677573059897654282052777686604193288890931972629730263752594043050215727581556020419030025989300425197017068567855834295602186567489002513877919398045507153107150792324033759448799017614520165391590806597724518388317704545844762755766458185677170257064294267886252344817753079174312360017739292971093257427286663401297480546601892171446675921974932462962749756778624464727641083529044275845408644143568929461484780731932975513371397929451759662214535107588638394467424289460888727462427676917688682426838016993903841720351970171165964384350925524138537598844548635355403058470705330268062646657</span>
+<span class="k">print</span> <span class="n">hack_RSA</span><span class="p">(</span><span class="n">e</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>En 2s on obtient:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>python crack.py
+Hacked!
+3729092172867755527822307742234078358263625236042905659081826128798496778443873729251522535929523058146502134039291818305433125269108207522413691721413701
+</code></pre></div></div>
+
+<h2 id="guessing-de-la-nouvelle-clé">Guessing de la nouvelle clé</h2>
+
+<p>On a maintenant la clé privée vulnérable et on sait que la nouvelle clé a seulement 15 bits (de poids fort) de plus.</p>
+
+<p>Autrement dit, il faut qu’on test toutes les clés privées de :</p>
+
+<ul>
+  <li><em>0000000000000001000111001100110110110000111111111100101101000100101011110011100010110000001110100001001010000101111011111101001010001110101011001110100000111101000100111001101111111001000100101000011100011010011100000110010100011110010110011001100110001000011001101110100110110010001000001000100000100011111011000100111101011101111111001010011100010110001100111000100101001011000111011011100000111111101111010001000111101101001100110001000111000110000011101110010000011010110011111010110110101000010011001101101111010001000101</em></li>
+</ul>
+
+<p>à:</p>
+
+<ul>
+  <li><em>1111111111111111000111001100110110110000111111111100101101000100101011110011100010110000001110100001001010000101111011111101001010001110101011001110100000111101000100111001101111111001000100101000011100011010011100000110010100011110010110011001100110001000011001101110100110110010001000001000100000100011111011000100111101011101111111001010011100010110001100111000100101001011000111011011100000111111101111010001000111101101001100110001000111000110000011101110010000011010110011111010110110101000010011001101101111010001000101</em></li>
+</ul>
+
+<p>Et on essaye de déchiffrer le message 5 avec. On pourrait générer une clé privée au format PEM et essayer de déchiffrer à chaque fois, mais ça ne sert pas à grand chose.</p>
+
+<p>Pour rappel, soit :</p>
+
+<ul>
+  <li>C un message chiffré</li>
+  <li>d un exposant privé</li>
+  <li>n le modulus</li>
+</ul>
+
+<p>le message déchiffré est de la forme:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">D</span> <span class="o">=</span> <span class="n">C</span><span class="o">^</span><span class="n">d</span> <span class="p">(</span><span class="n">mod</span> <span class="n">n</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>15 bits, cela nous laisse 32768 possibilités, ça se fait.
+Comme on ne sait pas trop quoi grep, on encode (vu qu’on a le modulus et l’exposant) une chaine test.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/usr/bin/env python2</span>
+<span class="kn">import</span> <span class="nn">base64</span>
+
+<span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">'message5.enc'</span><span class="p">,</span><span class="s">'r'</span><span class="p">)</span>
+<span class="n">message</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="s">''</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">())</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">'hex'</span><span class="p">),</span><span class="mi">16</span><span class="p">)</span>
+<span class="k">print</span> <span class="p">(</span><span class="s">"Decoding </span><span class="si">%</span><span class="s">s"</span> <span class="o">%</span> <span class="p">(</span><span class="n">message</span><span class="p">))</span>
+
+<span class="n">n</span><span class="o">=</span><span class="mi">21366492123330192964924886088575120130580505285618005337598779393918158366095860314554624383933689053870136396844123653676006925524741292126254656621054312317488860350335644693660072975675200628822422500931919691892843464050189876133676632331854230569505119706533140321738621825798678419974354016241136135473558291408190378447009564861468655441762111819625530204222794596983686375221621285290161316292631745942916328382290893783027800227234537987550709843386531964868921678876556502069704928602524024016573461597745827047399490031977053086313049670592129066573978022028704080173611024083444448721653315439252412598269</span>
+<span class="n">e</span><span class="o">=</span><span class="mi">13732360079110181240497677642215176108972109640426749948082012527371702942276535907897268515666425923651716194223110185976833857149823940477027664459847846465698314333714664894229797936194528230377354774167502776943806747294466329160071966807261130140612018061882530418266656946272804342401100046825871687041880398631430047689251191900448053221057251089983695108688262411466368305600843193430185646379147527635445503594868124985276184603136855197964909292552585042440140584014599152179794865999264471514598680594671108058750423041307860835401675889158127604590449840606756185017263994371070906353224669161795233799341</span>
+<span class="n">d</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="mi">3729092172867755527822307742234078358263625236042905659081826128798496778443873729251522535929523058146502134039291818305433125269108207522413691721413701</span><span class="p">))</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">'0b'</span><span class="p">,</span><span class="s">''</span><span class="p">)</span>
+
+<span class="n">test</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="s">"testtest"</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">'hex'</span><span class="p">),</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">encoded</span><span class="o">=</span><span class="nb">pow</span><span class="p">(</span><span class="n">test</span><span class="p">,</span><span class="n">e</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">32768</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">new_d</span><span class="o">=</span><span class="nb">int</span><span class="p">((</span><span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">'0b'</span><span class="p">,</span><span class="s">''</span><span class="p">)))</span> <span class="o">+</span> <span class="n">d</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">decoded</span> <span class="o">=</span> <span class="nb">pow</span><span class="p">(</span><span class="n">encoded</span><span class="p">,</span> <span class="n">new_d</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="p">(</span><span class="s">"</span><span class="si">%0512</span><span class="s">x"</span> <span class="o">%</span> <span class="n">decoded</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s">"hex"</span><span class="p">)</span>
+    <span class="k">if</span> <span class="s">"test"</span> <span class="ow">in</span> <span class="n">res</span><span class="p">:</span>
+        <span class="k">print</span> <span class="s">"Found </span><span class="si">%</span><span class="s">s with d=</span><span class="si">%</span><span class="s">s"</span> <span class="o">%</span> <span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">new_d</span><span class="p">)</span>
+        <span class="k">print</span> <span class="s">"Decoding message ..."</span>
+        <span class="n">flag</span> <span class="o">=</span> <span class="nb">pow</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">new_d</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+        <span class="k">print</span> <span class="s">"Flag is </span><span class="si">%</span><span class="s">s"</span> <span class="o">%</span> <span class="n">flag</span>
+</code></pre></div></div>
+
+<p>J’ai eu le présentiment que la valeur serait plutôt dans la 2eme moitié de
+l’interval (probablement un premier bit à 1), d’où le range inversé.</p>
+
+<p>Et au final :</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">time </span>python test.py
+Decoding 8426452303336113530531862405729173452527546476364125612796157244664027393204265763905571614665064098073958364443217692230464705636940308067311403849008443940630842431947294008359992347944352937448881590966278948545361430258382541283450052595632573911658648010132478987353381310853980045242522464906170842633745205961806926411513966061649426299579742206398557069093849406944300257151805858097470857428154348848538454281413636390797206250968329856355934245955794613665643242310847330907437375441095867136357400575748414868839213817066295739698385318662924698446569153933534988504939386675860960880213049090998033926083
+Found testtest with <span class="nv">d</span><span class="o">=</span>148830397114535695560799499787827126093379224233811609398390613851440379230594815316230056232188557570417500128004034456294973532337876034612935917659254879301
+Decoding message ...
+Flag is <span class="o">[</span>...]RGUgOiBBbGljZQ0KQSA6IEJvYg0KXzNORF9vZl9GfGFHfQ<span class="o">==</span>
+</code></pre></div></div>
+
+<p>On voit un joli base64 à la fin, qui une fois décodé donne :</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">echo</span> <span class="s2">"RGUgOiBBbGljZQ0KQSA6IEJvYg0KXzNORF9vZl9GfGFHfQ=="</span> |base64 <span class="nt">-d</span>
+De : Alice
+A : Bob
+_3ND_of_F|aG<span class="o">}</span>
+</code></pre></div></div>
+
+<p>Note: Si on veut faire plus propre, on peut regénérer la clé privée complète :</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>rsatool.py <span class="nt">-d</span> 148830397114535695560799499787827126093379224233811609398390613851440379230594815316230056232188
+557570417500128004034456294973532337876034612935917659254879301 <span class="nt">-e</span> 137323600791101812404976776422151761089721096404267499480820125273717
+0294227653590789726851566642592365171619422311018597683385714982394047702766445984784646569831433371466489422979793619452823037735477416
+7502776943806747294466329160071966807261130140612018061882530418266656946272804342401100046825871687041880398631430047689251191900448053
+2210572510899836951086882624114663683056008431934301856463791475276354455035948681249852761846031368551979649092925525850424401405840145
+9915217979486599926447151459868059467110805875042304130786083540167588915812760459044984060675618501726399437107090635322466916179523379
+9341 <span class="nt">-n</span> 21366492123330192964924886088575120130580505285618005337598779393918158366095860314554624383933689053870136396844123653676006925
+5247412921262546566210543123174888603503356446936600729756752006288224225009319196918928434640501898761336766323318542305695051197065331
+40321738621825798678419974354016241136135473558291408190378447009564861468655441762111819625530204222794596983686375221621285290161316292631745942916328382290893783027800227234537987550709843386531964868921678876556502069704928602524024016573461597745827047399490031977053086313049670592129066573978022028704080173611024083444448721653315439252412598269  <span class="nt">-o</span> private.pem
+<span class="o">[</span>...]
+
+<span class="nv">$ </span>openssl rsautl <span class="nt">-decrypt</span> <span class="nt">-in</span> message5.enc <span class="nt">-inkey</span>  privkey.pem |base64 <span class="nt">-d</span>
+De : Alice
+A : Bob
+_3ND_of_F|aG<span class="o">}</span>
+</code></pre></div></div>
+
+<p>Le flag est donc <code class="highlighter-rouge">bzhctf{B3g1N_0f_Fl4g_3ND_of_F|aG}</code></p>
+
+</div>
+
+    </main>
+
+    <!-- Optional footer content -->
+
+  </body>
+</html>

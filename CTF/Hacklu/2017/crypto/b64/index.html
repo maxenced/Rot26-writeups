@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+
+  <title>
+    
+      B64 &middot; Rot26
+    
+  </title>
+
+  
+
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface" />
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/favicon.png" />
+<link rel="shortcut icon" href="/favicon.ico" />
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml" />
+
+  <!-- Additional head bits without overriding original head -->
+</head>
+
+
+  <body class="page">
+
+    <div id="sidebar">
+  <header>
+    <div class="site-title">
+      <a href="/">
+        
+          <span class="back-arrow icon"><svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+  <path d="M0 0h24v24H0z" fill="none"/>
+  <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+</svg></span>
+        
+        Rot26
+      </a>
+    </div>
+    <p class="lead"></p>
+  </header>
+  <nav id="sidebar-nav-links">
+  
+  
+
+  
+
+  
+
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+
+  
+
+
+  
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/BreizhCTF.html">BreizhCTF</a>
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/Hacklu.html">Hacklu</a>
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/LabyREnth.html">LabyREnth</a>
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+
+  <h1>Members</h1>
+<a href="https://twitter.com/Memoi2001">Fooker</a>
+<a href="https://twitter.com/kalimer0x00">Kalimer0x00</a>
+<a href="https://twitter.com/govlog">Govlog</a>
+<a href="https://twitter.com/maxencedun">Sp4rKy</a>
+
+
+</nav>
+
+
+  
+
+  <nav id="sidebar-icon-links">
+  
+
+  <a id="subscribe-link"
+     class="icon" title="Subscribe" aria-label="Subscribe"
+     href="/feed.xml">
+    <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <circle cx="6.18" cy="17.82" r="2.18"/>
+    <path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z"/>
+</svg>
+  </a>
+
+  
+  
+  
+  
+
+  
+
+  
+
+  <!-- Optional additional links to insert for icons links -->
+</nav>
+  
+</div>
+
+    <main class="container">
+      <div class="content">
+  <h1 id="b64">B64</h1>
+
+<p>So here we have a source code. Quickly looking at it, we can see that it get our input, xor it with the secret then pad it.
+Then, for each char, if the ASCII value match a base64 character, we keep it, else we drop it.
+Finally, the base64 generated value is padded , decoded, and the value is sent back to the client.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">crypt</span><span class="p">(</span><span class="n">s1</span><span class="p">,</span> <span class="n">s2</span><span class="p">):</span>
+    <span class="k">return</span> <span class="s">""</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">c</span><span class="p">:</span> <span class="nb">chr</span><span class="p">(((</span><span class="nb">ord</span><span class="p">(</span><span class="n">c</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">^</span><span class="nb">ord</span><span class="p">(</span><span class="n">c</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span><span class="o">+</span><span class="n">PAD</span><span class="p">)</span><span class="o">%</span><span class="mi">256</span><span class="p">),</span> <span class="nb">zip</span><span class="p">(</span><span class="n">s1</span><span class="p">,</span><span class="n">s2</span><span class="p">)))</span>
+
+<span class="n">b64chars</span> <span class="o">=</span> <span class="s">"0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz+/"</span>
+<span class="k">def</span> <span class="nf">decode</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">secret</span><span class="p">):</span>
+    <span class="n">enc</span> <span class="o">=</span> <span class="s">""</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">crypt</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">secret</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">s</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">b64chars</span><span class="p">:</span>
+            <span class="n">enc</span><span class="o">+=</span><span class="n">c</span>
+
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">enc</span><span class="p">)</span> <span class="o">%</span> <span class="mi">4</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">enc</span> <span class="o">=</span> <span class="n">enc</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">enc</span><span class="p">)</span> <span class="o">%</span> <span class="mi">4</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">enc</span><span class="o">+=</span><span class="s">"="</span>
+    <span class="k">return</span> <span class="n">b64decode</span><span class="p">(</span><span class="n">enc</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Also, note that if the length of encoded value contains only one char, the answer is emptied.</p>
+
+<p>So, we basically need to bruteforce the secret. The issue is that you need to
+be sure that all your chars are valid (so that, basically, if you send N chars,
+you must get 0.75*N in result).</p>
+
+<p>We wil bruteforce the first 4 ones, then once we get them, the 4 last chars. Final script :</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/usr/bin/env python3</span>
+<span class="c">#coding: utf-8</span>
+
+<span class="kn">from</span> <span class="nn">pwn</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">binascii</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">base64</span> <span class="k">as</span> <span class="n">b64</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">random</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="s">''</span>
+<span class="n">result</span> <span class="o">=</span> <span class="s">''</span>
+<span class="n">hexresult</span> <span class="o">=</span> <span class="s">''</span>
+<span class="n">tosend</span><span class="o">=</span><span class="s">''</span>
+<span class="n">done_iter</span><span class="o">=</span><span class="mi">0</span>
+<span class="n">run</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">done</span><span class="o">=</span><span class="bp">False</span>
+<span class="k">while</span> <span class="ow">not</span> <span class="n">done</span><span class="p">:</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">r</span><span class="o">=</span><span class="n">remote</span><span class="p">(</span><span class="s">'flatearth.fluxfingers.net'</span><span class="p">,</span><span class="mi">1718</span><span class="p">)</span>
+        <span class="n">log</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s">"Run number </span><span class="si">%</span><span class="s">s"</span> <span class="o">%</span> <span class="n">run</span><span class="p">)</span>
+        <span class="n">run</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">for</span> <span class="n">z</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">4</span><span class="p">):</span>
+            <span class="n">ok</span> <span class="o">=</span> <span class="bp">False</span>
+            <span class="n">progress</span> <span class="o">=</span> <span class="n">log</span><span class="o">.</span><span class="n">progress</span><span class="p">(</span><span class="s">'bruteforce chars </span><span class="si">%</span><span class="s">s to </span><span class="si">%</span><span class="s">s'</span> <span class="o">%</span> <span class="p">(</span><span class="n">z</span><span class="p">,</span><span class="n">z</span><span class="o">+</span><span class="mi">3</span><span class="p">))</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1025</span><span class="o">-</span><span class="n">done_iter</span><span class="p">):</span>
+                <span class="n">i1</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">127</span><span class="p">)</span>
+                <span class="n">i2</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">127</span><span class="p">)</span>
+                <span class="n">i3</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">127</span><span class="p">)</span>
+                <span class="n">i4</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">127</span><span class="p">)</span>
+                <span class="n">c1</span> <span class="o">=</span> <span class="nb">chr</span><span class="p">(</span><span class="n">i1</span><span class="p">)</span>
+                <span class="n">c2</span> <span class="o">=</span> <span class="nb">chr</span><span class="p">(</span><span class="n">i2</span><span class="p">)</span>
+                <span class="n">c3</span> <span class="o">=</span> <span class="nb">chr</span><span class="p">(</span><span class="n">i3</span><span class="p">)</span>
+                <span class="n">c4</span> <span class="o">=</span> <span class="nb">chr</span><span class="p">(</span><span class="n">i4</span><span class="p">)</span>
+                <span class="n">r</span><span class="o">.</span><span class="n">recvline_contains</span><span class="p">(</span><span class="s">'tell me'</span><span class="p">)</span>
+                <span class="n">r</span><span class="o">.</span><span class="n">sendline</span><span class="p">(</span><span class="n">b</span><span class="s">"1"</span><span class="p">)</span>
+                <span class="n">r</span><span class="o">.</span><span class="n">recvline_contains</span><span class="p">(</span><span class="s">'to decode'</span><span class="p">)</span>
+
+                <span class="n">progress</span><span class="o">.</span><span class="n">status</span><span class="p">(</span><span class="s">"[Iter </span><span class="si">%</span><span class="s">s] Send : </span><span class="si">%</span><span class="s">s </span><span class="si">%</span><span class="s">s </span><span class="si">%</span><span class="s">s </span><span class="si">%</span><span class="s">s </span><span class="si">%</span><span class="s">s"</span> <span class="o">%</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="n">done_iter</span><span class="p">,</span> <span class="n">tosend</span> <span class="p">,</span> <span class="n">i1</span> <span class="p">,</span><span class="n">i2</span><span class="p">,</span> <span class="n">i3</span> <span class="p">,</span><span class="n">i4</span><span class="p">))</span>
+                <span class="n">r</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">tosend</span> <span class="o">+</span> <span class="n">c1</span> <span class="o">+</span> <span class="n">c2</span> <span class="o">+</span><span class="n">c3</span> <span class="o">+</span><span class="n">c4</span><span class="p">)</span>
+                <span class="n">x</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">recvline</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+
+                <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">b</span><span class="s">'</span><span class="se">\n</span><span class="s">'</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">b</span><span class="s">':'</span><span class="p">)[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">:]</span>
+                <span class="n">bx</span> <span class="o">=</span> <span class="n">b64</span><span class="o">.</span><span class="n">b64encode</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+                <span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">tosend</span><span class="p">)</span> <span class="o">==</span><span class="mi">0</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">tosend</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">==</span> <span class="mi">6</span><span class="p">):</span>
+                    <span class="n">a</span> <span class="o">=</span> <span class="n">bx</span><span class="p">[</span><span class="mi">0</span><span class="o">+</span><span class="n">z</span><span class="p">]</span>
+                    <span class="n">b</span> <span class="o">=</span> <span class="n">bx</span><span class="p">[</span><span class="mi">1</span><span class="o">+</span><span class="n">z</span><span class="p">]</span>
+                    <span class="n">c</span> <span class="o">=</span> <span class="n">bx</span><span class="p">[</span><span class="mi">2</span><span class="o">+</span><span class="n">z</span><span class="p">]</span>
+                    <span class="n">d</span> <span class="o">=</span> <span class="n">bx</span><span class="p">[</span><span class="mi">3</span><span class="o">+</span><span class="n">z</span><span class="p">]</span>
+
+                    <span class="n">progress</span><span class="o">.</span><span class="n">success</span><span class="p">(</span><span class="s">'Found some chars after </span><span class="si">%</span><span class="s">s iterations'</span> <span class="o">%</span> <span class="n">i</span><span class="p">)</span>
+                    <span class="n">flag_char_1</span><span class="o">=</span><span class="s">"</span><span class="si">%02</span><span class="s">x"</span> <span class="o">%</span> <span class="p">(((</span><span class="n">a</span> <span class="o">-</span> <span class="mi">64</span><span class="p">)</span> <span class="o">%</span> <span class="mi">256</span><span class="p">)</span> <span class="o">^</span> <span class="n">i1</span><span class="p">)</span>
+                    <span class="n">flag_char_2</span><span class="o">=</span><span class="s">"</span><span class="si">%02</span><span class="s">x"</span> <span class="o">%</span> <span class="p">(((</span><span class="n">b</span> <span class="o">-</span> <span class="mi">64</span><span class="p">)</span> <span class="o">%</span> <span class="mi">256</span><span class="p">)</span> <span class="o">^</span> <span class="n">i2</span><span class="p">)</span>
+                    <span class="n">flag_char_3</span><span class="o">=</span><span class="s">"</span><span class="si">%02</span><span class="s">x"</span> <span class="o">%</span> <span class="p">(((</span><span class="n">c</span> <span class="o">-</span> <span class="mi">64</span><span class="p">)</span> <span class="o">%</span> <span class="mi">256</span><span class="p">)</span> <span class="o">^</span> <span class="n">i3</span><span class="p">)</span>
+                    <span class="n">flag_char_4</span><span class="o">=</span><span class="s">"</span><span class="si">%02</span><span class="s">x"</span> <span class="o">%</span> <span class="p">(((</span><span class="n">d</span> <span class="o">-</span> <span class="mi">64</span><span class="p">)</span> <span class="o">%</span> <span class="mi">256</span><span class="p">)</span> <span class="o">^</span> <span class="n">i4</span><span class="p">)</span>
+                    <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s">"chr(</span><span class="si">%</span><span class="s">s),  char are (</span><span class="si">%</span><span class="s">s,</span><span class="si">%</span><span class="s">s,</span><span class="si">%</span><span class="s">s,</span><span class="si">%</span><span class="s">s)"</span> <span class="o">%</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">flag_char_1</span><span class="p">,</span> <span class="n">flag_char_2</span><span class="p">,</span> <span class="n">flag_char_3</span><span class="p">,</span> <span class="n">flag_char_4</span><span class="p">))</span>
+                    <span class="n">result</span> <span class="o">+=</span> <span class="n">flag_char_1</span> <span class="o">+</span> <span class="n">flag_char_2</span>  <span class="o">+</span> <span class="n">flag_char_3</span> <span class="o">+</span> <span class="n">flag_char_4</span>
+                    <span class="n">tosend</span> <span class="o">+=</span> <span class="n">c1</span> <span class="o">+</span> <span class="n">c2</span> <span class="o">+</span> <span class="n">c3</span> <span class="o">+</span> <span class="n">c4</span>
+                    <span class="n">log</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s">"Result : </span><span class="si">%</span><span class="s">s "</span> <span class="o">%</span> <span class="p">(</span><span class="n">result</span><span class="p">))</span>
+                    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+                    <span class="n">ok</span><span class="o">=</span><span class="bp">True</span>
+                <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">1023</span><span class="o">-</span><span class="n">done_iter</span><span class="p">:</span>
+                    <span class="n">log</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s">"Did not find any value after 1024 tests, try again with new flag"</span><span class="p">)</span>
+                    <span class="k">break</span>
+                <span class="k">if</span> <span class="n">ok</span><span class="p">:</span>
+                    <span class="k">print</span><span class="p">(</span><span class="s">"Result is </span><span class="si">%</span><span class="s">s long"</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">result</span><span class="p">))</span>
+                    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">result</span><span class="p">)</span> <span class="o">==</span> <span class="mi">16</span><span class="p">:</span>
+                        <span class="n">done</span> <span class="o">=</span> <span class="bp">True</span>
+                    <span class="n">done_iter</span> <span class="o">=</span> <span class="n">i</span>
+                    <span class="k">break</span>
+    <span class="k">except</span> <span class="nb">EOFError</span><span class="p">:</span>
+        <span class="n">log</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s">'Got EOFError (after 1023 tests ? ), retrying'</span><span class="p">)</span>
+        <span class="k">continue</span>
+<span class="n">log</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s">"Your flag is </span><span class="si">%</span><span class="s">s"</span> <span class="o">%</span> <span class="p">(</span><span class="n">result</span><span class="p">))</span>
+<span class="k">if</span> <span class="n">ok</span><span class="p">:</span>
+    <span class="n">r</span><span class="o">.</span><span class="n">interactive</span><span class="p">()</span>
+
+</code></pre></div></div>
+
+<p>It does not always works, as we get 4 randint (&lt; 127 so that we don’t mess with unicode encoding etc …).
+Still, after 2 or 3 tries :</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="o">./</span><span class="n">bf</span><span class="o">.</span><span class="n">py</span>
+<span class="p">[</span><span class="o">+</span><span class="p">]</span> <span class="n">Opening</span> <span class="n">connection</span> <span class="n">to</span> <span class="n">flatearth</span><span class="o">.</span><span class="n">fluxfingers</span><span class="o">.</span><span class="n">net</span> <span class="n">on</span> <span class="n">port</span> <span class="mi">1718</span><span class="p">:</span> <span class="n">Done</span>
+<span class="p">[</span><span class="err">!</span><span class="p">]</span> <span class="n">Run</span> <span class="n">number</span> <span class="mi">1</span>
+<span class="p">[</span><span class="o">+</span><span class="p">]</span> <span class="n">bruteforce</span> <span class="n">chars</span> <span class="mi">0</span> <span class="n">to</span> <span class="mi">3</span><span class="p">:</span> <span class="n">Found</span> <span class="n">some</span> <span class="n">chars</span> <span class="n">after</span> <span class="mi">415</span> <span class="n">iterations</span>
+<span class="p">[</span><span class="o">*</span><span class="p">]</span> <span class="nb">chr</span><span class="p">(</span><span class="mi">415</span><span class="p">),</span>  <span class="n">char</span> <span class="n">are</span> <span class="p">(</span><span class="n">b1</span><span class="p">,</span><span class="mi">2</span><span class="n">f</span><span class="p">,</span><span class="mi">73</span><span class="p">,</span><span class="n">d3</span><span class="p">)</span>
+<span class="p">[</span><span class="err">!</span><span class="p">]</span> <span class="n">Result</span> <span class="p">:</span> <span class="n">b12f73d3</span>
+<span class="n">Result</span> <span class="ow">is</span> <span class="mi">8</span> <span class="nb">long</span>
+<span class="p">[</span><span class="o">+</span><span class="p">]</span> <span class="n">bruteforce</span> <span class="n">chars</span> <span class="mi">4</span> <span class="n">to</span> <span class="mi">7</span><span class="p">:</span> <span class="n">Found</span> <span class="n">some</span> <span class="n">chars</span> <span class="n">after</span> <span class="mi">319</span> <span class="n">iterations</span>
+<span class="p">[</span><span class="o">*</span><span class="p">]</span> <span class="nb">chr</span><span class="p">(</span><span class="mi">319</span><span class="p">),</span>  <span class="n">char</span> <span class="n">are</span> <span class="p">(</span><span class="mi">7</span><span class="n">f</span><span class="p">,</span><span class="mi">5</span><span class="n">f</span><span class="p">,</span><span class="n">ea</span><span class="p">,</span><span class="n">a4</span><span class="p">)</span>
+<span class="p">[</span><span class="err">!</span><span class="p">]</span> <span class="n">Result</span> <span class="p">:</span> <span class="n">b12f73d37f5feaa4</span>
+<span class="n">Result</span> <span class="ow">is</span> <span class="mi">16</span> <span class="nb">long</span>
+<span class="p">[</span><span class="err">!</span><span class="p">]</span> <span class="n">Your</span> <span class="n">flag</span> <span class="ow">is</span> <span class="n">b12f73d37f5feaa4</span>
+<span class="p">[</span><span class="o">*</span><span class="p">]</span> <span class="n">Switching</span> <span class="n">to</span> <span class="n">interactive</span> <span class="n">mode</span>
+<span class="n">Round</span> <span class="n">number</span><span class="p">:</span> <span class="mi">736</span>
+<span class="n">What</span> <span class="n">would</span> <span class="n">you</span> <span class="n">like</span> <span class="n">to</span> <span class="n">do</span><span class="p">:</span>
+    <span class="mi">1</span><span class="p">:</span> <span class="n">supply</span> <span class="n">encoded</span> <span class="nb">input</span><span class="p">,</span>
+    <span class="mi">2</span><span class="p">:</span> <span class="n">tell</span> <span class="n">me</span> <span class="n">my</span> <span class="n">secret</span>
+<span class="o">&gt;</span> <span class="err">$</span> <span class="mi">2</span>
+<span class="n">Alright</span><span class="p">,</span> <span class="n">what</span> <span class="ow">is</span> <span class="n">my</span> <span class="n">secret</span> <span class="p">(</span><span class="nb">hex</span> <span class="n">encoded</span><span class="p">)</span><span class="err">?</span>
+<span class="o">&gt;</span> <span class="err">$</span> <span class="n">b12f73d37f5feaa4</span>
+<span class="n">Well</span> <span class="n">done</span><span class="p">,</span> <span class="n">here</span> <span class="ow">is</span> <span class="n">your</span> <span class="n">flag</span><span class="p">:</span> <span class="n">flag</span><span class="p">{</span><span class="mi">7</span><span class="n">h3_b35t_w4y_of_h1ding_s3cr3t5_the_w0r1d_h4s_ev3r_seen_period</span><span class="err">!</span><span class="p">}</span>
+<span class="n">Bye</span><span class="err">!</span>
+<span class="p">[</span><span class="o">*</span><span class="p">]</span> <span class="n">Got</span> <span class="n">EOF</span> <span class="k">while</span> <span class="n">reading</span> <span class="ow">in</span> <span class="n">interactive</span>
+</code></pre></div></div>
+
+<p>Could be nicer, but it worked :)</p>
+
+</div>
+
+    </main>
+
+    <!-- Optional footer content -->
+
+  </body>
+</html>

@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+
+  <title>
+    
+      WTF &middot; Rot26
+    
+  </title>
+
+  
+
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface" />
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/favicon.png" />
+<link rel="shortcut icon" href="/favicon.ico" />
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml" />
+
+  <!-- Additional head bits without overriding original head -->
+</head>
+
+
+  <body class="page">
+
+    <div id="sidebar">
+  <header>
+    <div class="site-title">
+      <a href="/">
+        
+          <span class="back-arrow icon"><svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+  <path d="M0 0h24v24H0z" fill="none"/>
+  <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+</svg></span>
+        
+        Rot26
+      </a>
+    </div>
+    <p class="lead"></p>
+  </header>
+  <nav id="sidebar-nav-links">
+  
+  
+
+  
+
+  
+
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+
+  
+
+
+  
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/BreizhCTF.html">BreizhCTF</a>
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/Hacklu.html">Hacklu</a>
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/LabyREnth.html">LabyREnth</a>
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+
+  <h1>Members</h1>
+<a href="https://twitter.com/Memoi2001">Fooker</a>
+<a href="https://twitter.com/kalimer0x00">Kalimer0x00</a>
+<a href="https://twitter.com/govlog">Govlog</a>
+<a href="https://twitter.com/maxencedun">Sp4rKy</a>
+
+
+</nav>
+
+
+  
+
+  <nav id="sidebar-icon-links">
+  
+
+  <a id="subscribe-link"
+     class="icon" title="Subscribe" aria-label="Subscribe"
+     href="/feed.xml">
+    <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <circle cx="6.18" cy="17.82" r="2.18"/>
+    <path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z"/>
+</svg>
+  </a>
+
+  
+  
+  
+  
+
+  
+
+  
+
+  <!-- Optional additional links to insert for icons links -->
+</nav>
+  
+</div>
+
+    <main class="container">
+      <div class="content">
+  <h1 id="wtf">WTF</h1>
+
+<p>Like many others, this prog3 was the hardest for me (in prog track).</p>
+
+<p>Connecting to the socket, you get a 3D like view, with walls either on your left, right, front etc …</p>
+
+<p>You can press either q,s,d or w to go one step front or back, or turn left or right.
+So, basically, what you see is a maze where you only see your next 2/3 moves.</p>
+
+<p>Playing a bit, we see that at some point we hit a wall (with some meme) that wasn’t expected.</p>
+
+<h1 id="disclaimer">Disclaimer</h1>
+
+<p>Though I finally flagged it, the code is far from perfect. Especially, it
+didn’t work in all cases, but often enough (~ 30% of the time) to get the flag.</p>
+
+<p>I spent so much time understanding how the game was cheating that I just went ahead and didn’t try to fix the script.</p>
+
+<h1 id="and-then--nightmare-begins">And then … nightmare begins</h1>
+
+<p>First,I wrote some class which “map” the maze. With this, I was able to draw it
+in 2D version. The class basically uses a x*y matrix to remember the maze
+state.</p>
+
+<p>Every time a move is done, the class update the direction to have a correct view of the path / walls, etc …</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">maze</span> <span class="o">=</span> <span class="bp">None</span>
+
+<span class="n">DEBUG</span> <span class="o">=</span> <span class="bp">True</span>
+<span class="c"># directions</span>
+<span class="n">DOWN</span><span class="o">=</span><span class="mi">0</span>
+<span class="n">LEFT</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">UP</span><span class="o">=</span><span class="mi">2</span>
+<span class="n">RIGHT</span><span class="o">=</span><span class="mi">3</span>
+
+<span class="n">LETTERS</span><span class="o">=</span><span class="s">""</span>
+<span class="n">MOVES</span><span class="o">=</span><span class="mi">0</span>
+
+<span class="k">class</span> <span class="nc">Maze</span><span class="p">():</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">n_rows</span><span class="p">,</span> <span class="n">n_cols</span> <span class="p">):</span>
+        <span class="s">"""Create a maze with given number of rows and cols.
+        """</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_rows</span> <span class="o">=</span> <span class="n">n_rows</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_cols</span> <span class="o">=</span> <span class="n">n_cols</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">maze</span> <span class="o">=</span> <span class="p">[</span><span class="bp">None</span><span class="p">]</span><span class="o">*</span><span class="n">n_rows</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">curr_x</span> <span class="o">=</span> <span class="n">n_cols</span> <span class="o">//</span> <span class="mi">2</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">curr_y</span> <span class="o">=</span> <span class="n">n_rows</span> <span class="o">//</span> <span class="mi">2</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">direction</span> <span class="o">=</span> <span class="n">UP</span>
+
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_rows</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">maze</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s">'   '</span><span class="p">]</span><span class="o">*</span><span class="n">n_cols</span>
+        <span class="c"># So here we have an array of arrays. first array position is defined by curr_x</span>
+        <span class="c"># then curr_y is the position in the 2nd array, from top to bottom (curr_y =0 is the top)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">maze</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">curr_x</span><span class="p">][</span><span class="bp">self</span><span class="o">.</span><span class="n">curr_y</span><span class="p">]</span> <span class="o">=</span> <span class="s">"|S|"</span> <span class="c">#Start</span>
+
+    <span class="k">def</span> <span class="nf">add_wall</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">left</span> <span class="o">=</span> <span class="bp">True</span><span class="p">,</span> <span class="n">right</span> <span class="o">=</span> <span class="bp">True</span><span class="p">,</span> <span class="n">front</span> <span class="o">=</span> <span class="bp">True</span><span class="p">):</span>
+        <span class="s">""" For each param, True means there is a wall, False there is a path
+        This method takes care of current direction
+        """</span>
+        <span class="n">debug</span><span class="p">(</span><span class="s">"Direction : </span><span class="si">%</span><span class="s">s"</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">direction</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">direction</span> <span class="o">==</span> <span class="n">UP</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">left</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">maze</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">curr_x</span><span class="p">][</span><span class="bp">self</span><span class="o">.</span><span class="n">curr_y</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s">'|'</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">maze</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">curr_x</span><span class="p">][</span><span class="bp">self</span><span class="o">.</span><span class="n">curr_y</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">:]</span>
+            <span class="k">if</span> <span class="n">right</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">maze</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">curr_x</span><span class="p">][</span><span class="bp">self</span><span class="o">.</span><span class="n">curr_y</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">maze</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">curr_x</span><span class="p">][</span><span class="bp">self</span><span class="o">.</span><span class="n">curr_y</span><span class="o">-</span><span class="mi">1</span><span class="p">][:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="s">'|'</span>
+            <span class="k">if</span> <span class="n">front</span><span class="p">:</span>
+                <span class="k">assert</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">curr_y</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+                <span class="c">#self.maze[self.curr_x][self.curr_y-2] = self.maze[self.curr_x][self.curr_y-2][0] + '_' + self.maze[self.curr_x][self.curr_y-2][-1]</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">maze</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">curr_x</span><span class="p">][</span><span class="bp">self</span><span class="o">.</span><span class="n">curr_y</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="s">'._.'</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">direction</span> <span class="o">==</span> <span class="n">DOWN</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">right</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">maze</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">curr_x</span><span class="p">][</span><span class="bp">self</span><span class="o">.</span><span class="n">curr_y</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s">'|'</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">maze</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">curr_x</span><span class="p">][</span><span class="bp">self</span><span class="o">.</span><span class="n">curr_y</span><span class="o">+</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">:]</span>
+            <span class="k">if</span> <span class="n">left</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">maze</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">curr_x</span><span class="p">][</span><span class="bp">self</span><span class="o">.</span><span class="n">curr_y</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">maze</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">curr_x</span><span class="p">][</span><span class="bp">self</span><span class="o">.</span><span class="n">curr_y</span><span class="o">+</span><span class="mi">1</span><span class="p">][:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="s">'|'</span>
+            <span class="k">if</span> <span class="n">front</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">maze</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">curr_x</span><span class="p">][</span><span class="bp">self</span><span class="o">.</span><span class="n">curr_y</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">maze</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">curr_x</span><span class="p">][</span><span class="bp">self</span><span class="o">.</span><span class="n">curr_y</span><span class="o">+</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s">'_'</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">maze</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">curr_x</span><span class="p">][</span><span class="bp">self</span><span class="o">.</span><span class="n">curr_y</span><span class="o">+</span><span class="mi">2</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">direction</span> <span class="o">==</span> <span class="n">LEFT</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">right</span><span class="p">:</span>
+                <span class="k">assert</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">curr_x</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+                <span class="c">#self.maze[self.curr_x][self.curr_y-1] = self.maze[self.curr_x][self.curr_y-1][0] + '_' + self.maze[self.curr_x][self.curr_y-1][-1]</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">maze</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">curr_x</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="bp">self</span><span class="o">.</span><span class="n">curr_y</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s">'._.'</span>
+            <span class="k">if</span> <span class="n">left</span><span class="p">:</span>
+                <span class="c">#self.maze[self.curr_x][self.curr_y] = self.maze[self.curr_x][self.curr_y][0] + '_' + self.maze[self.curr_x][self.curr_y][-1]</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">maze</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">curr_x</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="bp">self</span><span class="o">.</span><span class="n">curr_y</span><span class="p">]</span> <span class="o">=</span> <span class="s">'._.'</span>
+            <span class="k">if</span> <span class="n">front</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">maze</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">curr_x</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="bp">self</span><span class="o">.</span><span class="n">curr_y</span><span class="p">]</span> <span class="o">=</span> <span class="s">'|'</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">maze</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">curr_x</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="bp">self</span><span class="o">.</span><span class="n">curr_y</span><span class="p">][</span><span class="mi">1</span><span class="p">:]</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">direction</span> <span class="o">==</span> <span class="n">RIGHT</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">left</span><span class="p">:</span>
+                <span class="k">assert</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">curr_x</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+                <span class="c">#self.maze[self.curr_x+1][self.curr_y-1] = self.maze[self.curr_x+1][self.curr_y-1][0] + '_' + self.maze[self.curr_x][self.curr_y-1][-1]</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">maze</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">curr_x</span><span class="o">+</span><span class="mi">1</span><span class="p">][</span><span class="bp">self</span><span class="o">.</span><span class="n">curr_y</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s">'._.'</span>
+            <span class="k">if</span> <span class="n">right</span><span class="p">:</span>
+                <span class="c">#self.maze[self.curr_x+1][self.curr_y] = self.maze[self.curr_x+1][self.curr_y][0] + '_' + self.maze[self.curr_x][self.curr_y][-1]</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">maze</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">curr_x</span><span class="o">+</span><span class="mi">1</span><span class="p">][</span><span class="bp">self</span><span class="o">.</span><span class="n">curr_y</span><span class="p">]</span> <span class="o">=</span> <span class="s">'._.'</span>
+            <span class="k">if</span> <span class="n">front</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">maze</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">curr_x</span><span class="o">+</span><span class="mi">1</span><span class="p">][</span><span class="bp">self</span><span class="o">.</span><span class="n">curr_y</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">maze</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">curr_x</span><span class="o">+</span><span class="mi">1</span><span class="p">][</span><span class="bp">self</span><span class="o">.</span><span class="n">curr_y</span><span class="p">][:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="s">'|'</span>
+
+    <span class="k">def</span> <span class="nf">left</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="s">""" Simply rotate to left
+        """</span>
+        <span class="c"># Could use a modulo here, but let's keep things clear</span>
+        <span class="n">next_direction</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="n">LEFT</span><span class="p">:</span> <span class="n">DOWN</span><span class="p">,</span>
+            <span class="n">DOWN</span><span class="p">:</span> <span class="n">RIGHT</span><span class="p">,</span>
+            <span class="n">RIGHT</span><span class="p">:</span> <span class="n">UP</span><span class="p">,</span>
+            <span class="n">UP</span><span class="p">:</span> <span class="n">LEFT</span><span class="p">,</span>
+        <span class="p">}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">direction</span> <span class="o">=</span> <span class="n">next_direction</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">direction</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">right</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="s">""" Simply rotate to right
+        """</span>
+        <span class="c"># Could use a modulo here, but let's keep things clear</span>
+        <span class="n">next_direction</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="n">LEFT</span><span class="p">:</span> <span class="n">UP</span><span class="p">,</span>
+            <span class="n">UP</span><span class="p">:</span> <span class="n">RIGHT</span><span class="p">,</span>
+            <span class="n">RIGHT</span><span class="p">:</span> <span class="n">DOWN</span><span class="p">,</span>
+            <span class="n">DOWN</span><span class="p">:</span> <span class="n">LEFT</span>
+        <span class="p">}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">direction</span> <span class="o">=</span> <span class="n">next_direction</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">direction</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">step</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="s">""" Move one step further
+        """</span>
+        <span class="c"># Format: change[DIRECTION] = (x_delta, y_delta)</span>
+        <span class="n">change</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="n">LEFT</span><span class="p">:</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span>
+            <span class="n">RIGHT</span><span class="p">:</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span>
+            <span class="n">DOWN</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span>
+            <span class="n">UP</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span>
+        <span class="p">}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">curr_x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">curr_x</span> <span class="o">+</span> <span class="n">change</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">direction</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">curr_y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">curr_y</span> <span class="o">+</span> <span class="n">change</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">direction</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">assert</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">curr_x</span> <span class="o">&gt;=</span><span class="mi">0</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">curr_x</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_cols</span><span class="p">)</span>
+        <span class="k">assert</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">curr_y</span> <span class="o">&gt;=</span><span class="mi">0</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">curr_y</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_rows</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">stepback</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="s">""" Move one step back
+        """</span>
+        <span class="c"># Format: change[DIRECTION] = (x_delta, y_delta)</span>
+        <span class="n">change</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="n">LEFT</span><span class="p">:</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span>
+            <span class="n">RIGHT</span><span class="p">:</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span>
+            <span class="n">DOWN</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span>
+            <span class="n">UP</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span>
+        <span class="p">}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">curr_x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">curr_x</span> <span class="o">+</span> <span class="n">change</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">direction</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">curr_y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">curr_y</span> <span class="o">+</span> <span class="n">change</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">direction</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">assert</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">curr_x</span> <span class="o">&gt;=</span><span class="mi">0</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">curr_x</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_cols</span><span class="p">)</span>
+        <span class="k">assert</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">curr_y</span> <span class="o">&gt;=</span><span class="mi">0</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">curr_y</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_rows</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="s">''</span>
+        <span class="c"># set a 'x' to mark current position</span>
+        <span class="n">keep</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">maze</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">curr_x</span><span class="p">][</span><span class="bp">self</span><span class="o">.</span><span class="n">curr_y</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">maze</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">curr_x</span><span class="p">][</span><span class="bp">self</span><span class="o">.</span><span class="n">curr_y</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">maze</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">curr_x</span><span class="p">][</span><span class="bp">self</span><span class="o">.</span><span class="n">curr_y</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s">'x'</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">maze</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">curr_x</span><span class="p">][</span><span class="bp">self</span><span class="o">.</span><span class="n">curr_y</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_rows</span><span class="p">):</span>
+            <span class="n">res</span> <span class="o">+=</span> <span class="p">(</span><span class="s">''</span><span class="o">.</span><span class="n">join</span><span class="p">([</span> <span class="bp">self</span><span class="o">.</span><span class="n">maze</span><span class="p">[</span><span class="n">x</span><span class="p">][</span><span class="n">y</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_cols</span><span class="p">)]))</span> <span class="o">+</span> <span class="s">'</span><span class="se">\n</span><span class="s">'</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">maze</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">curr_x</span><span class="p">][</span><span class="bp">self</span><span class="o">.</span><span class="n">curr_y</span><span class="p">]</span> <span class="o">=</span> <span class="n">keep</span>
+        <span class="k">return</span> <span class="n">res</span>
+</code></pre></div></div>
+
+<p>The <code class="highlighter-rouge">add_wall</code> function just ‘draws’ the next step based on current direction and what we “see”.
+The <code class="highlighter-rouge">left</code>, <code class="highlighter-rouge">right</code>, <code class="highlighter-rouge">stepback</code> and <code class="highlighter-rouge">step</code> functions just fix the position / direction after a move.</p>
+
+<h1 id="cheater">Cheater</h1>
+
+<p>So, yeah, the game cheats. After I made some “fuzzing” of the maze until I get an unexpected wall/meme, I got these patterns :</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wwwwdwwaww
+wwdwwdwwdw
+wwwwwwdwww
+wwwwdwwwww
+wwdwwdwwdw
+wwdwwdwwdw
+wwwwwwwwwwdwwawwwwdw
+wwwwdwwawwawwdwwdwww
+wwdwwawwwwdwwdwwawww
+wwwwdwwawwawwdwwdwwawwwwawwdww
+</code></pre></div></div>
+
+<p>what you see is that it always happens after n*10 moves, and only with a ‘w’ as last move. 
+After some guessing, I understood that, to avoid the trap, I need to do a half-turn, go back 1 step, then another half-turn.</p>
+
+<p>So basically, what I had to do is to count my moves and, if my next move is a
+‘w’ and I’m at a 10th move, just do left-left-back-left-left.</p>
+
+<p>The following code handles both the turn left/turn right and the avoid-the-trap stuff:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">send_and_inc</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span><span class="n">letter</span><span class="p">):</span>
+    <span class="k">global</span> <span class="n">MOVES</span>
+    <span class="k">global</span> <span class="n">maze</span>
+    <span class="n">MOVES</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="n">debug</span><span class="p">(</span><span class="s">"Sending letter </span><span class="si">%</span><span class="s">s"</span> <span class="o">%</span> <span class="n">letter</span><span class="p">)</span>
+    <span class="n">update_call</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s">'a'</span><span class="p">:</span> <span class="n">maze</span><span class="o">.</span><span class="n">left</span><span class="p">,</span>
+        <span class="s">'d'</span><span class="p">:</span> <span class="n">maze</span><span class="o">.</span><span class="n">right</span><span class="p">,</span>
+        <span class="s">'w'</span><span class="p">:</span> <span class="n">maze</span><span class="o">.</span><span class="n">step</span><span class="p">,</span>
+        <span class="s">'s'</span><span class="p">:</span> <span class="n">maze</span><span class="o">.</span><span class="n">stepback</span>
+    <span class="p">}</span>
+    <span class="n">update_call</span><span class="p">[</span><span class="n">letter</span><span class="p">]()</span>
+    <span class="n">sock</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">letter</span><span class="p">)</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.2</span><span class="p">)</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">sock</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="n">RECV_SIZE</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">response</span>
+
+<span class="k">def</span> <span class="nf">send</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span> <span class="n">maze</span><span class="p">,</span> <span class="n">letter</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span> <span class="n">response</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span> <span class="n">will_turn</span> <span class="o">=</span> <span class="bp">False</span><span class="p">):</span>
+    <span class="s">""" Send a move to the remote maze, and add it to our internal maze
+        also parse the result to map the new environment in our internal maze
+        before returning it to main process
+        if response is set, only parse it and don't send a move
+        response and letter are mutualy exclusive
+        if will_turn is True, then we expect next move to be a turn, so won't crash if we hit a wall and get some meme
+        @return a tuple of three boolean (left, right, front). True means there is a wall, False there is a path
+    """</span>
+    <span class="k">global</span> <span class="n">LETTERS</span>
+    <span class="k">global</span> <span class="n">MOVES</span>
+
+    <span class="k">assert</span><span class="p">(</span><span class="ow">not</span> <span class="p">(</span><span class="n">letter</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span> <span class="ow">and</span> <span class="n">response</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">))</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"MOVES : </span><span class="si">%</span><span class="s">s"</span> <span class="o">%</span> <span class="n">MOVES</span><span class="p">)</span>
+    <span class="n">debug</span><span class="p">(</span><span class="s">"1) Sending letter </span><span class="si">%</span><span class="s">s"</span> <span class="o">%</span> <span class="n">letter</span><span class="p">)</span>
+    <span class="k">if</span>  <span class="p">(</span><span class="n">MOVES</span> <span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="mi">10</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">letter</span> <span class="o">==</span> <span class="s">'w'</span><span class="p">:</span>
+        <span class="c"># Every ten moves, we may get a meme if we go straight</span>
+        <span class="c"># So just turn half and go back, then turn again</span>
+        <span class="n">send_and_inc</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span><span class="s">'a'</span><span class="p">)</span>
+        <span class="n">send_and_inc</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span><span class="s">'a'</span><span class="p">)</span>
+        <span class="n">send_and_inc</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span><span class="s">'s'</span><span class="p">)</span>
+        <span class="n">send_and_inc</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span><span class="s">'a'</span><span class="p">)</span>
+        <span class="n">letter</span> <span class="o">=</span> <span class="s">'a'</span>
+    <span class="n">debug</span><span class="p">(</span><span class="s">"2) Sending letter </span><span class="si">%</span><span class="s">s"</span> <span class="o">%</span> <span class="n">letter</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">letter</span><span class="p">:</span>
+        <span class="k">assert</span><span class="p">(</span><span class="n">letter</span> <span class="ow">in</span> <span class="p">[</span><span class="s">'a'</span><span class="p">,</span><span class="s">'d'</span><span class="p">,</span><span class="s">'w'</span><span class="p">,</span><span class="s">'s'</span><span class="p">])</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="n">send_and_inc</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span><span class="n">letter</span><span class="p">)</span>
+        <span class="n">LETTERS</span> <span class="o">=</span> <span class="n">LETTERS</span> <span class="o">+</span> <span class="n">letter</span>
+    <span class="n">debug</span><span class="p">(</span><span class="s">"Response : </span><span class="si">%</span><span class="s">s"</span> <span class="o">%</span> <span class="n">response</span><span class="p">)</span>
+    <span class="n">debug</span><span class="p">(</span><span class="s">"len(Response) : </span><span class="si">%</span><span class="s">s"</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">response</span><span class="p">))</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">response</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">1000</span><span class="p">:</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="n">sock</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="n">RECV_SIZE</span><span class="p">)</span>
+    <span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="n">front</span> <span class="o">=</span> <span class="bp">True</span><span class="p">,</span> <span class="bp">True</span><span class="p">,</span> <span class="bp">True</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="s">"right turn"</span> <span class="ow">in</span> <span class="n">response</span><span class="p">):</span>
+        <span class="n">right</span> <span class="o">=</span> <span class="bp">False</span>
+    <span class="k">elif</span> <span class="p">(</span><span class="s">"some turn"</span> <span class="ow">in</span> <span class="n">response</span> <span class="ow">and</span> <span class="s">" </span><span class="err">\</span><span class="s">|__|"</span> <span class="ow">in</span> <span class="n">response</span><span class="p">):</span>
+        <span class="n">right</span> <span class="o">=</span> <span class="bp">False</span>
+        <span class="n">front</span> <span class="o">=</span> <span class="bp">False</span>
+    <span class="k">elif</span> <span class="s">"left turn"</span> <span class="ow">in</span> <span class="n">response</span><span class="p">:</span>
+        <span class="n">left</span> <span class="o">=</span> <span class="bp">False</span>
+    <span class="k">elif</span><span class="p">(</span><span class="s">"some turn"</span> <span class="ow">in</span> <span class="n">response</span> <span class="ow">and</span> <span class="s">" |__|/"</span> <span class="ow">in</span> <span class="n">response</span><span class="p">):</span>
+        <span class="n">left</span> <span class="o">=</span> <span class="bp">False</span>
+        <span class="n">front</span> <span class="o">=</span> <span class="bp">False</span>
+    <span class="k">elif</span> <span class="p">(</span><span class="s">"some turn"</span> <span class="ow">in</span> <span class="n">response</span> <span class="ow">and</span> <span class="s">" |____________________________________________|"</span> <span class="ow">in</span> <span class="n">response</span><span class="p">):</span>
+        <span class="c"># left and right turns</span>
+        <span class="n">left</span> <span class="o">=</span> <span class="bp">False</span>
+        <span class="n">right</span> <span class="o">=</span> <span class="bp">False</span>
+    <span class="k">elif</span> <span class="s">"some turn"</span> <span class="ow">in</span> <span class="n">response</span><span class="p">:</span> <span class="c">#There is a turn in more than 1 step</span>
+        <span class="n">front</span> <span class="o">=</span> <span class="bp">False</span>
+    <span class="k">elif</span> <span class="s">"hallway"</span> <span class="ow">in</span> <span class="n">response</span><span class="p">:</span>
+        <span class="n">front</span> <span class="o">=</span> <span class="bp">False</span>
+
+    <span class="k">if</span> <span class="s">'------------------------------'</span> <span class="ow">in</span> <span class="n">response</span> <span class="ow">and</span> <span class="n">letter</span> <span class="o">==</span> <span class="s">"w"</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">will_turn</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"Hit some meme while I was walking straight. This should *not* append, fix me!"</span><span class="p">)</span>
+        <span class="nb">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">if</span> <span class="s">'PAN'</span> <span class="ow">in</span> <span class="n">response</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"We did it !"</span><span class="p">)</span>
+        <span class="nb">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="k">if</span> <span class="s">'------------------------------'</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">response</span><span class="p">:</span>
+        <span class="c"># ascii art, don't draw anything</span>
+        <span class="n">debug</span><span class="p">(</span><span class="s">"Found walls : left=</span><span class="si">%</span><span class="s">s; right=</span><span class="si">%</span><span class="s">s, front=</span><span class="si">%</span><span class="s">s"</span> <span class="o">%</span> <span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="n">front</span><span class="p">))</span>
+        <span class="n">maze</span><span class="o">.</span><span class="n">add_wall</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="n">front</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="n">front</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h1 id="roflroflrofl">ROFL:ROFL:ROFL</h1>
+
+<p>And finally, just write the <code class="highlighter-rouge">main()</code> part which create a 50x50 maze instance, and fuzz it for up to 150 moves :</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="k">global</span> <span class="n">maze</span>
+    <span class="n">conn</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">create_connection</span><span class="p">(</span><span class="n">MAZE_SERVER</span><span class="p">)</span>
+    <span class="n">maze</span> <span class="o">=</span> <span class="n">Maze</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="n">RECV_SIZE</span><span class="p">)</span>
+    <span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="n">front</span> <span class="o">=</span> <span class="n">send</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span> <span class="n">maze</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="n">response</span><span class="p">)</span>
+    <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">150</span><span class="p">:</span>
+        <span class="n">debug</span><span class="p">(</span><span class="s">"Found walls : left=</span><span class="si">%</span><span class="s">s; right=</span><span class="si">%</span><span class="s">s, front=</span><span class="si">%</span><span class="s">s"</span> <span class="o">%</span> <span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="n">front</span><span class="p">))</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">right</span><span class="p">:</span>
+            <span class="n">debug</span><span class="p">(</span><span class="s">"Ask for w and d and w"</span><span class="p">)</span>
+            <span class="n">send</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span> <span class="n">maze</span><span class="p">,</span> <span class="s">'w'</span><span class="p">,</span> <span class="n">will_turn</span> <span class="o">=</span> <span class="bp">True</span><span class="p">)</span>
+            <span class="n">send</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span> <span class="n">maze</span><span class="p">,</span> <span class="s">'d'</span><span class="p">)</span>
+            <span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="n">front</span> <span class="o">=</span> <span class="n">send</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span> <span class="n">maze</span><span class="p">,</span> <span class="s">'w'</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="ow">not</span> <span class="n">front</span><span class="p">:</span>
+            <span class="n">debug</span><span class="p">(</span><span class="s">"Ask for w"</span><span class="p">)</span>
+            <span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="n">front</span> <span class="o">=</span> <span class="n">send</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span> <span class="n">maze</span><span class="p">,</span> <span class="s">'w'</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="ow">not</span> <span class="n">left</span><span class="p">:</span>
+            <span class="n">debug</span><span class="p">(</span><span class="s">"Ask for w and a and w"</span><span class="p">)</span>
+            <span class="n">send</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span> <span class="n">maze</span><span class="p">,</span> <span class="s">'w'</span><span class="p">,</span> <span class="n">will_turn</span> <span class="o">=</span> <span class="bp">True</span><span class="p">)</span>
+            <span class="n">send</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span> <span class="n">maze</span><span class="p">,</span> <span class="s">'a'</span><span class="p">)</span>
+            <span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="n">front</span> <span class="o">=</span> <span class="n">send</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span> <span class="n">maze</span><span class="p">,</span> <span class="s">'w'</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">left</span> <span class="ow">and</span> <span class="n">right</span> <span class="ow">and</span> <span class="n">front</span><span class="p">:</span> <span class="c"># Dead end</span>
+            <span class="n">debug</span><span class="p">(</span><span class="s">"Ask for a"</span><span class="p">)</span>
+            <span class="n">send</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span> <span class="n">maze</span><span class="p">,</span> <span class="s">'a'</span><span class="p">)</span>
+            <span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="n">front</span> <span class="o">=</span> <span class="n">send</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span> <span class="n">maze</span><span class="p">,</span> <span class="s">'a'</span><span class="p">)</span>
+        <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">maze</span><span class="p">)</span>
+
+    <span class="k">print</span><span class="p">(</span><span class="n">maze</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">LETTERS</span><span class="p">)</span>
+
+</code></pre></div></div>
+
+<p>and at some point …</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>                    <span class="n">ROFL</span><span class="p">:</span><span class="n">ROFL</span><span class="p">:</span><span class="n">LOL</span><span class="p">:</span><span class="n">ROFL</span><span class="p">:</span><span class="n">LOL</span><span class="p">:</span><span class="n">ROFL</span><span class="p">:</span><span class="n">LOL</span><span class="p">:</span><span class="n">ROFL</span><span class="p">:</span><span class="n">ROFL</span>
+                                       <span class="o">||</span>
+                        <span class="n">_______________</span><span class="o">||</span><span class="n">_______________</span>
+                       <span class="o">/</span>      <span class="n">____</span>   <span class="n">___</span>     <span class="n">_</span>   <span class="n">__</span> <span class="p">[</span> <span class="mi">0</span> \
+         <span class="n">L</span>            <span class="o">/</span>      <span class="o">/</span> <span class="n">__</span> \ <span class="o">/</span>   <span class="o">|</span>   <span class="o">/</span> <span class="o">|</span> <span class="o">/</span> <span class="o">/</span> <span class="o">|</span><span class="n">_</span><span class="o">|&lt;</span><span class="n">_</span>\
+         <span class="n">O</span>           <span class="o">/</span>      <span class="o">/</span> <span class="o">/</span><span class="n">_</span><span class="o">/</span> <span class="o">//</span> <span class="o">/|</span> <span class="o">|</span>  <span class="o">/</span>  <span class="o">|/</span> <span class="o">/</span>  <span class="o">|</span><span class="n">_____</span>\
+       <span class="n">LOLOL</span><span class="o">========</span>       <span class="o">/</span> <span class="n">____</span><span class="o">//</span> <span class="n">___</span> <span class="o">|</span> <span class="o">/</span> <span class="o">/|</span>  <span class="o">/</span>          \
+         <span class="n">O</span>          <span class="o">|</span>     <span class="o">/</span><span class="n">_</span><span class="o">/</span>    <span class="o">/</span><span class="n">_</span><span class="o">/</span>  <span class="o">|</span><span class="n">_</span><span class="o">|/</span><span class="n">_</span><span class="o">/</span> <span class="o">|</span><span class="n">_</span><span class="o">/</span>            <span class="p">)</span>
+         <span class="n">L</span>        <span class="n">B</span> <span class="o">|</span> <span class="n">O</span> <span class="n">M</span> <span class="n">B</span>                                <span class="o">/</span>
+                    <span class="o">|</span><span class="n">____________</span><span class="p">,</span><span class="o">--------------</span><span class="n">__________</span><span class="o">/</span>
+                 <span class="n">F</span> <span class="o">/</span>      <span class="o">||</span>                       <span class="o">||</span>
+                <span class="n">T</span> <span class="o">/</span>     <span class="p">}</span><span class="o">-</span><span class="n">OMGPAN</span><span class="p">{</span><span class="n">c0ntact_jugglers_R_Ballerz</span><span class="p">}</span><span class="n">ROCKET</span><span class="p">))</span>
+               <span class="n">W</span> <span class="o">/</span><span class="n">________</span><span class="o">||</span><span class="n">_______________________</span><span class="o">||</span><span class="n">__</span><span class="o">/</span><span class="n">_</span><span class="o">/</span>
+
+</code></pre></div></div>
+
+</div>
+
+    </main>
+
+    <!-- Optional footer content -->
+
+  </body>
+</html>

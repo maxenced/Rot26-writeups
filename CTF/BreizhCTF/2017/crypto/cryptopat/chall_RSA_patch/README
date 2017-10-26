@@ -1,0 +1,6 @@
+Nous avons réussi à intercepter une conversation entre Alice et Bob sur un cannal non sécurisé. Malheureusement, le message contenant les informations sensibles dont nous souhaitons récupérer a été chiffré par le biais du chiffrement asymétrique RSA.
+
+C'est pour cela que nous engageons les meilleurs cryptanaliste qui seront récompensés par des points s'ils parviennent à nous retrouver partiellement ou l'intégralité des données dont nous recherchons !
+
+
+Pour vous faciliter la tâche nous vous avons extrait chacun de ces messages et les avons classés par ordre chronologique. (message1, puis message2 ...). Nous avons également interceptés deux clés publique en provenance d'Alice. (d'abord pubkey, ensuite pubkey2). Esperons que cela suffise pour que vous puissiez nous aider !

