@@ -1,11 +1,6 @@
-# Members
-* [Fooker](https://twitter.com/Memoi2001)
-* [Kalimer0x00](https://twitter.com/kalimer0x00)
-* [Govlog](https://twitter.com/govlog)
-* [Sp4rKy](https://twitter.com/maxencedun)
-
-# WriteUps
-
+---
+title: WriteUps
+---
 
 ## BreizhCTF
 ### 2017
