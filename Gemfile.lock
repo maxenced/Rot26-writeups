@@ -220,6 +220,7 @@ PLATFORMS
 
 DEPENDENCIES
   github-pages
+  jekyll
   jekyll-theme-hydeout (~> 3.3)
 
 BUNDLED WITH
