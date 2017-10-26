@@ -11,7 +11,10 @@ build: prepare
 	bundle exec jekyll build
 	git add _site/*
 	git commit -m "Generate Github Pages" _site
-	git commit -am "Update pages"
+	git diff --exit-code > /dev/null; \
+	if [ $$? -ne 0 ]; then \
+		git commit -am "Update pages"; \
+	fi;
 
 prepare:
 	bundle install
