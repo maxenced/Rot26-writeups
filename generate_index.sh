@@ -18,8 +18,8 @@ for ctf in CTF/*;do
             for chall in ${cat}/*;do
                 _cat=${cat##*/}
                 _chall=${chall##*/}
-                echo " * [*${_cat}* : ${_chall}](/gh-pages-test/$chall)" >> $DST
-                echo " * [*${_cat}* : ${_chall}](/gh-pages-test/$chall)" >> category/${_ctf}.md
+                echo " * [*${_cat}* : ${_chall}](/$chall)" >> $DST
+                echo " * [*${_cat}* : ${_chall}](/$chall)" >> category/${_ctf}.md
             done
         done
     done
