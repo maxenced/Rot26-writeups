@@ -16,6 +16,6 @@ But the challenge mentions donuts and I can't see any here, seems like a classic
 Zsteg to the rescue!
 
 In the text fields we get a HYUGE base64 blob, which unsurprisingly turns in to a PNG when decoded.  
-![alt text](5_of_hearts.png "DONUTS!")
+![alt text](5_hearts2.png "DONUTS!")
 
 Ahh donuts, and a flag.
