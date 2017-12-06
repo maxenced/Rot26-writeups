@@ -11,7 +11,7 @@
 
   <title>
     
-       &middot; Rot26
+      MetaSploitable3 Community CTF &middot; Rot26
     
   </title>
 
@@ -396,21 +396,32 @@
 
     <main class="container">
       <div class="content">
-  <p>Here we get four strings of 0 and 1.</p>
+  <h1 id="metasploitable3-community-ctf">MetaSploitable3 Community CTF</h1>
 
-<p>Must be some xor magic. Simply try to xor all them together :</p>
+<h3 id="joker">Joker</h3>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">binascii</span>
+<p>After rooting the machine we had free range of the file system.<br />
+A quick find command showed us all the png files available, including:
+<code class="highlighter-rouge">/etc/joker.png</code></p>
 
-<span class="n">one</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="s">'0b0010001000101110001101110010100100111100001110000010111100001100001110000000011000001111001100000000000100011001001110010000100100100101'</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">two</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="s">'0b0100000101000010010000110100010001000101010001100100011101001000010010010100101001001011010011000100110101001110010011110101000001010001'</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">three</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="s">'0b0101000101011010010100110100010101000100010100100100011001010100010001110101100101001000010101010100101001001001010010110100111101001100'</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">four</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="s">'0b0101000001001100010011110100101101001001010010100101010101001000010110010100011101010100010001100101010001000110010100100100010001000101'</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<p>Aha, easy flag right? well no, the MD5 hash didn’t work..<br />
+Looking at the picture we see it’s a negative, so we’ll just use convert:<br />
+<code class="highlighter-rouge">$convert joker.png -negate joker2.png</code></p>
 
+<p>Nop, still not the right flag.</p>
 
-<span class="n">xorlolz</span><span class="o">=</span><span class="n">one</span><span class="o">^</span><span class="n">two</span><span class="o">^</span><span class="n">three</span><span class="o">^</span><span class="n">four</span>
-<span class="k">print</span> <span class="n">binascii</span><span class="o">.</span><span class="n">unhexlify</span><span class="p">(</span><span class="s">'</span><span class="si">%</span><span class="s">x'</span> <span class="o">%</span> <span class="n">xorlolz</span><span class="p">)</span>
-</code></pre></div></div>
+<p>Inverting the image also changes the metadata so we’ll be getting the wrong hash.<br />
+(I even tried submiting the hashes backwards in case it was a trick)</p>
+
+<p>In the end I used gimp, opened the file.<br />
+Colors &gt; Invert gives us the right picture.<br />
+Then File &gt; Export as..<br />
+Save as joker2.png<br />
+And here’s the trick, untick all the options:<br />
+![alt text](gimp.png “”)</p>
+
+<p>The MD5 hash of this file was the flag.<br />
+Turns out I was the first to find it, happy about that.</p>
 
 </div>
 
