@@ -26,15 +26,18 @@ Ahh donuts, and a flag.
 
 ## 8 of hearts
 
-While I was working of the 5 of hearts, my collegue who is a whiz at SQLI had gotten the database root password from the payroll_app.php
-So we had a look at the database and found the "super_secret_db", looks interesting.
+While I was working of the 5 of hearts, my collegue who is a whiz at SQLI had
+gotten the database root password from the payroll_app.php So we had a look at
+the database and found the "super_secret_db", looks interesting.
 
 One table called flags containing a blob...
 We downloaded it and ran binwalk. This yielded a zip file, an encrypted zip file.
 But we don't have a password.
 
-Seeing as time was an issue I thought I'd run fcrackzip on it just in case while I looked around to see if it was hidden in the database.
-Turns out I didn't even get a chance to look, fcrackzip and the rockyou password list got it in just over a second:
+Seeing as time was an issue I thought I'd run fcrackzip on it just in case
+while I looked around to see if it was hidden in the database.  Turns out I
+didn't even get a chance to look, fcrackzip and the rockyou password list got
+it in just over a second:
 
 
 ![alt text](8_of_hearts.png )
@@ -44,24 +47,28 @@ Turns out I didn't even get a chance to look, fcrackzip and the rockyou password
 
 So now it's time to look at the machine properly.
 Nmap shows a few interesting services:
+```
 ProFTPD 1.3.5
 Samba smbd 3.X - 4.X workgroup: WORKGROUP
 WEBrick httpd 1.3.1 Ruby 2.3.5
 UnrealIRCd
+```
 
-So we started at the beginning, ProFTPD 1.3.5
+So we started at the beginning, `ProFTPD 1.3.5`:
+```
 exploit/unix/ftp/proftpd_modcopy_exec        2015-04-22       excellent  ProFTPD 1.3.5 Mod_Copy Command Execution
+```
 
 But it didn't work straight away :(
 We know we're looking at a machine running ubuntu, the default apache folder is /var/www/html and not /var/www.
 We now have a shell! We realized later there were easier ways and this didn't yield much.
 
 We wanted a real user though, so we looked at the other services.
-We found the "UnrealIRCD 3.2.8.1 Backdoor Command Execution" module and proptly got a shell as boba_fett.
+We found the `UnrealIRCD 3.2.8.1 Backdoor Command Execution` module and promptly got a shell as boba_fett.
 We then quickly uploaded a key to his .ssh/authorized_keys and sshed in \o/
 
-So, we have a user, we want root. uname -a and searchsploit revealed two privilege escalations using the overlayfs bug.
-exploits/linux/local/37292.c && gcc = UID 0!
+So, we have a user, we want root. `uname -a` and searchsploit revealed two privilege escalations using the overlayfs bug.
+`exploits/linux/local/37292.c && gcc` = UID 0!
 
 Now that we're root lets get to work.
 
@@ -71,7 +78,7 @@ First things first, we ran `#find /home`, and damn that ubuntu user!
 So then we ran `#find /home | grep -v ubuntu` to find anything interesting, and interesting it was.
 
 We get the flag for the 8 of clubs here:
-./anakin_skywalker/52/37/88/76/24/97/77/22/23/63/19/56/16/27/43/26/82/80/98/73/8_of_clubs.png
+`./anakin_skywalker/52/37/88/76/24/97/77/22/23/63/19/56/16/27/43/26/82/80/98/73/8_of_clubs.png`
 
 ![alt text](8_of_clubs.png )
 
@@ -82,7 +89,7 @@ Copying this file to my local machine and opening it with wireshark we can see i
 Wireshark has an option to listen to calls recoreded in the pcap:
 - Telephony - voip calls
 Listening to it we get the following url spelled out:
-https://imgur.com/gmThKFP
+[](https://imgur.com/gmThKFP)
 
 (This is almost the same as a challenge in the ringzer0team.com site so we breezed through it)
 
@@ -96,7 +103,7 @@ In this folder is an ISO, inside the ISO is the png
 
 ## 3 of hearts
 
-The 3 of hearts was simply found in the /lost+found folder, no trickery other than needing root
+The 3 of hearts was simply found in the `/lost+found` folder, no trickery other than needing root
 
 
 ![alt text](3_of_hearts.png )
@@ -141,8 +148,10 @@ As before I started up fcrackzip while I looked into the hint file.
 The hint.gif turned out to be 313 seperate QR codes, we all know where this is heading.
 Splitting up the gif into seperate files with `convert -coalesce hint.gif out%05d.pgm` and decoding the first on yields a png header (yep, knew that was coming).
 so bash and zbarimg to the rescue:
-`$for i in ``ls``; do zbarimg -q --raw $i; done > temp_file`
-`$cat temp | tr -d '\n' | xxd -r -p > 7_of_diamonds.png`
+```bash
+$for i in ``ls``; do zbarimg -q --raw $i; done > temp_file
+$cat temp | tr -d '\n' | xxd -r -p > 7_of_diamonds.png
+```
 
 ![alt text](hint.png )
 
