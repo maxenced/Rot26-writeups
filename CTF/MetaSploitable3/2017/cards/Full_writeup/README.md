@@ -10,7 +10,7 @@ A quick ssh tunnel later and we have a directory listing, and a drupal folder.
 On the drupal site we find and article called `I <3 High-Fives!` that contains a picture:
 
 
-![alt text](5_of_hearts.png "")
+![alt text](5_of_hearts.png )
 
 Good start...
 
@@ -37,7 +37,7 @@ Seeing as time was an issue I thought I'd run fcrackzip on it just in case while
 Turns out I didn't even get a chance to look, fcrackzip and the rockyou password list got it in just over a second:
 
 
-![alt text](8_of_hearts.png "")
+![alt text](8_of_hearts.png )
 
 
 ## Getting on to the machine
@@ -73,7 +73,7 @@ So then we ran `#find /home | grep -v ubuntu` to find anything interesting, and 
 We get the flag for the 8 of clubs here:
 ./anakin_skywalker/52/37/88/76/24/97/77/22/23/63/19/56/16/27/43/26/82/80/98/73/8_of_clubs.png
 
-![alt text](8_of_clubs.png "")
+![alt text](8_of_clubs.png )
 
 ## 2 of spades
 
@@ -86,7 +86,7 @@ https://imgur.com/gmThKFP
 
 (This is almost the same as a challenge in the ringzer0team.com site so we breezed through it)
 
-![alt text](2_of_spades.png "")
+![alt text](2_of_spades.png )
 
 ## 9 of diamonds
 
@@ -99,7 +99,7 @@ In this folder is an ISO, inside the ISO is the png
 The 3 of hearts was simply found in the /lost+found folder, no trickery other than needing root
 
 
-![alt text](3_of_hearts.png "")
+![alt text](3_of_hearts.png )
 
 ## 10 of clubs
 
@@ -111,7 +111,7 @@ We looked in to lsb steganography of compressed wav formats and other esoteric t
 And there we have it:
 `3A:      PNG image data, 500 x 700, 8-bit/color RGBA, non-interlaced`
 
-![alt text](10_of_clubs.png "")
+![alt text](10_of_clubs.png )
 
 ## King of spades
 
@@ -128,7 +128,7 @@ We were running out of easy flags to find do I started looking in to stuff we'd 
 My first reflex was to go and look at the source code to see what it does.
 Inside chat_client.js I found a base64 blob and got the flag:
 
-![alt text](ace_of_clubs.png "")
+![alt text](ace_of_clubs.png )
 
 While playing around with the CTF later to see what I'd missed I saw the command injection possible and even the "easy" solution of just asking the bot for the flag.
 
@@ -144,11 +144,11 @@ so bash and zbarimg to the rescue:
 `$for i in ``ls``; do zbarimg -q --raw $i; done > temp_file`
 `$cat temp | tr -d '\n' | xxd -r -p > 7_of_diamonds.png`
 
-![alt text](hint.png "")
+![alt text](hint.png )
 
 With that password we can open the zip file and get:
 
-![alt text](7_of_diamonds.png "")
+![alt text](7_of_diamonds.png )
 
 ## 10 of spades
 
@@ -156,7 +156,7 @@ While looking at the running processes we saw the readme_app.
 
 We didn't really need to look into it as a find command in the folder gave us the flag:
 
-![alt text](10_of_spades.png "")
+![alt text](10_of_spades.png )
 
 ## 5 of diamonds
 
@@ -166,7 +166,7 @@ It opens up port 8989, trying netcat gave me an HTTP response, so let's try curl
 
 Another base64 blob later and we have a flag:
 
-![alt text](5_of_diamonds.png "")
+![alt text](5_of_diamonds.png )
 
 ## Joker
 
@@ -187,7 +187,7 @@ Colors > Invert gives us the right picture.
 Then File > Export as..
 Save as joker2.png
 And here's the trick, untick all the options:
-![alt text](gimp.png "")
+![alt text](gimp.png )
 
 The MD5 hash of this file was the flag.
 Turns out I was the first to find it, happy about that.
