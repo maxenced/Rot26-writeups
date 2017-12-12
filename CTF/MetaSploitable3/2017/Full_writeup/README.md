@@ -111,8 +111,45 @@ And there we have it:
 
 ![alt text](10_of_clubs.png "")
 
+## King of spades
+
+We saw the IRC server during the nmap scan, so I installed irssi on the metasploit machine.  
+When connecting to it the MOTD was a base64 encoded message, so I painfully copy / pasted it to my local machine, cleaned it up and decoded it.  
+Or at least I tried to, it seems we don't get the complete message from IRC.
+
+One of our team who hadn't been working on the CTF until then and didn't know we had root used the boba_fett backdoor and cated the irdc.motd file.  
+A quick binwalk later and he got the flag.
+
+## Ace of clubs
+
+We were running out of easy flags to find do I started looking in to stuff we'd glossed over, like the chat bot.  
+My first reflex was to go and look at the source code to see what it does.  
+Inside chat_client.js I found a base64 blob and got the flag:
+
+![alt text](ace_of_clubs.png "")
+
+While playing around with the CTF later to see what I'd missed I saw the command injection possible and even the "easy" solution of just asking the bot for the flag.
+
+## 7 of diamonds
+
+We noticed a docker container running as well, when looking into it with `docker attach` we saw the zip file it contained.  
+Extracting this we get an encrypted zip file and a hint.gif.  
+As before I started up fcrackzip while I looked into the hint file.
+
+The hint.gif turned out to be 313 seperate QR codes, we all know where this is heading.  
+Splitting up the gif into seperate files with `convert -coalesce hint.gif out%05d.pgm` and decoding the first on yields a png header (yep, knew that was coming).  
+so bash and zbarimg to the rescue:  
+`$for i in ``ls``; do zbarimg -q --raw $i; done > temp_file`
+`$cat temp | tr -d '\n' | xxd -r -p > 7_of_diamonds.png`
+
+![alt text](hint.png "")
+
+With that password we can open the zip file and get:
+
+![alt text](7_of_diamonds.png "")
+
 ## Joker
- 
+
 A quick find command showed us all the png files available, including:
 `/etc/joker.png`
 
