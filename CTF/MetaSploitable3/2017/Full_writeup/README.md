@@ -86,6 +86,8 @@ https://imgur.com/gmThKFP
 
 (This is almost the same as a challenge in the ringzer0team.com site so we breezed through it)
 
+![alt text](2_of_spades.png "")
+
 ## 9 of diamonds
 
 In kylo_ren's home folder is a "hidden" folder:  
@@ -147,6 +149,24 @@ so bash and zbarimg to the rescue:
 With that password we can open the zip file and get:
 
 ![alt text](7_of_diamonds.png "")
+
+## 10 of spades
+
+While looking at the running processes we saw the readme_app.
+
+We didn't really need to look into it as a find command in the folder gave us the flag:
+
+![alt text](10_of_spades.png "")
+
+## 5 of diamonds
+
+Another service running that looked intersting was the knockd service.  
+Knockd is used to temporarily open ports, so looking at the config file we see what it opens if you get the sequence right.  
+It opens up port 8989, trying netcat gave me an HTTP response, so let's try curl...
+
+Another base64 blob later and we have a flag:
+
+![alt text](5_of_diamonds.png "")
 
 ## Joker
 
