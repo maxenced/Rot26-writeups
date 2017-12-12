@@ -42,17 +42,4 @@
 
 ## MetaSploitable3
 ### 2017
- * [*Full_writeup* : 10_of_clubs.png](/CTF/MetaSploitable3/2017/Full_writeup/10_of_clubs.png)
- * [*Full_writeup* : 10_of_spades.png](/CTF/MetaSploitable3/2017/Full_writeup/10_of_spades.png)
- * [*Full_writeup* : 2_of_spades.png](/CTF/MetaSploitable3/2017/Full_writeup/2_of_spades.png)
- * [*Full_writeup* : 3_of_hearts.png](/CTF/MetaSploitable3/2017/Full_writeup/3_of_hearts.png)
- * [*Full_writeup* : 5_hearts2.png](/CTF/MetaSploitable3/2017/Full_writeup/5_hearts2.png)
- * [*Full_writeup* : 5_of_diamonds.png](/CTF/MetaSploitable3/2017/Full_writeup/5_of_diamonds.png)
- * [*Full_writeup* : 5_of_hearts.png](/CTF/MetaSploitable3/2017/Full_writeup/5_of_hearts.png)
- * [*Full_writeup* : 7_of_diamonds.png](/CTF/MetaSploitable3/2017/Full_writeup/7_of_diamonds.png)
- * [*Full_writeup* : 8_of_clubs.png](/CTF/MetaSploitable3/2017/Full_writeup/8_of_clubs.png)
- * [*Full_writeup* : 8_of_hearts.png](/CTF/MetaSploitable3/2017/Full_writeup/8_of_hearts.png)
- * [*Full_writeup* : ace_of_clubs.png](/CTF/MetaSploitable3/2017/Full_writeup/ace_of_clubs.png)
- * [*Full_writeup* : gimp.png](/CTF/MetaSploitable3/2017/Full_writeup/gimp.png)
- * [*Full_writeup* : hint.png](/CTF/MetaSploitable3/2017/Full_writeup/hint.png)
- * [*Full_writeup* : README.md](/CTF/MetaSploitable3/2017/Full_writeup/README.md)
+ * [*cards* : Full_writeup](/CTF/MetaSploitable3/2017/cards/Full_writeup)
