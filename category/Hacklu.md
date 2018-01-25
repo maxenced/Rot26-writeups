@@ -1,5 +1,5 @@
 ---
-title: "Hacklu"
+title: ""
 layout: category
 ---
 # Hacklu
