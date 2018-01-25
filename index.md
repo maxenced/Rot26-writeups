@@ -16,6 +16,8 @@
 ## FIC_Escape
 ### 2018
  * [*crypto* : just_crypt](/CTF/FIC_Escape/2018/crypto/just_crypt)
+ * [*jail* : pyjail1](/CTF/FIC_Escape/2018/jail/pyjail1)
+ * [*web* : nosql](/CTF/FIC_Escape/2018/web/nosql)
 
 ## Hacklu
 ### 2017
