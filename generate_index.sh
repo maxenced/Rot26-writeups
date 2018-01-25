@@ -12,7 +12,7 @@ for ctf in CTF/*;do
     _ctf=${ctf##*/}
     _ctf_title=${_ctf//_/ }
     echo -e "---\ntitle: \"${_ctf_title}\"\nlayout: category\n---" > category/${_ctf}.md
-    echo "# ${_ctf}" >> category/${_ctf}.md
+    echo "# ${_ctf_title}" >> category/${_ctf}.md
     for year in ${ctf}/*;do
         echo "### ${year##*/}" >> $DST
         for cat in ${year}/*;do
