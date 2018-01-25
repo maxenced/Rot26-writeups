@@ -13,6 +13,12 @@
  * [*programming* : ahk47](/CTF/BreizhCTF/2017/programming/ahk47)
  * [*programming* : uknowdev](/CTF/BreizhCTF/2017/programming/uknowdev)
 
+## FIC
+### 2018
+ * [*Acissi* : *](/CTF/FIC/2018/Acissi/*)
+ * [*Epita* : *](/CTF/FIC/2018/Epita/*)
+ * [*EscapeChallenge* : just_crypt.md](/CTF/FIC/2018/EscapeChallenge/just_crypt.md)
+
 ## Hacklu
 ### 2017
  * [*crypto* : b64](/CTF/Hacklu/2017/crypto/b64)
