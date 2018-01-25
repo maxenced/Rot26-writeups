@@ -9,7 +9,8 @@ echo -e "\n# WriteUps\n" >> $DST
 for ctf in CTF/*;do
     echo "" >> $DST
     echo "## ${ctf##*/}" >> $DST
-    _ctf=${${ctf##*/}//_/ }
+    __ctf=${ctf##*/}
+    _ctf=${__ctf//_/ }
     echo -e "---\ntitle: \"${_ctf}\"\nlayout: category\n---" > category/${_ctf}.md
     echo "# ${_ctf}" >> category/${_ctf}.md
     for year in ${ctf}/*;do
