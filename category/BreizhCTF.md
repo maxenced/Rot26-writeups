@@ -1,5 +1,5 @@
 ---
-title: ""
+title: "BreizhCTF"
 layout: category
 ---
 # BreizhCTF

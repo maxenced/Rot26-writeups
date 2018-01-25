@@ -1,5 +1,5 @@
 ---
-title: ""
+title: "LabyREnth"
 layout: category
 ---
 # LabyREnth
