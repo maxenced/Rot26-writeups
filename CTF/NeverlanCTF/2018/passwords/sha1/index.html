@@ -11,7 +11,7 @@
 
   <title>
     
-      FIC Escape &middot; Rot26
+      SHA1 &middot; Rot26
     
   </title>
 
@@ -35,7 +35,7 @@
 </head>
 
 
-  <body class="category">
+  <body class="page">
 
     <div id="sidebar">
   <header>
@@ -247,7 +247,7 @@
 
   
     
-      <a class="category-link  active"
+      <a class="category-link "
           href="/category/FIC_Escape.html">FIC Escape</a>
     
   
@@ -465,20 +465,31 @@
 
     <main class="container">
       <div class="content">
-  
-  <h1 id="fic-escape">FIC Escape</h1>
-<ul>
-  <li><a href="/CTF/FIC_Escape/2018/crypto/just_crypt"><em>crypto</em> : just_crypt</a></li>
-  <li><a href="/CTF/FIC_Escape/2018/jail/pyjail1"><em>jail</em> : pyjail1</a></li>
-  <li><a href="/CTF/FIC_Escape/2018/web/nosql"><em>web</em> : nosql</a></li>
-</ul>
+  <h1 id="sha1">SHA1</h1>
 
+<p>So we just get a sha1 : <code class="highlighter-rouge">05d3693c0781227771b97a9e3cf972d44c2d4439</code> and the hint that ‘the first char is a digit’.</p>
 
+<p>After a quick check on online database, it looks like we need to crack it.</p>
 
-<ul class="posts-list">
-  
-  
-</ul>
+<p>First hope there is no special char, and try only uppercase/lowercase/digits.</p>
+
+<p>We run JTR with custom mask and some threads:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">echo</span> <span class="s1">'admin:05d3693c0781227771b97a9e3cf972d44c2d4439 &gt; hash'</span>
+<span class="nv">$ </span>./john <span class="nt">-max-len</span><span class="o">=</span>10 <span class="nt">-mask</span><span class="o">=</span><span class="s2">"?d[a-zA-Z0-9]"</span> <span class="nt">--format</span><span class="o">=</span>Raw-SHA1 <span class="nt">--fork</span><span class="o">=</span>32 <span class="nb">hash</span>
+</code></pre></div></div>
+
+<p>And after some time:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ./john --show hash
+admin:1stOrder
+
+1 password hash cracked, 0 left
+</code></pre></div></div>
+
+<p>Note : BF in CTF has nothing really interesting. The challenge had a few hints
+to restrict the pattern, which would have saved us some time.</p>
+
 
 </div>
 
