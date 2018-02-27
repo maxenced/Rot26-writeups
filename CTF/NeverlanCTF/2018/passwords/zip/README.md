@@ -1,7 +1,7 @@
 Zip Attack
 ==========
 
-In this challenge we got an (encrypted.zip) file. We also got another zip, (unencrypted.zip), with one of the file which is also in encrypted zip:
+In this challenge we got an [encrypted](encrypted.zip) file. We also got [another zip](unencrypted.zip), with one of the file which is also in encrypted zip:
 
 ```bash
 $ zipinfo encrypted.zip
